@@ -1,11 +1,8 @@
-# Welcome to your Jupyter Book
+# Selamat datang di notebook penambangan data
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+Hai semuanya saya Ahmad Dhiyauddin yang Merupakan Mahasiswa Teknik Informatika Universitas Trunojoyo Madura dengan NIM 230411100175 Dengan [Hubungi saya](https://www.linkedin.com/in/ahmad-dhiyauddin-24729b317) email ahmaddhiyauddin40@gmail.com untuk informasi lebih lanjut.
 
-Check out the content pages bundled with this sample book to see more.
+Ini merupakan catatan dan tugas penting saya selama mengikuti mata kuliah penambangan data semoga sedikit yang saya dapat informasikan dan saya sampaikan lewat materi ini dapat bermanfaat untuk diri saya dan semua yang membaca catatan ini
 
 ```{tableofcontents}
 ```
