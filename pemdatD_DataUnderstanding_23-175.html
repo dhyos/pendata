@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'pemdatD_DataUnderstanding_23-175';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Outlier Detection" href="DeteksiOutlier.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,6 +181,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Understanding Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeteksiOutlier.html">Outlier Detection</a></li>
 </ul>
 
     </div>
@@ -375,24 +377,33 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macam-macam-tipe-data">Macam macam tipe data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengunpulan-data">Pengunpulan data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-package-untuk-mysql-dan-posgresql">Install Package untuk MySQL dan PosgreSQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macam-macam-tipe-data">Macam macam tipe data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data-berdasarkan-sifatnya">1. <strong>Tipe Data Berdasarkan Sifatnya</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data-berdasarkan-struktur">2. <strong>Tipe Data Berdasarkan Struktur</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data-berdasarkan-sumbernya">3. <strong>Tipe Data Berdasarkan Sumbernya</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data-berdasarkan-representasi-dalam-data-mining">4. <strong>Tipe Data Berdasarkan Representasi dalam Data Mining</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-database-mysql-dan-posgresql-melalui-dari-aiven-io">Koneksi ke Database Mysql dan PosgreSQL melalui dari aiven.io</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-posgresql-dan-menampilkan-datanya">Koneksi ke PosgreSQL dan menampilkan datanya</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-mysql-dan-menampilkan-datanya">Koneksi ke MySQL dan menampilkan datanya</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengunpulan-data">Pengunpulan data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-package-untuk-mysql-dan-posgresql">Install Package untuk MySQL dan PosgreSQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-database-mysql-dan-posgresql-melalui-dari-aiven-io">Koneksi ke Database Mysql dan PosgreSQL melalui dari aiven.io</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-posgresql-dan-menampilkan-datanya">Koneksi ke PosgreSQL dan menampilkan datanya</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-mysql-dan-menampilkan-datanya">Koneksi ke MySQL dan menampilkan datanya</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-data">Sampling data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-data">Profiling data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menarik-data-base-dari-posgresql-dan-mysql-menjadi-1-tabel-sekaligus-mengecek-apakah-terdapat-mising-value-dan-ketidak-konsistenan-ketika-data-digabungkan">menarik data base dari PosgreSql dan Mysql menjadi 1 tabel sekaligus mengecek apakah terdapat mising value dan ketidak konsistenan ketika data digabungkan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menarik-data-base-dari-posgresql-dan-mysql-menjadi-1-tabel">menarik data base dari PosgreSql dan Mysql menjadi 1 tabel</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-dan-asosiasi">Korelasi dan Asosiasi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menapilkan-data-dalam-bentuk-diagram">Menapilkan data dalam bentuk diagram</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indentifikasi-masalah-data">Indentifikasi Masalah Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-data">Validasi data</a></li>
 </ul>
@@ -411,8 +422,63 @@ document.write(`
 <p>Merupakan salah satu tahapan penting dalam Knowledge Discovery in database (KDD) atau data maining yang merupakan langkah awal untuk memahami data secara mendalam sebelum melakukan analisis lebih lanjut karena nantinya akan memengaruhi keberhasilan seluruh proses data maining.</p>
 <section id="macam-macam-tipe-data">
 <h2>Macam macam tipe data<a class="headerlink" href="#macam-macam-tipe-data" title="Link to this heading">#</a></h2>
-<p>regresi menggunakan tipe data numberik</p>
-<p>klasifikasi menggunakan tipe data nomina</p>
+<p>Dalam <strong>penambangan data (data mining)</strong>, terdapat berbagai macam <strong>tipe data</strong> yang dapat digunakan untuk analisis. Berikut adalah beberapa jenis utama tipe data dalam data mining:</p>
+<section id="tipe-data-berdasarkan-sifatnya">
+<h3>1. <strong>Tipe Data Berdasarkan Sifatnya</strong><a class="headerlink" href="#tipe-data-berdasarkan-sifatnya" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Numerik (Numerical Data)</strong><br />
+Data berupa angka yang bisa dihitung dan memiliki makna kuantitatif.<br />
+Contoh:</p>
+<ul>
+<li><p><strong>Diskrit (Discrete)</strong> → Jumlah anak dalam keluarga (0, 1, 2, 3, …)</p></li>
+<li><p><strong>Kontinu (Continuous)</strong> → Berat badan, suhu, tinggi badan</p></li>
+</ul>
+</li>
+<li><p><strong>Kategorikal (Categorical Data)</strong><br />
+Data berbentuk kategori atau label, bukan angka kuantitatif.<br />
+Contoh:</p>
+<ul>
+<li><p><strong>Nominal</strong> → Jenis kelamin (Pria/Wanita), warna mata (Hitam, Coklat)</p></li>
+<li><p><strong>Ordinal</strong> → Tingkat pendidikan (SD, SMP, SMA, S1), skala kepuasan (Buruk, Sedang, Baik)</p></li>
+</ul>
+</li>
+<li><p><strong>Boolean</strong><br />
+Data yang hanya memiliki dua nilai, sering digunakan dalam keputusan biner.<br />
+Contoh: Ya/Tidak, True/False</p></li>
+</ul>
+</section>
+<section id="tipe-data-berdasarkan-struktur">
+<h3>2. <strong>Tipe Data Berdasarkan Struktur</strong><a class="headerlink" href="#tipe-data-berdasarkan-struktur" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Data Terstruktur (Structured Data)</strong><br />
+Data yang disimpan dalam format tabel atau basis data relasional dengan kolom dan baris.<br />
+Contoh: Data transaksi di database SQL</p></li>
+<li><p><strong>Data Semi-Terstruktur (Semi-Structured Data)</strong><br />
+Data yang tidak sepenuhnya dalam format tabel, tetapi memiliki struktur tertentu seperti XML atau JSON.<br />
+Contoh: Data dari API dalam format JSON</p></li>
+<li><p><strong>Data Tidak Terstruktur (Unstructured Data)</strong><br />
+Data yang tidak memiliki format tetap, seperti teks bebas, gambar, video, atau suara.<br />
+Contoh: Postingan media sosial, email, rekaman suara</p></li>
+</ul>
+</section>
+<section id="tipe-data-berdasarkan-sumbernya">
+<h3>3. <strong>Tipe Data Berdasarkan Sumbernya</strong><a class="headerlink" href="#tipe-data-berdasarkan-sumbernya" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Data Transaksional</strong> → Data dari catatan transaksi, seperti pembelian pelanggan di toko.</p></li>
+<li><p><strong>Data Sensor / IoT</strong> → Data dari perangkat sensor, seperti suhu atau kecepatan angin.</p></li>
+<li><p><strong>Data Spasial</strong> → Data geografis atau peta, seperti koordinat lokasi.</p></li>
+<li><p><strong>Data Multimedia</strong> → Data dalam bentuk gambar, video, dan audio.</p></li>
+</ul>
+</section>
+<section id="tipe-data-berdasarkan-representasi-dalam-data-mining">
+<h3>4. <strong>Tipe Data Berdasarkan Representasi dalam Data Mining</strong><a class="headerlink" href="#tipe-data-berdasarkan-representasi-dalam-data-mining" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Time Series Data</strong> → Data yang dikumpulkan berdasarkan waktu (misalnya harga saham harian).</p></li>
+<li><p><strong>Graph Data</strong> → Data berbentuk graf seperti jaringan sosial (misalnya hubungan antar pengguna di Facebook).</p></li>
+<li><p><strong>Text Data</strong> → Data berbentuk teks, sering digunakan dalam text mining.</p></li>
+</ul>
+<p>Setiap tipe data ini digunakan dalam metode <strong>data mining</strong> yang berbeda, seperti klasifikasi, klasterisasi, regresi, dan lainnya. 🚀</p>
+</section>
 </section>
 <section id="pengunpulan-data">
 <h2>Pengunpulan data<a class="headerlink" href="#pengunpulan-data" title="Link to this heading">#</a></h2>
@@ -426,16 +492,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pymysql
-  Downloading PyMySQL-1.1.1-py3-none-any.whl.metadata (4.4 kB)
-Downloading PyMySQL-1.1.1-py3-none-any.whl (44 kB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/45.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">45.0/45.0 kB</span> <span class=" -Color -Color-Red">2.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pymysql
-Successfully installed pymysql-1.1.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymysql in /usr/local/lib/python3.11/dist-packages (1.1.1)
 </pre></div>
 </div>
 </div>
@@ -451,12 +508,12 @@ Successfully installed pymysql-1.1.1
   Downloading psycopg2_binary-2.9.10-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
 Downloading psycopg2_binary-2.9.10-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.2/3.0 MB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.7/3.0 MB</span> <span class=" -Color -Color-Red">23.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">36.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">27.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.1/3.0 MB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.6/3.0 MB</span> <span class=" -Color -Color-Red">9.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">30.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">25.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -485,11 +542,10 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 </section>
-</section>
 <section id="koneksi-ke-database-mysql-dan-posgresql-melalui-dari-aiven-io">
-<h2>Koneksi ke Database Mysql dan PosgreSQL melalui dari <a class="reference external" href="http://aiven.io">aiven.io</a><a class="headerlink" href="#koneksi-ke-database-mysql-dan-posgresql-melalui-dari-aiven-io" title="Link to this heading">#</a></h2>
+<h3>Koneksi ke Database Mysql dan PosgreSQL melalui dari <a class="reference external" href="http://aiven.io">aiven.io</a><a class="headerlink" href="#koneksi-ke-database-mysql-dan-posgresql-melalui-dari-aiven-io" title="Link to this heading">#</a></h3>
 <section id="koneksi-ke-posgresql-dan-menampilkan-datanya">
-<h3>Koneksi ke PosgreSQL dan menampilkan datanya<a class="headerlink" href="#koneksi-ke-posgresql-dan-menampilkan-datanya" title="Link to this heading">#</a></h3>
+<h4>Koneksi ke PosgreSQL dan menampilkan datanya<a class="headerlink" href="#koneksi-ke-posgresql-dan-menampilkan-datanya" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
@@ -515,16 +571,23 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
     <span class="p">)</span>
     <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 
-    <span class="c1"># Menjalankan query</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM irisposgre.posgre;&quot;</span><span class="p">)</span>  <span class="c1"># Ganti dengan nama skema &amp; tabel yang benar</span>
+    <span class="c1"># Menjalankan query (mengurutkan berdasarkan ID secara ascending)</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM irisposgre.posgre ORDER BY id ASC;&quot;</span><span class="p">)</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 
     <span class="c1"># Mengambil nama kolom</span>
     <span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">desc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">desc</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
 
-    <span class="c1"># Menampilkan hasil dalam bentuk tabel</span>
+    <span class="c1"># Mengubah hasil query menjadi DataFrame</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">col_names</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;psql&quot;</span><span class="p">))</span>
+
+    <span class="c1"># Menampilkan hanya 3 data awal dan 3 data akhir dengan &quot;...&quot; di tengah</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">df_display</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">col_names</span><span class="p">)],</span> <span class="n">columns</span><span class="o">=</span><span class="n">col_names</span><span class="p">),</span> <span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df_display</span> <span class="o">=</span> <span class="n">df</span>  <span class="c1"># Jika data kurang dari 6, tampilkan semuanya</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">df_display</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;psql&quot;</span><span class="p">,</span> <span class="n">showindex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
@@ -539,167 +602,24 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-----+------+-----------------+----------------+---------------+
-|     |   id | Class           |   sepal length |   sepal width |
-|-----+------+-----------------+----------------+---------------|
-|   0 |    2 | Iris-setosa     |            4.9 |           3   |
-|   1 |    3 | Iris-setosa     |            4.7 |           3.2 |
-|   2 |    4 | Iris-setosa     |            4.6 |           3.1 |
-|   3 |    5 | Iris-setosa     |            5   |           3.6 |
-|   4 |    6 | Iris-setosa     |            5.4 |           3.9 |
-|   5 |    7 | Iris-setosa     |            4.6 |           3.4 |
-|   6 |    8 | Iris-setosa     |            5   |           3.4 |
-|   7 |    9 | Iris-setosa     |            4.4 |           2.9 |
-|   8 |   10 | Iris-setosa     |            4.9 |           3.1 |
-|   9 |   11 | Iris-setosa     |            5.4 |           3.7 |
-|  10 |   12 | Iris-setosa     |            4.8 |           3.4 |
-|  11 |   13 | Iris-setosa     |            4.8 |           3   |
-|  12 |   14 | Iris-setosa     |            4.3 |           3   |
-|  13 |   15 | Iris-setosa     |            5.8 |           4   |
-|  14 |   16 | Iris-setosa     |            5.7 |           4.4 |
-|  15 |   17 | Iris-setosa     |            5.4 |           3.9 |
-|  16 |   18 | Iris-setosa     |            5.1 |           3.5 |
-|  17 |   19 | Iris-setosa     |            5.7 |           3.8 |
-|  18 |   20 | Iris-setosa     |            5.1 |           3.8 |
-|  19 |   21 | Iris-setosa     |            5.4 |           3.4 |
-|  20 |   22 | Iris-setosa     |            5.1 |           3.7 |
-|  21 |   23 | Iris-setosa     |            4.6 |           3.6 |
-|  22 |   24 | Iris-setosa     |            5.1 |           3.3 |
-|  23 |   25 | Iris-setosa     |            4.8 |           3.4 |
-|  24 |   26 | Iris-setosa     |            5   |           3   |
-|  25 |   27 | Iris-setosa     |            5   |           3.4 |
-|  26 |   28 | Iris-setosa     |            5.2 |           3.5 |
-|  27 |   29 | Iris-setosa     |            5.2 |           3.4 |
-|  28 |   30 | Iris-setosa     |            4.7 |           3.2 |
-|  29 |   31 | Iris-setosa     |            4.8 |           3.1 |
-|  30 |   32 | Iris-setosa     |            5.4 |           3.4 |
-|  31 |   33 | Iris-setosa     |            5.2 |           4.1 |
-|  32 |   34 | Iris-setosa     |            5.5 |           4.2 |
-|  33 |   35 | Iris-setosa     |            4.9 |           3.1 |
-|  34 |   36 | Iris-setosa     |            5   |           3.2 |
-|  35 |   37 | Iris-setosa     |            5.5 |           3.5 |
-|  36 |   38 | Iris-setosa     |            4.9 |           3.1 |
-|  37 |   39 | Iris-setosa     |            4.4 |           3   |
-|  38 |   40 | Iris-setosa     |            5.1 |           3.4 |
-|  39 |   41 | Iris-setosa     |            5   |           3.5 |
-|  40 |   42 | Iris-setosa     |            4.5 |           2.3 |
-|  41 |   43 | Iris-setosa     |            4.4 |           3.2 |
-|  42 |   44 | Iris-setosa     |            5   |           3.5 |
-|  43 |   45 | Iris-setosa     |            5.1 |           3.8 |
-|  44 |   46 | Iris-setosa     |            4.8 |           3   |
-|  45 |   47 | Iris-setosa     |            5.1 |           3.8 |
-|  46 |   48 | Iris-setosa     |            4.6 |           3.2 |
-|  47 |   49 | Iris-setosa     |            5.3 |           3.7 |
-|  48 |   50 | Iris-setosa     |            5   |           3.3 |
-|  49 |   51 | Iris-versicolor |            7   |           3.2 |
-|  50 |   52 | Iris-versicolor |            6.4 |           3.2 |
-|  51 |   53 | Iris-versicolor |            6.9 |           3.1 |
-|  52 |   54 | Iris-versicolor |            5.5 |           2.3 |
-|  53 |   55 | Iris-versicolor |            6.5 |           2.8 |
-|  54 |   56 | Iris-versicolor |            5.7 |           2.8 |
-|  55 |   57 | Iris-versicolor |            6.3 |           3.3 |
-|  56 |   58 | Iris-versicolor |            4.9 |           2.4 |
-|  57 |   59 | Iris-versicolor |            6.6 |           2.9 |
-|  58 |   60 | Iris-versicolor |            5.2 |           2.7 |
-|  59 |   61 | Iris-versicolor |            5   |           2   |
-|  60 |   62 | Iris-versicolor |            5.9 |           3   |
-|  61 |   63 | Iris-versicolor |            6   |           2.2 |
-|  62 |   64 | Iris-versicolor |            6.1 |           2.9 |
-|  63 |   65 | Iris-versicolor |            5.6 |           2.9 |
-|  64 |   66 | Iris-versicolor |            6.7 |           3.1 |
-|  65 |   67 | Iris-versicolor |            5.6 |           3   |
-|  66 |   68 | Iris-versicolor |            5.8 |           2.7 |
-|  67 |   69 | Iris-versicolor |            6.2 |           2.2 |
-|  68 |   70 | Iris-versicolor |            5.6 |           2.5 |
-|  69 |   71 | Iris-versicolor |            5.9 |           3.2 |
-|  70 |   72 | Iris-versicolor |            6.1 |           2.8 |
-|  71 |   73 | Iris-versicolor |            6.3 |           2.5 |
-|  72 |   74 | Iris-versicolor |            6.1 |           2.8 |
-|  73 |   75 | Iris-versicolor |            6.4 |           2.9 |
-|  74 |   76 | Iris-versicolor |            6.6 |           3   |
-|  75 |   77 | Iris-versicolor |            6.8 |           2.8 |
-|  76 |   78 | Iris-versicolor |            6.7 |           3   |
-|  77 |   79 | Iris-versicolor |            6   |           2.9 |
-|  78 |   80 | Iris-versicolor |            5.7 |           2.6 |
-|  79 |   81 | Iris-versicolor |            5.5 |           2.4 |
-|  80 |   82 | Iris-versicolor |            5.5 |           2.4 |
-|  81 |   83 | Iris-versicolor |            5.8 |           2.7 |
-|  82 |   84 | Iris-versicolor |            6   |           2.7 |
-|  83 |   85 | Iris-versicolor |            5.4 |           3   |
-|  84 |   86 | Iris-versicolor |            6   |           3.4 |
-|  85 |   87 | Iris-versicolor |            6.7 |           3.1 |
-|  86 |   88 | Iris-versicolor |            6.3 |           2.3 |
-|  87 |   89 | Iris-versicolor |            5.6 |           3   |
-|  88 |   90 | Iris-versicolor |            5.5 |           2.5 |
-|  89 |   91 | Iris-versicolor |            5.5 |           2.6 |
-|  90 |   92 | Iris-versicolor |            6.1 |           3   |
-|  91 |   93 | Iris-versicolor |            5.8 |           2.6 |
-|  92 |   94 | Iris-versicolor |            5   |           2.3 |
-|  93 |   95 | Iris-versicolor |            5.6 |           2.7 |
-|  94 |   96 | Iris-versicolor |            5.7 |           3   |
-|  95 |   97 | Iris-versicolor |            5.7 |           2.9 |
-|  96 |   98 | Iris-versicolor |            6.2 |           2.9 |
-|  97 |   99 | Iris-versicolor |            5.1 |           2.5 |
-|  98 |  100 | Iris-versicolor |            5.7 |           2.8 |
-|  99 |  101 | Iris-virginica  |            6.3 |           3.3 |
-| 100 |  102 | Iris-virginica  |            5.8 |           2.7 |
-| 101 |  103 | Iris-virginica  |            7.1 |           3   |
-| 102 |  104 | Iris-virginica  |            6.3 |           2.9 |
-| 103 |  105 | Iris-virginica  |            6.5 |           3   |
-| 104 |  106 | Iris-virginica  |            7.6 |           3   |
-| 105 |  107 | Iris-virginica  |            4.9 |           2.5 |
-| 106 |  108 | Iris-virginica  |            7.3 |           2.9 |
-| 107 |  109 | Iris-virginica  |            6.7 |           2.5 |
-| 108 |  110 | Iris-virginica  |            7.2 |           3.6 |
-| 109 |  111 | Iris-virginica  |            6.5 |           3.2 |
-| 110 |  112 | Iris-virginica  |            6.4 |           2.7 |
-| 111 |  113 | Iris-virginica  |            6.8 |           3   |
-| 112 |  114 | Iris-virginica  |            5.7 |           2.5 |
-| 113 |  115 | Iris-virginica  |            5.8 |           2.8 |
-| 114 |  116 | Iris-virginica  |            6.4 |           3.2 |
-| 115 |  117 | Iris-virginica  |            6.5 |           3   |
-| 116 |  118 | Iris-virginica  |            7.7 |           3.8 |
-| 117 |  119 | Iris-virginica  |            7.7 |           2.6 |
-| 118 |  120 | Iris-virginica  |            6   |           2.2 |
-| 119 |  121 | Iris-virginica  |            6.9 |           3.2 |
-| 120 |  122 | Iris-virginica  |            5.6 |           2.8 |
-| 121 |  123 | Iris-virginica  |            7.7 |           2.8 |
-| 122 |  124 | Iris-virginica  |            6.3 |           2.7 |
-| 123 |  125 | Iris-virginica  |            6.7 |           3.3 |
-| 124 |  126 | Iris-virginica  |            7.2 |           3.2 |
-| 125 |  127 | Iris-virginica  |            6.2 |           2.8 |
-| 126 |  128 | Iris-virginica  |            6.1 |           3   |
-| 127 |  129 | Iris-virginica  |            6.4 |           2.8 |
-| 128 |  130 | Iris-virginica  |            7.2 |           3   |
-| 129 |  131 | Iris-virginica  |            7.4 |           2.8 |
-| 130 |  132 | Iris-virginica  |            7.9 |           3.8 |
-| 131 |  133 | Iris-virginica  |            6.4 |           2.8 |
-| 132 |  134 | Iris-virginica  |            6.3 |           2.8 |
-| 133 |  135 | Iris-virginica  |            6.1 |           2.6 |
-| 134 |  136 | Iris-virginica  |            7.7 |           3   |
-| 135 |  137 | Iris-virginica  |            6.3 |           3.4 |
-| 136 |  138 | Iris-virginica  |            6.4 |           3.1 |
-| 137 |  139 | Iris-virginica  |            6   |           3   |
-| 138 |  140 | Iris-virginica  |            6.9 |           3.1 |
-| 139 |  141 | Iris-virginica  |            6.7 |           3.1 |
-| 140 |  142 | Iris-virginica  |            6.9 |           3.1 |
-| 141 |  143 | Iris-virginica  |            5.8 |           2.7 |
-| 142 |  144 | Iris-virginica  |            6.8 |           3.2 |
-| 143 |  145 | Iris-virginica  |            6.7 |           3.3 |
-| 144 |  146 | Iris-virginica  |            6.7 |           3   |
-| 145 |  147 | Iris-virginica  |            6.3 |           2.5 |
-| 146 |  148 | Iris-virginica  |            6.5 |           3   |
-| 147 |  149 | Iris-virginica  |            6.2 |           3.4 |
-| 148 |  150 | Iris-virginica  |            5.9 |           3   |
-| 149 |    1 | Iris-setosa     |           20.1 |          30.5 |
-+-----+------+-----------------+----------------+---------------+
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------+----------------+----------------+---------------+
+| id   | Class          | sepal length   | sepal width   |
+|------+----------------+----------------+---------------|
+| 1    | Iris-setosa    | 20.1           | 30.5          |
+| 2    | Iris-setosa    | 4.9            | 3.0           |
+| 3    | Iris-setosa    | 4.7            | 3.2           |
+| ...  | ...            | ...            | ...           |
+| 148  | Iris-virginica | 6.5            | 3.0           |
+| 149  | Iris-virginica | 6.2            | 3.4           |
+| 150  | Iris-virginica | 5.9            | 3.0           |
++------+----------------+----------------+---------------+
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="koneksi-ke-mysql-dan-menampilkan-datanya">
-<h3>Koneksi ke MySQL dan menampilkan datanya<a class="headerlink" href="#koneksi-ke-mysql-dan-menampilkan-datanya" title="Link to this heading">#</a></h3>
+<h4>Koneksi ke MySQL dan menampilkan datanya<a class="headerlink" href="#koneksi-ke-mysql-dan-menampilkan-datanya" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pymysql</span>
@@ -726,7 +646,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
     <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 
     <span class="c1"># Menjalankan query SQL</span>
-    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM irismysql.flowers;&quot;</span>  <span class="c1"># Sesuaikan dengan nama tabel</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM irismysql.flowers ORDER BY id ASC;&quot;</span>  <span class="c1"># Sesuaikan dengan nama tabel</span>
     <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 
@@ -759,7 +679,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------+----------------+----------------+---------------+
 | id   | class          | petal length   | petal width   |
 |------+----------------+----------------+---------------|
-| 1    | Iris-setosa    | 86.4           | 70.0          |
+| 1    | Iris-setosa    | 80.4           | 70.0          |
 | 2    | Iris-setosa    | 1.4            | 0.2           |
 | 3    | Iris-setosa    | 1.3            | 0.2           |
 | ...  | ...            | ...            | ...           |
@@ -773,6 +693,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </section>
 </section>
+</section>
 <section id="sampling-data">
 <h2>Sampling data<a class="headerlink" href="#sampling-data" title="Link to this heading">#</a></h2>
 <p>Sampling data digunakan untuk memahami subset data tanpa harus memproses seluruh dataset disi.pada tahap ini samplng digunakan dengan mengelompokkan data berdasarkan kelasnya dengan warna yang berbeda yaitu Iris-sentosa berwarna biru Iris-versicolor berwarna merah dan Iris-virginica berwarna hijau hal ini salahsatunya bertujuan untuk memudahkan visuakisasi</p>
@@ -780,8 +701,9 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <section id="profiling-data">
 <h2>Profiling data<a class="headerlink" href="#profiling-data" title="Link to this heading">#</a></h2>
 <p>merupakan proses membuat ringkasan tentang setiap variable dalam dataset,termasuk tipe data dan meproses memeriksa, memahami, dan menganalisis struktur serta kualitas data sebelum digunakan dalam analisis lebih lanjut.</p>
-<section id="menarik-data-base-dari-posgresql-dan-mysql-menjadi-1-tabel-sekaligus-mengecek-apakah-terdapat-mising-value-dan-ketidak-konsistenan-ketika-data-digabungkan">
-<h3>menarik data base dari PosgreSql dan Mysql menjadi 1 tabel sekaligus mengecek apakah terdapat mising value dan ketidak konsistenan ketika data digabungkan<a class="headerlink" href="#menarik-data-base-dari-posgresql-dan-mysql-menjadi-1-tabel-sekaligus-mengecek-apakah-terdapat-mising-value-dan-ketidak-konsistenan-ketika-data-digabungkan" title="Link to this heading">#</a></h3>
+<section id="menarik-data-base-dari-posgresql-dan-mysql-menjadi-1-tabel">
+<h3>menarik data base dari PosgreSql dan Mysql menjadi 1 tabel<a class="headerlink" href="#menarik-data-base-dari-posgresql-dan-mysql-menjadi-1-tabel" title="Link to this heading">#</a></h3>
+<p>pada saat ini sekaligus mengecek apakah terdapat mising value dan ketidak konsistenan ketika data digabungkan</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
@@ -872,7 +794,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------+----------------+----------------+---------------+----------------+---------------+
 | id   | class          | sepal length   | sepal width   | petal length   | petal width   |
 |------+----------------+----------------+---------------+----------------+---------------|
-| 1    | Iris-setosa    | 20.1           | 30.5          | 86.4           | 70.0          |
+| 1    | Iris-setosa    | 20.1           | 30.5          | 80.4           | 70.0          |
 | 2    | Iris-setosa    | 4.9            | 3.0           | 1.4            | 0.2           |
 | 3    | Iris-setosa    | 4.7            | 3.2           | 1.3            | 0.2           |
 | ...  | ...            | ...            | ...           | ...            | ...           |
@@ -897,6 +819,9 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <section id="eksplorasi-data">
 <h2>Eksplorasi Data<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h2>
 <p>Eksplorasi data adalah proses awal dalam analisis data untuk memahami karakteristik, distribusi, dan pola dalam dataset sehingga menghasilkan deskripsi statistik seperti mean, median, modus,standar deviasi,minimun, dan maskimum dengan menggunakan visualisasi data seperti grafik histogram scatter plot untuk melihat pola atau trend awal</p>
+<section id="menapilkan-data-dalam-bentuk-diagram">
+<h3>Menapilkan data dalam bentuk diagram<a class="headerlink" href="#menapilkan-data-dalam-bentuk-diagram" title="Link to this heading">#</a></h3>
+<p>Proses merupakan proses untuk menampilkan data menjadi diagram sekaligus menetukan median mean dan modus dari setiap label atau fiturnya dan membedakan warna diagram menyesuaikan dengan banyaknya class yang ada.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -920,10 +845,18 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <span class="n">max_sepal_length</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">sepal_length_col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="n">mode_sepal_length</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">sepal_length_col</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
-
 <span class="c1"># Buat plot distribusi dengan warna yang sudah ditentukan</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">sepal_length_col</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">class_col</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">custom_palette</span><span class="p">)</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">sepal_length_col</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="n">class_col</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="n">custom_palette</span><span class="p">,</span>
+    <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;stack&quot;</span>
+<span class="p">)</span>
 
 <span class="c1"># Tambahkan garis rata-rata, median, min, dan max</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">mean_sepal_length</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -932,11 +865,19 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">min_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Min: </span><span class="si">{</span><span class="n">min_sepal_length</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">max_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Max: </span><span class="si">{</span><span class="n">max_sepal_length</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="c1"># Ambil legenda otomatis dari histogram</span>
+<span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+
+<span class="c1"># Tambahkan legenda untuk warna kelas</span>
+<span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">custom_palette</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+
 <span class="c1"># Tambahkan label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sepal Length&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Sepal Length Berdasarkan Class (Merah, Hijau, Biru)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Statistics&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Class &amp; Statistics&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
 
 <span class="c1"># Tampilkan plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -944,7 +885,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e6897ab2c817022fb1a9953c21d949f189dd550df70513cba3778c53ddf13a3c.png" src="_images/e6897ab2c817022fb1a9953c21d949f189dd550df70513cba3778c53ddf13a3c.png" />
+<img alt="_images/6e387010433331523952127609fe3566eb213f41af65d11ae808835b12983ec8.png" src="_images/6e387010433331523952127609fe3566eb213f41af65d11ae808835b12983ec8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -970,10 +911,18 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <span class="n">max_sepal_length</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">sepal_length_col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="n">mode_sepal_length</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">sepal_length_col</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
-
 <span class="c1"># Buat plot distribusi dengan warna yang sudah ditentukan</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">sepal_length_col</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">class_col</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">custom_palette</span><span class="p">)</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">sepal_length_col</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="n">class_col</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="n">custom_palette</span><span class="p">,</span>
+    <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;stack&quot;</span>
+<span class="p">)</span>
 
 <span class="c1"># Tambahkan garis rata-rata, median, min, dan max</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">mean_sepal_length</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -982,11 +931,19 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">min_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Min: </span><span class="si">{</span><span class="n">min_sepal_length</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">max_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Max: </span><span class="si">{</span><span class="n">max_sepal_length</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="c1"># Ambil legenda otomatis dari histogram</span>
+<span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+
+<span class="c1"># Tambahkan legenda untuk warna kelas</span>
+<span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">custom_palette</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+
 <span class="c1"># Tambahkan label</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sepal Width&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sepal width&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Sepal Length Berdasarkan Class (Merah, Hijau, Biru)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Statistics&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Sepal width Berdasarkan Class (Merah, Hijau, Biru)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Class &amp; Statistics&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
 
 <span class="c1"># Tampilkan plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -994,7 +951,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a6e397226f1a4435090ea971facd778847e5db8f062ab5aca740fecd92876ea8.png" src="_images/a6e397226f1a4435090ea971facd778847e5db8f062ab5aca740fecd92876ea8.png" />
+<img alt="_images/2738dc3504098d4b34e39512ec905c58dc27addaaae88857ae8b9f8ce1d52735.png" src="_images/2738dc3504098d4b34e39512ec905c58dc27addaaae88857ae8b9f8ce1d52735.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1020,10 +977,18 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <span class="n">max_sepal_length</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">sepal_length_col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="n">mode_sepal_length</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">sepal_length_col</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
-
 <span class="c1"># Buat plot distribusi dengan warna yang sudah ditentukan</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">sepal_length_col</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">class_col</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">custom_palette</span><span class="p">)</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">sepal_length_col</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="n">class_col</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="n">custom_palette</span><span class="p">,</span>
+    <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;stack&quot;</span>
+<span class="p">)</span>
 
 <span class="c1"># Tambahkan garis rata-rata, median, min, dan max</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">mean_sepal_length</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1032,11 +997,19 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">min_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Min: </span><span class="si">{</span><span class="n">min_sepal_length</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">max_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Max: </span><span class="si">{</span><span class="n">max_sepal_length</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="c1"># Ambil legenda otomatis dari histogram</span>
+<span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+
+<span class="c1"># Tambahkan legenda untuk warna kelas</span>
+<span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">custom_palette</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+
 <span class="c1"># Tambahkan label</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Petal Length&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;petal Length&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Sepal Length Berdasarkan Class (Merah, Hijau, Biru)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Statistics&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi petal Length Berdasarkan Class (Merah, Hijau, Biru)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Class &amp; Statistics&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
 
 <span class="c1"># Tampilkan plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1044,7 +1017,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/019713632c2d06136dab0a4b62c013f9cadfa4fa8f2b2ef25c05f2864b7a1b1e.png" src="_images/019713632c2d06136dab0a4b62c013f9cadfa4fa8f2b2ef25c05f2864b7a1b1e.png" />
+<img alt="_images/0ea45986d48ab49c6cde0dc5cf0f9042b514a8b89611be869c7004dfbc1b9f60.png" src="_images/0ea45986d48ab49c6cde0dc5cf0f9042b514a8b89611be869c7004dfbc1b9f60.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1070,10 +1043,18 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <span class="n">max_sepal_length</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">sepal_length_col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="n">mode_sepal_length</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">sepal_length_col</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
-
 <span class="c1"># Buat plot distribusi dengan warna yang sudah ditentukan</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">sepal_length_col</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">class_col</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">custom_palette</span><span class="p">)</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">sepal_length_col</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="n">class_col</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="n">custom_palette</span><span class="p">,</span>
+    <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;stack&quot;</span>
+<span class="p">)</span>
 
 <span class="c1"># Tambahkan garis rata-rata, median, min, dan max</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">mean_sepal_length</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1082,11 +1063,19 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">min_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Min: </span><span class="si">{</span><span class="n">min_sepal_length</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">max_sepal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Max: </span><span class="si">{</span><span class="n">max_sepal_length</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="c1"># Ambil legenda otomatis dari histogram</span>
+<span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+
+<span class="c1"># Tambahkan legenda untuk warna kelas</span>
+<span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">custom_palette</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+
 <span class="c1"># Tambahkan label</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Petal Width&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;petal width&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Sepal Length Berdasarkan Class (Merah, Hijau, Biru)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Statistics&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi petal width Berdasarkan Class (Merah, Hijau, Biru)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Class &amp; Statistics&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
 
 <span class="c1"># Tampilkan plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1094,9 +1083,10 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/873f1b886e5269c77255e688c7377b36b086ae332ae3be8f785c8b656abe5699.png" src="_images/873f1b886e5269c77255e688c7377b36b086ae332ae3be8f785c8b656abe5699.png" />
+<img alt="_images/782a9ba49cb38c8d88d331da8ee5d2783c7184032078c072fcb527b034ce48fb.png" src="_images/782a9ba49cb38c8d88d331da8ee5d2783c7184032078c072fcb527b034ce48fb.png" />
 </div>
 </div>
+</section>
 </section>
 <section id="indentifikasi-masalah-data">
 <h2>Indentifikasi Masalah Data<a class="headerlink" href="#indentifikasi-masalah-data" title="Link to this heading">#</a></h2>
@@ -1190,6 +1180,15 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
         <p class="prev-next-title">Welcome to your Jupyter Book</p>
       </div>
     </a>
+    <a class="right-next"
+       href="DeteksiOutlier.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Outlier Detection</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1206,24 +1205,33 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macam-macam-tipe-data">Macam macam tipe data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengunpulan-data">Pengunpulan data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-package-untuk-mysql-dan-posgresql">Install Package untuk MySQL dan PosgreSQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macam-macam-tipe-data">Macam macam tipe data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data-berdasarkan-sifatnya">1. <strong>Tipe Data Berdasarkan Sifatnya</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data-berdasarkan-struktur">2. <strong>Tipe Data Berdasarkan Struktur</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data-berdasarkan-sumbernya">3. <strong>Tipe Data Berdasarkan Sumbernya</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data-berdasarkan-representasi-dalam-data-mining">4. <strong>Tipe Data Berdasarkan Representasi dalam Data Mining</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-database-mysql-dan-posgresql-melalui-dari-aiven-io">Koneksi ke Database Mysql dan PosgreSQL melalui dari aiven.io</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-posgresql-dan-menampilkan-datanya">Koneksi ke PosgreSQL dan menampilkan datanya</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-mysql-dan-menampilkan-datanya">Koneksi ke MySQL dan menampilkan datanya</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengunpulan-data">Pengunpulan data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-package-untuk-mysql-dan-posgresql">Install Package untuk MySQL dan PosgreSQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-database-mysql-dan-posgresql-melalui-dari-aiven-io">Koneksi ke Database Mysql dan PosgreSQL melalui dari aiven.io</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-posgresql-dan-menampilkan-datanya">Koneksi ke PosgreSQL dan menampilkan datanya</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#koneksi-ke-mysql-dan-menampilkan-datanya">Koneksi ke MySQL dan menampilkan datanya</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-data">Sampling data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-data">Profiling data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menarik-data-base-dari-posgresql-dan-mysql-menjadi-1-tabel-sekaligus-mengecek-apakah-terdapat-mising-value-dan-ketidak-konsistenan-ketika-data-digabungkan">menarik data base dari PosgreSql dan Mysql menjadi 1 tabel sekaligus mengecek apakah terdapat mising value dan ketidak konsistenan ketika data digabungkan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menarik-data-base-dari-posgresql-dan-mysql-menjadi-1-tabel">menarik data base dari PosgreSql dan Mysql menjadi 1 tabel</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-dan-asosiasi">Korelasi dan Asosiasi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menapilkan-data-dalam-bentuk-diagram">Menapilkan data dalam bentuk diagram</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indentifikasi-masalah-data">Indentifikasi Masalah Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-data">Validasi data</a></li>
 </ul>
