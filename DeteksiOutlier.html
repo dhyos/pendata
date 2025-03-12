@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'DeteksiOutlier';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Local Outlier Factor" href="LOF.html" />
     <link rel="prev" title="Understanding Data" href="pemdatD_DataUnderstanding_23-175.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,6 +184,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="pemdatD_DataUnderstanding_23-175.html">Understanding Data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LOF.html">Local Outlier Factor</a></li>
 </ul>
 
     </div>
@@ -385,14 +387,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimasi-proses-bisnis-dan-operasional">Optimasi Proses Bisnis dan Operasional</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mendukung-pengambilan-keputusan-berbasis-data">Mendukung Pengambilan Keputusan Berbasis Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-asumsi-data">Validasi Asumsi Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-mendeteksi-outlier">Tahapan mendeteksi outlier</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemahaman-data">Pemahaman data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi Data:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-mendeteksi-outlier">Tahapan mendeteksi outlier</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pemahaman-data">Pemahaman data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi Data:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-oulier-menggunakan-metode-knn">Identifikasi Oulier menggunakan metode KNN</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja-knn-dalam-deteksi-outlier">Cara kerja KNN dalam deteksi Outlier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-oulier-menggunakan-metode-knn">Identifikasi Oulier menggunakan metode KNN</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja-knn-dalam-deteksi-outlier">Cara kerja KNN dalam deteksi Outlier</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -448,9 +452,8 @@ Serangan siber (aktivitas jaringan yang tidak wajar).</p>
 </section>
 <section id="tahapan-mendeteksi-outlier">
 <h2>Tahapan mendeteksi outlier<a class="headerlink" href="#tahapan-mendeteksi-outlier" title="Link to this heading">#</a></h2>
-</section>
 <section id="pemahaman-data">
-<h2>Pemahaman data<a class="headerlink" href="#pemahaman-data" title="Link to this heading">#</a></h2>
+<h3>Pemahaman data<a class="headerlink" href="#pemahaman-data" title="Link to this heading">#</a></h3>
 <p>Pada tahap awal untuk mengetahui nilai outlier pada suatu data terlebih dahulu kita harus memahami data tersebut, termasuk jumlah fitur, tipe data, distribusi, dan hubungan antar variabel. Identifikasi apakah dataset memiliki anomali alami atau error dalam pencatatan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -464,7 +467,7 @@ Serangan siber (aktivitas jaringan yang tidak wajar).</p>
   Downloading PyMySQL-1.1.1-py3-none-any.whl.metadata (4.4 kB)
 Downloading PyMySQL-1.1.1-py3-none-any.whl (44 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/45.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">45.0/45.0 kB</span> <span class=" -Color -Color-Red">1.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">45.0/45.0 kB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -570,81 +573,29 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------+----------------+----------------+---------------+----------------+---------------+
-| id   | class          | sepal length   | sepal width   | petal length   | petal width   |
-|------+----------------+----------------+---------------+----------------+---------------|
-| 1    | Iris-setosa    | 20.1           | 30.5          | 80.4           | 70.0          |
-| 2    | Iris-setosa    | 4.9            | 3.0           | 1.4            | 0.2           |
-| 3    | Iris-setosa    | 4.7            | 3.2           | 1.3            | 0.2           |
-| 4    | Iris-setosa    | 4.6            | 3.1           | 1.5            | 0.2           |
-| 5    | Iris-setosa    | 5.0            | 3.6           | 1.4            | 0.2           |
-| 6    | Iris-setosa    | 5.4            | 3.9           | 1.7            | 0.4           |
-| 7    | Iris-setosa    | 4.6            | 3.4           | 1.4            | 0.3           |
-| 8    | Iris-setosa    | 5.0            | 3.4           | 1.5            | 0.2           |
-| 9    | Iris-setosa    | 4.4            | 2.9           | 1.4            | 0.2           |
-| 10   | Iris-setosa    | 4.9            | 3.1           | 1.5            | 0.1           |
-| 11   | Iris-setosa    | 5.4            | 3.7           | 1.5            | 0.2           |
-| 12   | Iris-setosa    | 4.8            | 3.4           | 1.6            | 0.2           |
-| 13   | Iris-setosa    | 4.8            | 3.0           | 1.4            | 0.1           |
-| 14   | Iris-setosa    | 4.3            | 3.0           | 1.1            | 0.1           |
-| 15   | Iris-setosa    | 5.8            | 4.0           | 1.2            | 0.2           |
-| 16   | Iris-setosa    | 5.7            | 4.4           | 1.5            | 0.4           |
-| 17   | Iris-setosa    | 5.4            | 3.9           | 1.3            | 0.4           |
-| 18   | Iris-setosa    | 5.1            | 3.5           | 1.4            | 0.3           |
-| 19   | Iris-setosa    | 5.7            | 3.8           | 1.7            | 0.3           |
-| 20   | Iris-setosa    | 5.1            | 3.8           | 1.5            | 0.3           |
-| 21   | Iris-setosa    | 5.4            | 3.4           | 1.7            | 0.2           |
-| 22   | Iris-setosa    | 5.1            | 3.7           | 1.5            | 0.4           |
-| 23   | Iris-setosa    | 4.6            | 3.6           | 1.0            | 0.2           |
-| 24   | Iris-setosa    | 5.1            | 3.3           | 1.7            | 0.5           |
-| 25   | Iris-setosa    | 4.8            | 3.4           | 1.9            | 0.2           |
-| 26   | Iris-setosa    | 5.0            | 3.0           | 1.6            | 0.2           |
-| 27   | Iris-setosa    | 5.0            | 3.4           | 1.6            | 0.4           |
-| 28   | Iris-setosa    | 5.2            | 3.5           | 1.5            | 0.2           |
-| 29   | Iris-setosa    | 5.2            | 3.4           | 1.4            | 0.2           |
-| 30   | Iris-setosa    | 4.7            | 3.2           | 1.6            | 0.2           |
-| ...  | ...            | ...            | ...           | ...            | ...           |
-| 121  | Iris-virginica | 6.9            | 3.2           | 5.7            | 2.3           |
-| 122  | Iris-virginica | 5.6            | 2.8           | 4.9            | 2.0           |
-| 123  | Iris-virginica | 7.7            | 2.8           | 6.7            | 2.0           |
-| 124  | Iris-virginica | 6.3            | 2.7           | 4.9            | 1.8           |
-| 125  | Iris-virginica | 6.7            | 3.3           | 5.7            | 2.1           |
-| 126  | Iris-virginica | 7.2            | 3.2           | 6.0            | 1.8           |
-| 127  | Iris-virginica | 6.2            | 2.8           | 4.8            | 1.8           |
-| 128  | Iris-virginica | 6.1            | 3.0           | 4.9            | 1.8           |
-| 129  | Iris-virginica | 6.4            | 2.8           | 5.6            | 2.1           |
-| 130  | Iris-virginica | 7.2            | 3.0           | 5.8            | 1.6           |
-| 131  | Iris-virginica | 7.4            | 2.8           | 6.1            | 1.9           |
-| 132  | Iris-virginica | 7.9            | 3.8           | 6.4            | 2.0           |
-| 133  | Iris-virginica | 6.4            | 2.8           | 5.6            | 2.2           |
-| 134  | Iris-virginica | 6.3            | 2.8           | 5.1            | 1.5           |
-| 135  | Iris-virginica | 6.1            | 2.6           | 5.6            | 1.4           |
-| 136  | Iris-virginica | 7.7            | 3.0           | 6.1            | 2.3           |
-| 137  | Iris-virginica | 6.3            | 3.4           | 5.6            | 2.4           |
-| 138  | Iris-virginica | 6.4            | 3.1           | 5.5            | 1.8           |
-| 139  | Iris-virginica | 6.0            | 3.0           | 4.8            | 1.8           |
-| 140  | Iris-virginica | 6.9            | 3.1           | 5.4            | 2.1           |
-| 141  | Iris-virginica | 6.7            | 3.1           | 5.6            | 2.4           |
-| 142  | Iris-virginica | 6.9            | 3.1           | 5.1            | 2.3           |
-| 143  | Iris-virginica | 5.8            | 2.7           | 5.1            | 1.9           |
-| 144  | Iris-virginica | 6.8            | 3.2           | 5.9            | 2.3           |
-| 145  | Iris-virginica | 6.7            | 3.3           | 5.7            | 2.5           |
-| 146  | Iris-virginica | 6.7            | 3.0           | 5.2            | 2.3           |
-| 147  | Iris-virginica | 6.3            | 2.5           | 5.0            | 1.9           |
-| 148  | Iris-virginica | 6.5            | 3.0           | 5.2            | 2.0           |
-| 149  | Iris-virginica | 6.2            | 3.4           | 5.4            | 2.3           |
-| 150  | Iris-virginica | 5.9            | 3.0           | 5.1            | 1.8           |
-+------+----------------+----------------+---------------+----------------+---------------+
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: could not translate host name &quot;posgesqlpendata23-175-posgresqlpendata23-175.h.aivencloud.com&quot; to address: Name or service not known
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-2-d8b9cf11c98f&gt;</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="c1"># Menutup koneksi database</span>
+<span class="ne">---&gt; </span><span class="mi">74</span>     <span class="k">if</span> <span class="n">cur</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>     <span class="k">if</span> <span class="n">conn</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;cur&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="eksplorasi-data">
-<h2>Eksplorasi Data<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h2>
+<h3>Eksplorasi Data<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h3>
 <p>Eksplorasi data (EDA) adalah proses memahami karakteristik dataset sebelum melakukan pemodelan lebih lanjut. Dalam EDA, kita melakukan descriptive statistics dan visualisasi data untuk menemukan pola, outlier, dan hubungan antar variabel.</p>
 <section id="visualisasi-data">
-<h3>Visualisasi Data:<a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h3>
+<h4>Visualisasi Data:<a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h4>
 <p>Boxplot → Menampilkan distribusi data &amp; potensi outlier.</p>
 <p>Histogram → Melihat distribusi data.</p>
 <p>Scatter Plot → Mengidentifikasi pola hubungan antar variabel.</p>
@@ -758,10 +709,10 @@ max    150.000000     20.100000    30.500000     80.400000     70.00000
 </section>
 </section>
 <section id="identifikasi-oulier-menggunakan-metode-knn">
-<h2>Identifikasi Oulier menggunakan metode KNN<a class="headerlink" href="#identifikasi-oulier-menggunakan-metode-knn" title="Link to this heading">#</a></h2>
+<h3>Identifikasi Oulier menggunakan metode KNN<a class="headerlink" href="#identifikasi-oulier-menggunakan-metode-knn" title="Link to this heading">#</a></h3>
 <p>K-Nearest Neighbors (KNN) adalah algoritma berbasis kedekatan (proximity-based) yang digunakan dalam klasifikasi, regresi, dan deteksi outlier. Dalam konteks outlier detection, KNN menghitung jarak antara setiap titik data dan k tetangga terdekatnya. Jika suatu titik jauh dari tetangga-tetangganya, maka titik tersebut dianggap sebagai outlier.</p>
 <section id="cara-kerja-knn-dalam-deteksi-outlier">
-<h3>Cara kerja KNN dalam deteksi Outlier<a class="headerlink" href="#cara-kerja-knn-dalam-deteksi-outlier" title="Link to this heading">#</a></h3>
+<h4>Cara kerja KNN dalam deteksi Outlier<a class="headerlink" href="#cara-kerja-knn-dalam-deteksi-outlier" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Menghitung jarak</p></li>
 </ol>
@@ -1596,6 +1547,288 @@ R = \frac{d_1 + d_2 + d_3}{3}
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">contamination</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">combined_df</span><span class="p">[[</span><span class="s1">&#39;petal length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal width&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal width&#39;</span><span class="p">]])</span>
+
+<span class="c1"># Instead of comparing against ground_truth (which has different size),</span>
+<span class="c1"># evaluate using the model&#39;s inbuilt outlier prediction</span>
+<span class="n">outlier_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Outlier are labeled -1 by LOF</span>
+
+<span class="c1"># Print outliers</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data yang diduga outlier (menggunakan LocalOutlierFactor):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">combined_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">outlier_index</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data yang diduga outlier (menggunakan LocalOutlierFactor):
+      id  sepal length  sepal width  petal length  petal width  avg_distance  \
+0      1          20.1         30.5          80.4         70.0    104.522035   
+14    15           5.8          4.0           1.2          0.2      0.476358   
+15    16           5.7          4.4           1.5          0.4      0.508240   
+33    34           5.5          4.2           1.4          0.2      0.364755   
+41    42           4.5          2.3           1.3          0.3      0.702252   
+57    58           4.9          2.4           3.3          1.0      0.328992   
+60    61           5.0          2.0           3.5          1.0      0.496544   
+93    94           5.0          2.3           3.3          1.0      0.296425   
+98    99           5.1          2.5           3.0          1.1      0.498569   
+105  106           7.6          3.0           6.6          2.1      0.447149   
+106  107           4.9          2.5           4.5          1.7      0.763383   
+117  118           7.7          3.8           6.7          2.2      0.697026   
+118  119           7.7          2.6           6.9          2.3      0.618153   
+122  123           7.7          2.8           6.7          2.0      0.428387   
+131  132           7.9          3.8           6.4          2.0      0.740949   
+
+     outlier   lof_score  index_asli  index_prediksi  
+0         -1 -109.726656           0               0  
+14        -1   -1.443106          14              14  
+15        -1   -1.625316          15              15  
+33        -1   -1.325984          33              33  
+41        -1   -1.763300          41              41  
+57        -1   -1.432891          57              57  
+60        -1   -1.395791          60              60  
+93        -1   -1.401342          93              93  
+98        -1   -1.511868          98              98  
+105       -1   -1.399554         105             105  
+106       -1   -1.373468         106             106  
+117       -1   -1.572990         117             117  
+118       -1   -1.624653         118             118  
+122       -1   -1.491365         122             122  
+131       -1   -1.547288         131             131  
+[-1  1  1  1  1  1  1  1  1  1  1  1  1  1 -1 -1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1 -1  1  1  1  1  1  1  1 -1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1 -1  1  1 -1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1 -1  1  1
+  1  1 -1  1  1  1  1  1  1 -1 -1  1  1  1  1  1  1  1  1  1  1 -1 -1  1
+  1  1 -1  1  1  1  1  1  1  1  1 -1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+
+<span class="c1"># Normalisasi nama kolom agar seragam</span>
+<span class="n">combined_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">combined_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="c1"># Pastikan hanya kolom numerik yang digunakan</span>
+<span class="n">numeric_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sepal length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal width&quot;</span><span class="p">,</span> <span class="s2">&quot;petal length&quot;</span><span class="p">,</span> <span class="s2">&quot;petal width&quot;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># Inisialisasi model LOF</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">contamination</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># Prediksi outlier (-1) atau inlier (1)</span>
+
+<span class="c1"># Tambahkan hasil prediksi ke DataFrame dengan nilai 1 atau -1</span>
+<span class="n">combined_df</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+
+<span class="c1"># Urutkan berdasarkan ID</span>
+<span class="n">combined_df</span> <span class="o">=</span> <span class="n">combined_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Buat tabel hasil prediksi dengan indeksnya</span>
+<span class="n">hasil_prediksi_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="n">combined_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">combined_df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;outlier&quot;</span><span class="p">:</span> <span class="n">combined_df</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span>  <span class="c1"># Menampilkan -1 (outlier) atau 1 (inlier)</span>
+<span class="p">})</span>
+
+<span class="c1"># Buat tabel khusus outlier (-1)</span>
+<span class="n">outlier_df</span> <span class="o">=</span> <span class="n">hasil_prediksi_df</span><span class="p">[</span><span class="n">hasil_prediksi_df</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Cetak hasil tabel prediksi</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔹 Tabel Hasil Prediksi LOF:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hasil_prediksi_df</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>  <span class="c1"># Menampilkan semua data</span>
+
+<span class="c1"># Cetak tabel khusus outlier</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔹 Tabel Data Outlier:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outlier_df</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>  <span class="c1"># Menampilkan hanya outlier (-1)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔹 Tabel Hasil Prediksi LOF:
+ index  id  outlier
+     0   1       -1
+     1   2        1
+     2   3        1
+     3   4        1
+     4   5        1
+     5   6        1
+     6   7        1
+     7   8        1
+     8   9        1
+     9  10        1
+    10  11        1
+    11  12        1
+    12  13        1
+    13  14        1
+    14  15       -1
+    15  16       -1
+    16  17        1
+    17  18        1
+    18  19        1
+    19  20        1
+    20  21        1
+    21  22        1
+    22  23        1
+    23  24        1
+    24  25        1
+    25  26        1
+    26  27        1
+    27  28        1
+    28  29        1
+    29  30        1
+    30  31        1
+    31  32        1
+    32  33        1
+    33  34       -1
+    34  35        1
+    35  36        1
+    36  37        1
+    37  38        1
+    38  39        1
+    39  40        1
+    40  41        1
+    41  42       -1
+    42  43        1
+    43  44        1
+    44  45        1
+    45  46        1
+    46  47        1
+    47  48        1
+    48  49        1
+    49  50        1
+    50  51        1
+    51  52        1
+    52  53        1
+    53  54        1
+    54  55        1
+    55  56        1
+    56  57        1
+    57  58       -1
+    58  59        1
+    59  60        1
+    60  61       -1
+    61  62        1
+    62  63        1
+    63  64        1
+    64  65        1
+    65  66        1
+    66  67        1
+    67  68        1
+    68  69        1
+    69  70        1
+    70  71        1
+    71  72        1
+    72  73        1
+    73  74        1
+    74  75        1
+    75  76        1
+    76  77        1
+    77  78        1
+    78  79        1
+    79  80        1
+    80  81        1
+    81  82        1
+    82  83        1
+    83  84        1
+    84  85        1
+    85  86        1
+    86  87        1
+    87  88        1
+    88  89        1
+    89  90        1
+    90  91        1
+    91  92        1
+    92  93        1
+    93  94       -1
+    94  95        1
+    95  96        1
+    96  97        1
+    97  98        1
+    98  99       -1
+    99 100        1
+   100 101        1
+   101 102        1
+   102 103        1
+   103 104        1
+   104 105        1
+   105 106       -1
+   106 107       -1
+   107 108        1
+   108 109        1
+   109 110        1
+   110 111        1
+   111 112        1
+   112 113        1
+   113 114        1
+   114 115        1
+   115 116        1
+   116 117        1
+   117 118       -1
+   118 119       -1
+   119 120        1
+   120 121        1
+   121 122        1
+   122 123       -1
+   123 124        1
+   124 125        1
+   125 126        1
+   126 127        1
+   127 128        1
+   128 129        1
+   129 130        1
+   130 131        1
+   131 132       -1
+   132 133        1
+   133 134        1
+   134 135        1
+   135 136        1
+   136 137        1
+   137 138        1
+   138 139        1
+   139 140        1
+   140 141        1
+   141 142        1
+   142 143        1
+   143 144        1
+   144 145        1
+   145 146        1
+   146 147        1
+   147 148        1
+   148 149        1
+   149 150        1
+
+🔹 Tabel Data Outlier:
+ index  id  outlier
+     0   1       -1
+    14  15       -1
+    15  16       -1
+    33  34       -1
+    41  42       -1
+    57  58       -1
+    60  61       -1
+    93  94       -1
+    98  99       -1
+   105 106       -1
+   106 107       -1
+   117 118       -1
+   118 119       -1
+   122 123       -1
+   131 132       -1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 </section>
@@ -1639,6 +1872,15 @@ R = \frac{d_1 + d_2 + d_3}{3}
         <p class="prev-next-title">Understanding Data</p>
       </div>
     </a>
+    <a class="right-next"
+       href="LOF.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Local Outlier Factor</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1662,14 +1904,16 @@ R = \frac{d_1 + d_2 + d_3}{3}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimasi-proses-bisnis-dan-operasional">Optimasi Proses Bisnis dan Operasional</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mendukung-pengambilan-keputusan-berbasis-data">Mendukung Pengambilan Keputusan Berbasis Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-asumsi-data">Validasi Asumsi Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-mendeteksi-outlier">Tahapan mendeteksi outlier</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemahaman-data">Pemahaman data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi Data:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-mendeteksi-outlier">Tahapan mendeteksi outlier</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pemahaman-data">Pemahaman data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi Data:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-oulier-menggunakan-metode-knn">Identifikasi Oulier menggunakan metode KNN</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja-knn-dalam-deteksi-outlier">Cara kerja KNN dalam deteksi Outlier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-oulier-menggunakan-metode-knn">Identifikasi Oulier menggunakan metode KNN</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja-knn-dalam-deteksi-outlier">Cara kerja KNN dalam deteksi Outlier</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

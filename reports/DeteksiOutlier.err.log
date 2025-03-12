@@ -1,0 +1,119 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import psycopg2
+import pymysql
+import pandas as pd
+from tabulate import tabulate
+
+# Koneksi PostgreSQL
+PG_HOST = "posgesqlpendata23-175-posgresqlpendata23-175.h.aivencloud.com"
+PG_PORT = "17047"
+PG_NAME = "defaultdb"
+PG_USER = "avnadmin"
+PG_PASS = "AVNS_XfGwRG6_6e5BdqZXovg"
+
+# Koneksi MySQL
+DB_HOST = "mysql-pendata23-175-mysqlpendata23-175.g.aivencloud.com"
+DB_PORT = 17974
+DB_NAME = "defaultdb"
+DB_USER = "avnadmin"
+DB_PASS = "AVNS_756YWhIqpe1WzSKsGNx"
+
+try:
+    # Koneksi PostgreSQL
+    conn = psycopg2.connect(
+        host=PG_HOST, port=PG_PORT, dbname=PG_NAME,
+        user=PG_USER, password=PG_PASS, sslmode="require"
+    )
+    cur = conn.cursor()
+
+    # Ambil data dari PostgreSQL (ID, Class, Sepal Length, Sepal Width)
+    cur.execute("SELECT * FROM irisposgre.posgre;")  # Sesuaikan tabel
+    pg_rows = cur.fetchall()
+    pg_columns = [desc[0] for desc in cur.description]
+    pg_df = pd.DataFrame(pg_rows, columns=pg_columns)
+
+    # Koneksi MySQL
+    mysql_conn = pymysql.connect(
+        host=DB_HOST, port=DB_PORT, user=DB_USER,
+        password=DB_PASS, database=DB_NAME,
+        cursorclass=pymysql.cursors.DictCursor
+    )
+    mysql_cur = mysql_conn.cursor()
+
+    # Ambil data dari MySQL (ID, Petal Length, Petal Width)
+    mysql_cur.execute("SELECT * FROM irismysql.flowers;")  # Sesuaikan tabel
+    mysql_rows = mysql_cur.fetchall()
+    mysql_df = pd.DataFrame(mysql_rows)
+
+    # Menggabungkan kedua tabel berdasarkan ID
+    combined_df = pd.merge(pg_df, mysql_df, on="id", how="inner")  # Inner join
+
+    # Mengatur urutan kolom agar class berada di sebelah ID
+    ordered_columns = ["id", "class", "sepal length", "sepal width", "petal length", "petal width"]
+    combined_df = combined_df[ordered_columns]
+
+    # Mengurutkan data berdasarkan ID
+    combined_df = combined_df.sort_values(by="id").reset_index(drop=True)
+
+    # Menampilkan 3 data awal, tanda "..." di tengah, dan 3 data akhir
+    df_selected = pd.concat([
+        combined_df.head(30),
+        pd.DataFrame([["..."] * len(combined_df.columns)], columns=combined_df.columns),
+        combined_df.tail(30)
+    ])
+
+
+
+    # Menampilkan hasil dalam format tabel
+    print(tabulate(df_selected, headers="keys", tablefmt="psql", showindex=False))
+
+except Exception as e:
+    print("Error:", e)
+
+finally:
+    # Menutup koneksi database
+    if cur:
+        cur.close()
+    if conn:
+        conn.close()
+    if mysql_cur:
+        mysql_cur.close()
+    if mysql_conn:
+        mysql_conn.close()
+
+------------------
+
+----- stdout -----
+Error: could not translate host name "posgesqlpendata23-175-posgresqlpendata23-175.h.aivencloud.com" to address: Name or service not known
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-d8b9cf11c98f>[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m     72[0m [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     73[0m     [0;31m# Menutup koneksi database[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 74[0;31m     [0;32mif[0m [0mcur[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     75[0m         [0mcur[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     76[0m     [0;32mif[0m [0mconn[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'cur' is not defined
+
