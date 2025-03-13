@@ -383,7 +383,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan-lof">Kelebihan LOF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan-lof">Kekurangan LOF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-penerapan-konsep-penggunaan-lof">Tahapan penerapan konsep penggunaan LOF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penggunaan-library-skylearn-untuk-menghitung-lof">Penggunaan Library Skylearn untuk menghitung LOF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penggunaan-library-sklearn-untuk-menghitung-lof">Penggunaan Library Sklearn untuk menghitung LOF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-outlier">Visualisasi Outlier</a></li>
 </ul>
             </nav>
         </div>
@@ -563,8 +564,9 @@ d(A, B) = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}
 </div>
 </div>
 </div>
-<p>indeksnya
-3. Menentukan k-Distance</p>
+<ol class="arabic simple" start="3">
+<li><p>Menentukan k-Distance</p></li>
+</ol>
 <ul class="simple">
 <li><p>jarak antara titik dengan tetangga ke-K terdekat</p></li>
 <li><p>contoh: K=3 -&gt; jarak ke tetangga ketiga terdekat</p></li>
@@ -641,6 +643,14 @@ d(A, B) = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}
 <ol class="arabic simple" start="3">
 <li><p>Menentukan RD(Reachability Distance)</p></li>
 </ol>
+<p><strong>Reachability Distance (RD)</strong> adalah ukuran dalam algoritma clustering (seperti <strong>OPTICS</strong>) yang menunjukkan seberapa jauh sebuah titik (A) “terjangkau” dari titik (B).</p>
+<p>RD mempertimbangkan dua hal:</p>
+<ol class="arabic simple">
+<li><p><strong>k-distance(B)</strong>: Jarak minimum agar (B) memiliki setidaknya (k) tetangga.</p></li>
+<li><p><strong>d(A, B)</strong>: Jarak langsung antara (A) dan (B).</p></li>
+</ol>
+<p>RD dihitung sebagai nilai maksimum dari kedua jarak tersebut. Ini membantu dalam menentukan kepadatan data dan struktur klaster, di mana titik yang lebih dekat (dengan RD kecil) dianggap lebih terhubung dalam suatu klaster. Dengan Rumus:</p>
+<p><span class="math notranslate nohighlight">\({reachability-distance}_k(A, B) = \max\{k\text{-distance}(B), d(A, B)\}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -953,8 +963,8 @@ LRD(A) = \frac{k}{\sum_{B \in kNN(A)} RD(A, B)}
 </div>
 </div>
 </section>
-<section id="penggunaan-library-skylearn-untuk-menghitung-lof">
-<h2>Penggunaan Library Skylearn untuk menghitung LOF<a class="headerlink" href="#penggunaan-library-skylearn-untuk-menghitung-lof" title="Link to this heading">#</a></h2>
+<section id="penggunaan-library-sklearn-untuk-menghitung-lof">
+<h2>Penggunaan Library Sklearn untuk menghitung LOF<a class="headerlink" href="#penggunaan-library-sklearn-untuk-menghitung-lof" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -996,6 +1006,58 @@ Formatted Predictions with Indices: [&#39;0:1&#39;, &#39;1:1&#39;, &#39;2:1&#39;
 Number of errors: 2
 </pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="visualisasi-outlier">
+<h2>Visualisasi Outlier<a class="headerlink" href="#visualisasi-outlier" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+
+<span class="c1"># Data awal</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1"># Definisikan ground_truth (anggap titik (50, 60) sebagai outlier)</span>
+<span class="n">ground_truth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">9</span> <span class="o">+</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 1 = normal, -1 = outlier</span>
+
+<span class="c1"># LOF model</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">contamination</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Skor LOF</span>
+<span class="n">X_scores</span> <span class="o">=</span> <span class="o">-</span><span class="n">clf</span><span class="o">.</span><span class="n">negative_outlier_factor_</span>
+
+<span class="c1"># Visualisasi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot titik normal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normal Data&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot outlier</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">y_pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">y_pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Outlier&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tambahkan lingkaran untuk menunjukkan tingkat outlier berdasarkan skor LOF</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_scores</span> <span class="o">-</span> <span class="n">X_scores</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">X_scores</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">X_scores</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1000</span> <span class="o">*</span> <span class="n">radius</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+            <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;LOF Score&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Local Outlier Factor (LOF) Visualization&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4a97d1e6d0db2a9e91d5fa5a69a8dfebfd926cda2d6ef0cba2ba88977847697c.png" src="_images/4a97d1e6d0db2a9e91d5fa5a69a8dfebfd926cda2d6ef0cba2ba88977847697c.png" />
 </div>
 </div>
 </section>
@@ -1060,7 +1122,8 @@ Number of errors: 2
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan-lof">Kelebihan LOF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan-lof">Kekurangan LOF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-penerapan-konsep-penggunaan-lof">Tahapan penerapan konsep penggunaan LOF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penggunaan-library-skylearn-untuk-menghitung-lof">Penggunaan Library Skylearn untuk menghitung LOF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penggunaan-library-sklearn-untuk-menghitung-lof">Penggunaan Library Sklearn untuk menghitung LOF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-outlier">Visualisasi Outlier</a></li>
 </ul>
   </nav></div>
 
