@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Understanding &#8212; My sample book</title>
+    <title>UTS pendat &#8212; My sample book</title>
   
   
   
@@ -183,10 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="DeteksiOutlier.html">Outlier Detection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LOF.html">Local Outlier Factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Naive_Bayes.html">Naive Bayes</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Understanding</a></li>
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS pendat</a></li>
 </ul>
 
     </div>
@@ -372,7 +369,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Understanding</h1>
+    <h1>UTS pendat</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -382,25 +379,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Understanding</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengumpulan-data">Pengumpulan data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">Data Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengumpulan-data">Pengumpulan data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocesing">Preprocesing</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-kolom-mising-value-dan-menghapus-outliernya-dengan-knn">menghapus kolom mising value dan menghapus outliernya dengan KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocesing">Preprocesing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-kolom-mising-value-dan-menghapus-outliernya-dengan-knn">menghapus kolom mising value dan menghapus outliernya dengan KNN</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan">Pemodelan</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-status-dengan-naive-bayes-dengan-mengganti-kolom-kategorical-menjadi-numerik">Klasifikasi status dengan Naive Bayes dengan mengganti kolom kategorical menjadi numerik</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-perhitungan-akurasi-dari-klasifikasi-naive-bayes">Hasil perhitungan akurasi dari klasifikasi Naive bayes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-status-dengan-knn-dengan-mengganti-kolom-kategorical-menjadi-numerik">Klasifikasi status dengan KNN dengan mengganti kolom kategorical menjadi numerik</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hasil perhitungan akurasi dari klasifikasi Naive bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan">Pemodelan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-status-dengan-naive-bayes-dengan-mengganti-kolom-kategorical-menjadi-numerik">Klasifikasi status dengan Naive Bayes dengan mengganti kolom kategorical menjadi numerik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-perhitungan-akurasi-dari-klasifikasi-naive-bayes">Hasil perhitungan akurasi dari klasifikasi Naive bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-status-dengan-knn-dengan-mengganti-kolom-kategorical-menjadi-numerik">Klasifikasi status dengan KNN dengan mengganti kolom kategorical menjadi numerik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hasil perhitungan akurasi dari klasifikasi Naive bayes</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi">Evaluasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi">Evaluasi</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -411,10 +407,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
-<h1>Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="uts-pendat">
+<h1>UTS pendat<a class="headerlink" href="#uts-pendat" title="Link to this heading">#</a></h1>
+<section id="data-understanding">
+<h2>Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h2>
 <section id="pengumpulan-data">
-<h2>Pengumpulan data<a class="headerlink" href="#pengumpulan-data" title="Link to this heading">#</a></h2>
+<h3>Pengumpulan data<a class="headerlink" href="#pengumpulan-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ucimlrepo
@@ -425,8 +423,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ucimlrepo
-  Downloading ucimlrepo-0.0.7-py3-none-any.whl.metadata (5.5 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ucimlrepo in /usr/local/lib/python3.11/dist-packages (0.0.7)
 Requirement already satisfied: pandas&gt;=1.0.0 in /usr/local/lib/python3.11/dist-packages (from ucimlrepo) (2.2.2)
 Requirement already satisfied: certifi&gt;=2020.12.5 in /usr/local/lib/python3.11/dist-packages (from ucimlrepo) (2025.4.26)
 Requirement already satisfied: numpy&gt;=1.23.2 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2.0.2)
@@ -434,11 +431,6 @@ Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/pytho
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2025.2)
 Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2025.2)
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.0.0-&gt;ucimlrepo) (1.17.0)
-Downloading ucimlrepo-0.0.7-py3-none-any.whl (8.0 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: ucimlrepo
-Successfully installed ucimlrepo-0.0.7
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tabulate in /usr/local/lib/python3.11/dist-packages (0.9.0)
@@ -538,7 +530,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </section>
 <section id="visualisasi-data">
-<h2>Visualisasi data<a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h2>
+<h3>Visualisasi data<a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -726,10 +718,10 @@ freq                158  374     288          160     222   354    232
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="preprocesing">
-<h1>Preprocesing<a class="headerlink" href="#preprocesing" title="Link to this heading">#</a></h1>
+<section id="preprocesing">
+<h2>Preprocesing<a class="headerlink" href="#preprocesing" title="Link to this heading">#</a></h2>
 <section id="menghapus-kolom-mising-value-dan-menghapus-outliernya-dengan-knn">
-<h2>menghapus kolom mising value dan menghapus outliernya dengan KNN<a class="headerlink" href="#menghapus-kolom-mising-value-dan-menghapus-outliernya-dengan-knn" title="Link to this heading">#</a></h2>
+<h3>menghapus kolom mising value dan menghapus outliernya dengan KNN<a class="headerlink" href="#menghapus-kolom-mising-value-dan-menghapus-outliernya-dengan-knn" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -813,10 +805,10 @@ Jumlah baris terbuang: 21
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="pemodelan">
-<h1>Pemodelan<a class="headerlink" href="#pemodelan" title="Link to this heading">#</a></h1>
+<section id="pemodelan">
+<h2>Pemodelan<a class="headerlink" href="#pemodelan" title="Link to this heading">#</a></h2>
 <section id="klasifikasi-status-dengan-naive-bayes-dengan-mengganti-kolom-kategorical-menjadi-numerik">
-<h2>Klasifikasi status dengan Naive Bayes dengan mengganti kolom kategorical menjadi numerik<a class="headerlink" href="#klasifikasi-status-dengan-naive-bayes-dengan-mengganti-kolom-kategorical-menjadi-numerik" title="Link to this heading">#</a></h2>
+<h3>Klasifikasi status dengan Naive Bayes dengan mengganti kolom kategorical menjadi numerik<a class="headerlink" href="#klasifikasi-status-dengan-naive-bayes-dengan-mengganti-kolom-kategorical-menjadi-numerik" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -1634,7 +1626,7 @@ Jumlah baris terbuang: 21
 </div>
 </section>
 <section id="hasil-perhitungan-akurasi-dari-klasifikasi-naive-bayes">
-<h2>Hasil perhitungan akurasi dari klasifikasi Naive bayes<a class="headerlink" href="#hasil-perhitungan-akurasi-dari-klasifikasi-naive-bayes" title="Link to this heading">#</a></h2>
+<h3>Hasil perhitungan akurasi dari klasifikasi Naive bayes<a class="headerlink" href="#hasil-perhitungan-akurasi-dari-klasifikasi-naive-bayes" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
@@ -1653,7 +1645,7 @@ Jumlah baris terbuang: 21
 </div>
 </section>
 <section id="klasifikasi-status-dengan-knn-dengan-mengganti-kolom-kategorical-menjadi-numerik">
-<h2>Klasifikasi status dengan KNN dengan mengganti kolom kategorical menjadi numerik<a class="headerlink" href="#klasifikasi-status-dengan-knn-dengan-mengganti-kolom-kategorical-menjadi-numerik" title="Link to this heading">#</a></h2>
+<h3>Klasifikasi status dengan KNN dengan mengganti kolom kategorical menjadi numerik<a class="headerlink" href="#klasifikasi-status-dengan-knn-dengan-mengganti-kolom-kategorical-menjadi-numerik" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -2478,7 +2470,7 @@ Jumlah baris terbuang: 21
 </div>
 </section>
 <section id="id1">
-<h2>Hasil perhitungan akurasi dari klasifikasi Naive bayes<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h3>Hasil perhitungan akurasi dari klasifikasi Naive bayes<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
@@ -2497,9 +2489,10 @@ Jumlah baris terbuang: 21
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="evaluasi">
-<h1>Evaluasi<a class="headerlink" href="#evaluasi" title="Link to this heading">#</a></h1>
+<section id="evaluasi">
+<h2>Evaluasi<a class="headerlink" href="#evaluasi" title="Link to this heading">#</a></h2>
 <p>Pada data passien yang menderita sirosis hati terdapat status keberlangsungan hidup dengan adanya fitur fitur yang saling berkaitan pada status pasien tetapi banyak mising valuenya pada beberapa kolom yang membuat hanya tersisa beberapa kolom yang sudah di tampilkan pada saat klasifikasi dimana dari data bersih tersebut yang sudah di hapus outliernya dan sudah menghilangkan data yang memiliki mising value dan kami mencoba menggunakan naive bayes untuk melakukan klasifikasi tatapi menghasilkan akurasi yang cukup kecil karena naive bayes digunakan ketika setiap fitur tidak saling berkaitan berbanding terbalik pada data yang disajikan diatas yang setiap fiturnya saling berkaitan kami mencoba menggunakan knn untuk klasifikasi dan akurasi modelnya meningkat</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2557,25 +2550,24 @@ Jumlah baris terbuang: 21
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Understanding</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengumpulan-data">Pengumpulan data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">Data Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengumpulan-data">Pengumpulan data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocesing">Preprocesing</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-kolom-mising-value-dan-menghapus-outliernya-dengan-knn">menghapus kolom mising value dan menghapus outliernya dengan KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocesing">Preprocesing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-kolom-mising-value-dan-menghapus-outliernya-dengan-knn">menghapus kolom mising value dan menghapus outliernya dengan KNN</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan">Pemodelan</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-status-dengan-naive-bayes-dengan-mengganti-kolom-kategorical-menjadi-numerik">Klasifikasi status dengan Naive Bayes dengan mengganti kolom kategorical menjadi numerik</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-perhitungan-akurasi-dari-klasifikasi-naive-bayes">Hasil perhitungan akurasi dari klasifikasi Naive bayes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-status-dengan-knn-dengan-mengganti-kolom-kategorical-menjadi-numerik">Klasifikasi status dengan KNN dengan mengganti kolom kategorical menjadi numerik</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hasil perhitungan akurasi dari klasifikasi Naive bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan">Pemodelan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-status-dengan-naive-bayes-dengan-mengganti-kolom-kategorical-menjadi-numerik">Klasifikasi status dengan Naive Bayes dengan mengganti kolom kategorical menjadi numerik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-perhitungan-akurasi-dari-klasifikasi-naive-bayes">Hasil perhitungan akurasi dari klasifikasi Naive bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-status-dengan-knn-dengan-mengganti-kolom-kategorical-menjadi-numerik">Klasifikasi status dengan KNN dengan mengganti kolom kategorical menjadi numerik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hasil perhitungan akurasi dari klasifikasi Naive bayes</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi">Evaluasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi">Evaluasi</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
