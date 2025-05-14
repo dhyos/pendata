@@ -25,7 +25,7 @@ from tabulate import tabulate
 
 # Koneksi PostgreSQL
 PG_HOST = "posgesqlpendata23-175-posgresqlpendata23-175.h.aivencloud.com"
-PG_PORT = "17047"
+PG_PORT = 17047
 PG_NAME = "defaultdb"
 PG_USER = "avnadmin"
 PG_PASS = "AVNS_XfGwRG6_6e5BdqZXovg"
@@ -80,9 +80,6 @@ try:
         pd.DataFrame([["..."] * len(combined_df.columns)], columns=combined_df.columns),
         combined_df.tail(30)
     ])
-
-
-
     # Menampilkan hasil dalam format tabel
     print(tabulate(df_selected, headers="keys", tablefmt="psql", showindex=False))
 
@@ -90,16 +87,11 @@ except Exception as e:
     print("Error:", e)
 
 finally:
-    # Menutup koneksi database
+    # Menutup koneksi
     if cur:
         cur.close()
     if conn:
         conn.close()
-    if mysql_cur:
-        mysql_cur.close()
-    if mysql_conn:
-        mysql_conn.close()
-
 ------------------
 
 ----- stdout -----
@@ -108,12 +100,12 @@ Error: could not translate host name "posgesqlpendata23-175-posgresqlpendata23-1
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-2-d8b9cf11c98f>[0m in [0;36m<cell line: 0>[0;34m()[0m
-[1;32m     72[0m [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     73[0m     [0;31m# Menutup koneksi database[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 74[0;31m     [0;32mif[0m [0mcur[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     75[0m         [0mcur[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     76[0m     [0;32mif[0m [0mconn[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-2-a85f8bdc324d>[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m     69[0m [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     70[0m     [0;31m# Menutup koneksi[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 71[0;31m     [0;32mif[0m [0mcur[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     72[0m         [0mcur[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     73[0m     [0;32mif[0m [0mconn[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
 [0;31mNameError[0m: name 'cur' is not defined
 
