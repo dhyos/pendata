@@ -390,7 +390,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instal-library-yang-dibutuhkan">Instal Library yang dibutuhkan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilkan-data">Tampilkan data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penghapusan-kolom-class">Penghapusan kolom class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penghapusan-kolom-class-dan-standarisasi-dengan-standartscaller">Penghapusan kolom class dan standarisasi dengan standartscaller</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-algoritma-k-means">Langkah Langkah Algoritma K-Means</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan">Penjelasan:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ Penjelasan:</a></li>
@@ -523,29 +523,10 @@ Dalam dunia bisnis dan pemasaran, klastering digunakan untuk membagi pelanggan k
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pymysql
-  Downloading PyMySQL-1.1.1-py3-none-any.whl.metadata (4.4 kB)
-Downloading PyMySQL-1.1.1-py3-none-any.whl (44 kB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/45.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">45.0/45.0 kB</span> <span class=" -Color -Color-Red">2.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymysql in /usr/local/lib/python3.11/dist-packages (1.1.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pymysql
-Successfully installed pymysql-1.1.1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting psycopg2-binary
-  Downloading psycopg2_binary-2.9.10-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
-Downloading psycopg2_binary-2.9.10-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.9/3.0 MB</span> <span class=" -Color -Color-Red">27.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">44.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: psycopg2-binary
-Successfully installed psycopg2-binary-2.9.10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: psycopg2-binary in /usr/local/lib/python3.11/dist-packages (2.9.10)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in /usr/local/lib/python3.11/dist-packages (2.2.2)
@@ -634,8 +615,8 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 </section>
-<section id="penghapusan-kolom-class">
-<h2>Penghapusan kolom class<a class="headerlink" href="#penghapusan-kolom-class" title="Link to this heading">#</a></h2>
+<section id="penghapusan-kolom-class-dan-standarisasi-dengan-standartscaller">
+<h2>Penghapusan kolom class dan standarisasi dengan standartscaller<a class="headerlink" href="#penghapusan-kolom-class-dan-standarisasi-dengan-standartscaller" title="Link to this heading">#</a></h2>
 <p>karena data iris sudah memiliki class atau pengelompokkan kita perlu menghapus kolom clasasnya terlebih dahulu</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1512,38 +1493,47 @@ s(i) = \frac{b(i) - a(i)}{\max\{a(i), b(i)\}}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tambahkan kolom target manual berdasarkan rentang ID (asumsi cluster seharusnya berurutan)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tambahkan kolom target manual berdasarkan rentang ID</span>
 <span class="n">df_clustered</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_clustered</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
-    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span><span class="mi">51</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">101</span> <span class="k">else</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">51</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">101</span> <span class="k">else</span> <span class="mi">2</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="c1"># Fungsi hitung ID yang tidak sesuai (klaster berbeda dari klaster mayoritas pada target)</span>
+<span class="c1"># Fungsi menghitung jumlah data yang tidak sesuai mayoritas klaster pada masing-masing kelas target</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">hitung_tidak_sesuai</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_value</span><span class="p">):</span>
     <span class="n">subset</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">target_value</span><span class="p">]</span>
-    <span class="n">cluster_mode</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># klaster mayoritas di rentang ID ini</span>
-    <span class="n">mismatch</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="n">subset</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">cluster_mode</span><span class="p">]</span>  <span class="c1"># data yang klasternya tidak sesuai</span>
+    <span class="n">cluster_mode</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Klaster mayoritas</span>
+    <span class="n">mismatch</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="n">subset</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">cluster_mode</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">mismatch</span>
 
-<span class="c1"># Hitung yang tidak sesuai per target (3 klaster)</span>
+<span class="c1"># Hitung mismatch per kelas target</span>
 <span class="n">mismatch0</span> <span class="o">=</span> <span class="n">hitung_tidak_sesuai</span><span class="p">(</span><span class="n">df_clustered</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">mismatch1</span> <span class="o">=</span> <span class="n">hitung_tidak_sesuai</span><span class="p">(</span><span class="n">df_clustered</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">mismatch2</span> <span class="o">=</span> <span class="n">hitung_tidak_sesuai</span><span class="p">(</span><span class="n">df_clustered</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># Gabungkan semua data yang tidak sesuai</span>
+<span class="c1"># Gabungkan semua mismatch</span>
 <span class="n">total_mismatch</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">mismatch0</span><span class="p">,</span> <span class="n">mismatch1</span><span class="p">,</span> <span class="n">mismatch2</span><span class="p">])</span>
 <span class="n">jumlah_tidak_sesuai</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">total_mismatch</span><span class="p">)</span>
 
-<span class="c1"># Tampilkan hasil dengan ID dikurangi 1</span>
+<span class="c1"># Hitung total data</span>
+<span class="n">total_data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_clustered</span><span class="p">)</span>
+
+<span class="c1"># Hitung akurasi clustering</span>
+<span class="n">akurasi</span> <span class="o">=</span> <span class="p">((</span><span class="n">total_data</span> <span class="o">-</span> <span class="n">jumlah_tidak_sesuai</span><span class="p">)</span> <span class="o">/</span> <span class="n">total_data</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Cetak hasil</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah ID yang tidak sesuai dengan klaster mayoritas di rentang ID targetnya: </span><span class="si">{</span><span class="n">jumlah_tidak_sesuai</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi klaster berdasarkan kecocokan dengan target mayoritas: </span><span class="si">{</span><span class="n">akurasi</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Semua ID yang tidak sesuai:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="n">total_mismatch</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">total_mismatch</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">total_mismatch</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">total_mismatch</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;Cluster&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah ID yang tidak sesuai dengan klaster mayoritas di rentang ID targetnya: 17
+Akurasi klaster berdasarkan kecocokan dengan target mayoritas: 88.67%
 
 Semua ID yang tidak sesuai:
  id  Cluster
@@ -2274,7 +2264,7 @@ Inertia untuk k=10: 26.523455
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instal-library-yang-dibutuhkan">Instal Library yang dibutuhkan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilkan-data">Tampilkan data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penghapusan-kolom-class">Penghapusan kolom class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penghapusan-kolom-class-dan-standarisasi-dengan-standartscaller">Penghapusan kolom class dan standarisasi dengan standartscaller</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-algoritma-k-means">Langkah Langkah Algoritma K-Means</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan">Penjelasan:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ Penjelasan:</a></li>
