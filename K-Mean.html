@@ -390,10 +390,17 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instal-library-yang-dibutuhkan">Instal Library yang dibutuhkan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilkan-data">Tampilkan data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penghapusan-kolom-class-dan-standarisasi-dengan-standartscaller">Penghapusan kolom class dan standarisasi dengan standartscaller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penghapusan-kolom-class-dan-standarisasi-dengan-minmaxscaler">Penghapusan kolom class dan standarisasi dengan MinMaxScaler</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan">✅ Penjelasan:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#penghapusan-kolom-class">🔹 <strong>Penghapusan Kolom <code class="docutils literal notranslate"><span class="pre">Class</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-dengan-minmaxscaler">🔹 <strong>Normalisasi dengan MinMaxScaler</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-algoritma-k-means">Langkah Langkah Algoritma K-Means</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan">Penjelasan:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ Penjelasan:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Penjelasan:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ Penjelasan:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-k-means-data-dengan-2-klaster">Visualisasi K-means data dengan 2 klaster</a><ul class="nav section-nav flex-column">
@@ -410,7 +417,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-klastering-menggunakan-inersia">Evaluasi Klastering menggunakan Inersia</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-inersia-dalam-k-means-clustering">📘 <strong>Pengertian Inersia dalam K-Means Clustering</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-inersia">🔍 Fungsi Inersia:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 Contoh:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">💡 Contoh:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-inertia-k-means-total-within-cluster-sum-of-squares">🧮 <strong>Rumus Inertia K-Means (Total Within-Cluster Sum of Squares):</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keterangan">📘 Keterangan:</a></li>
 </ul>
@@ -434,7 +441,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-metode-elbow">📉 <strong>Langkah-langkah Metode Elbow:</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">✅ <strong>Kesimpulan:</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-dari-hasil-evaluasi-k-means-clustering">✅ <strong>Kesimpulan dari Hasil Evaluasi K-Means Clustering</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">💡 Kesimpulan:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">💡 Kesimpulan:</a></li>
 </ul>
 </li>
 </ul>
@@ -523,10 +530,35 @@ Dalam dunia bisnis dan pemasaran, klastering digunakan untuk membagi pelanggan k
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymysql in /usr/local/lib/python3.11/dist-packages (1.1.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pymysql
+  Downloading PyMySQL-1.1.1-py3-none-any.whl.metadata (4.4 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: psycopg2-binary in /usr/local/lib/python3.11/dist-packages (2.9.10)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading PyMySQL-1.1.1-py3-none-any.whl (44 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/45.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">45.0/45.0 kB</span> <span class=" -Color -Color-Red">1.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pymysql
+Successfully installed pymysql-1.1.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting psycopg2-binary
+  Downloading psycopg2_binary-2.9.10-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+Downloading psycopg2_binary-2.9.10-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.1/3.0 MB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+   ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.3/3.0 MB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.5/3.0 MB</span> <span class=" -Color -Color-Red">14.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">21.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: psycopg2-binary
+Successfully installed psycopg2-binary-2.9.10
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in /usr/local/lib/python3.11/dist-packages (2.2.2)
@@ -615,22 +647,42 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 </section>
-<section id="penghapusan-kolom-class-dan-standarisasi-dengan-standartscaller">
-<h2>Penghapusan kolom class dan standarisasi dengan standartscaller<a class="headerlink" href="#penghapusan-kolom-class-dan-standarisasi-dengan-standartscaller" title="Link to this heading">#</a></h2>
-<p>karena data iris sudah memiliki class atau pengelompokkan kita perlu menghapus kolom clasasnya terlebih dahulu</p>
+<section id="penghapusan-kolom-class-dan-standarisasi-dengan-minmaxscaler">
+<h2>Penghapusan kolom class dan standarisasi dengan MinMaxScaler<a class="headerlink" href="#penghapusan-kolom-class-dan-standarisasi-dengan-minmaxscaler" title="Link to this heading">#</a></h2>
+<p>Tentu! Berikut penjelasan lengkap yang dapat Anda tambahkan sebagai komentar atau dokumentasi dalam kode Anda:</p>
+<hr class="docutils" />
+<section id="penjelasan">
+<h3>✅ Penjelasan:<a class="headerlink" href="#penjelasan" title="Link to this heading">#</a></h3>
+<section id="penghapusan-kolom-class">
+<h4>🔹 <strong>Penghapusan Kolom <code class="docutils literal notranslate"><span class="pre">Class</span></code></strong><a class="headerlink" href="#penghapusan-kolom-class" title="Link to this heading">#</a></h4>
+<p>Karena data Iris sudah memiliki label (<code class="docutils literal notranslate"><span class="pre">Class</span></code>) yang menunjukkan kategori bunga (<code class="docutils literal notranslate"><span class="pre">Iris-setosa</span></code>, <code class="docutils literal notranslate"><span class="pre">Iris-versicolor</span></code>, dan <code class="docutils literal notranslate"><span class="pre">Iris-virginica</span></code>), maka:</p>
+<ul class="simple">
+<li><p>Kolom <code class="docutils literal notranslate"><span class="pre">Class</span></code> <strong>harus dihapus terlebih dahulu</strong> sebelum dilakukan proses clustering atau normalisasi.</p></li>
+<li><p>Ini penting karena <code class="docutils literal notranslate"><span class="pre">Class</span></code> adalah <strong>informasi target (ground truth)</strong>, dan tidak boleh ikut dihitung dalam proses unsupervised learning seperti K-Means atau saat melakukan normalisasi.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="normalisasi-dengan-minmaxscaler">
+<h4>🔹 <strong>Normalisasi dengan MinMaxScaler</strong><a class="headerlink" href="#normalisasi-dengan-minmaxscaler" title="Link to this heading">#</a></h4>
+<p>Setelah penghapusan <code class="docutils literal notranslate"><span class="pre">Class</span></code>, fitur numerik seperti <code class="docutils literal notranslate"><span class="pre">'sepal</span> <span class="pre">length'</span></code>, <code class="docutils literal notranslate"><span class="pre">'sepal</span> <span class="pre">width'</span></code>, <code class="docutils literal notranslate"><span class="pre">'petal</span> <span class="pre">length'</span></code>, dan <code class="docutils literal notranslate"><span class="pre">'petal</span> <span class="pre">width'</span></code> <strong>dinormalisasi</strong> menggunakan <strong>Min-Max Scaler</strong>, yang bekerja dengan rumus:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{\text{scaled}} = \frac{x - x_{\text{min}}}{x_{\text{max}} - x_{\text{min}}}
+\]</div>
+<p>Penjelasannya:</p>
+<ul class="simple">
+<li><p><strong>Tujuan</strong>: menyamakan skala antar fitur agar tidak ada fitur yang mendominasi proses clustering karena memiliki nilai lebih besar.</p></li>
+<li><p><strong>Hasil</strong>: Semua nilai fitur akan berada di dalam <strong>rentang 0 hingga 1</strong>.</p></li>
+<li><p><strong>Kapan digunakan</strong>: Min-Max cocok digunakan jika <strong>tidak ada outlier ekstrem</strong> dan ingin menjaga distribusi asli fitur.</p></li>
+</ul>
+<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pymysql</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tabulate</span><span class="w"> </span><span class="kn">import</span> <span class="n">tabulate</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">MinMaxScaler</span>  <span class="c1"># Ganti StandardScaler</span>
 
-<span class="c1"># Konfigurasi koneksi ke database MySQL</span>
-<span class="n">DB_HOST</span> <span class="o">=</span> <span class="s2">&quot;mysql-3efb8003-utspendat.e.aivencloud.com&quot;</span>
-<span class="n">DB_PORT</span> <span class="o">=</span> <span class="mi">14793</span>
-<span class="n">DB_NAME</span> <span class="o">=</span> <span class="s2">&quot;defaultdb&quot;</span>
-<span class="n">DB_USER</span> <span class="o">=</span> <span class="s2">&quot;avnadmin&quot;</span>
-<span class="n">DB_PASS</span> <span class="o">=</span> <span class="s2">&quot;AVNS_yo9GPrjZtMJ0uKHzkQL&quot;</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="c1"># Membuat koneksi ke MySQL</span>
@@ -659,9 +711,9 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
         <span class="k">if</span> <span class="s1">&#39;Class&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
             <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">])</span>
 
-        <span class="c1"># Standarisasi menggunakan sklearn</span>
+        <span class="c1"># Normalisasi Min-Max menggunakan sklearn</span>
         <span class="n">fitur_numerik</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sepal length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal width&#39;</span><span class="p">]</span>
-        <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+        <span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>  <span class="c1"># Gunakan MinMaxScaler</span>
         <span class="n">df_scaled</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">df_scaled</span><span class="p">[</span><span class="n">fitur_numerik</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">fitur_numerik</span><span class="p">])</span>
 
@@ -673,7 +725,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
         <span class="p">])</span>
 
         <span class="c1"># Tampilkan hasil sebagai tabel</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data setelah standarisasi:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data setelah normalisasi (Min-Max):&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">df_selected</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;psql&quot;</span><span class="p">,</span> <span class="n">showindex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -688,22 +740,24 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data setelah standarisasi:
-+------+---------------------+---------------------+---------------------+----------------------+
-| id   | petal length        | petal width         | sepal length        | sepal width          |
-|------+---------------------+---------------------+---------------------+----------------------|
-| 1    | -1.3412724047598314 | -1.3129767272601454 | -0.9006811702978088 | 1.0320572244889565   |
-| 2    | -1.3412724047598314 | -1.3129767272601454 | -1.1430169111851105 | -0.12495760117130933 |
-| 3    | -1.3981381087490836 | -1.3129767272601454 | -1.3853526520724133 | 0.3378483290927974   |
-| ...  | ...                 | ...                 | ...                 | ...                  |
-| 148  | 0.8196243468317573  | 1.053536733088581   | 0.7956690159133096  | -0.12495760117130933 |
-| 149  | 0.9333557548102621  | 1.4479556431467018  | 0.432165404582356   | 0.8006542593569032   |
-| 150  | 0.7627586428425047  | 0.7905907930498337  | 0.06866179325140237 | -0.12495760117130933 |
-+------+---------------------+---------------------+---------------------+----------------------+
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data setelah normalisasi (Min-Max):
++------+---------------------+---------------------+---------------------+---------------------+
+| id   | petal length        | petal width         | sepal length        | sepal width         |
+|------+---------------------+---------------------+---------------------+---------------------|
+| 1    | 0.06779661016949151 | 0.04166666666666667 | 0.2222222222222221  | 0.625               |
+| 2    | 0.06779661016949151 | 0.04166666666666667 | 0.16666666666666674 | 0.41666666666666674 |
+| 3    | 0.05084745762711865 | 0.04166666666666667 | 0.11111111111111116 | 0.5                 |
+| ...  | ...                 | ...                 | ...                 | ...                 |
+| 148  | 0.711864406779661   | 0.7916666666666667  | 0.6111111111111112  | 0.41666666666666674 |
+| 149  | 0.7457627118644068  | 0.9166666666666666  | 0.5277777777777779  | 0.5833333333333333  |
+| 150  | 0.6949152542372881  | 0.7083333333333334  | 0.44444444444444464 | 0.41666666666666674 |
++------+---------------------+---------------------+---------------------+---------------------+
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+</section>
 </section>
 <section id="langkah-langkah-algoritma-k-means">
 <h2>Langkah Langkah Algoritma K-Means<a class="headerlink" href="#langkah-langkah-algoritma-k-means" title="Link to this heading">#</a></h2>
@@ -717,8 +771,8 @@ $<span class="math notranslate nohighlight">\(
 d(\mathbf{x}, \mathbf{c}) = \sqrt{ \sum_{i=1}^{n} (x_i - c_i)^2 }
 \)</span>$</p></li>
 </ol>
-<section id="penjelasan">
-<h3>Penjelasan:<a class="headerlink" href="#penjelasan" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h3>Penjelasan:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{x} = (x_1, x_2, \ldots, x_n)\)</span>: vektor data.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbf{c} = (c_1, c_2, \ldots, c_n)\)</span>: vektor centroid.</p></li>
@@ -733,8 +787,8 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$</p></li>
 </ol>
 </section>
-<section id="id1">
-<h3>✅ Penjelasan:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>✅ Penjelasan:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>$\mu_k$</strong>
 Menyatakan <strong>centroid (titik pusat)</strong> dari klaster ke-<strong>$k$</strong>.</p></li>
@@ -1099,8 +1153,8 @@ z_{ij} = \frac{x_{ij} - \mu_j}{\sigma_j}
 </ul>
 </section>
 <hr class="docutils" />
-<section id="id2">
-<h3>💡 Contoh:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>💡 Contoh:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Jika kamu mengelompokkan bunga iris berdasarkan ukuran kelopak dan sepalnya, maka inersia menunjukkan <strong>seberapa dekat</strong> ukuran masing-masing bunga terhadap pusat dari kelompok (klaster) tempat dia masuk.</p>
 </section>
 <section id="rumus-inertia-k-means-total-within-cluster-sum-of-squares">
@@ -1575,12 +1629,12 @@ Semua ID yang tidak sesuai:
 <span class="n">centroidsC3</span> <span class="o">=</span> <span class="n">k_means_C3</span><span class="o">.</span><span class="n">cluster_centers_</span>
 <span class="n">InertiaC3</span> <span class="o">=</span> <span class="n">k_means_C3</span><span class="o">.</span><span class="n">inertia_</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inertia terbaik (2 klaster): </span><span class="si">{</span><span class="n">InertiaC3</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inertia terbaik (3 klaster): </span><span class="si">{</span><span class="n">InertiaC3</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inertia terbaik (2 klaster): 78.945066
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inertia terbaik (3 klaster): 78.945066
 </pre></div>
 </div>
 </div>
@@ -2188,8 +2242,8 @@ Inertia untuk k=10: 26.523455
 </tbody>
 </table>
 </div>
-<section id="id3">
-<h4>💡 Kesimpulan:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<section id="id4">
+<h4>💡 Kesimpulan:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Inertia</strong> mengalami penurunan signifikan dari <span class="math notranslate nohighlight">\(k = 2\)</span> ke <span class="math notranslate nohighlight">\(k = 3\)</span>, namun penurunannya melambat dari <span class="math notranslate nohighlight">\(k = 3\)</span> ke <span class="math notranslate nohighlight">\(k = 4\)</span>.</p></li>
 <li><p><strong>Silhouette Score</strong> terbaik terjadi pada <span class="math notranslate nohighlight">\(k = 2\)</span>, menunjukkan klaster yang paling terpisah dan kompak.</p></li>
@@ -2264,10 +2318,17 @@ Inertia untuk k=10: 26.523455
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instal-library-yang-dibutuhkan">Instal Library yang dibutuhkan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilkan-data">Tampilkan data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penghapusan-kolom-class-dan-standarisasi-dengan-standartscaller">Penghapusan kolom class dan standarisasi dengan standartscaller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penghapusan-kolom-class-dan-standarisasi-dengan-minmaxscaler">Penghapusan kolom class dan standarisasi dengan MinMaxScaler</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan">✅ Penjelasan:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#penghapusan-kolom-class">🔹 <strong>Penghapusan Kolom <code class="docutils literal notranslate"><span class="pre">Class</span></code></strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-dengan-minmaxscaler">🔹 <strong>Normalisasi dengan MinMaxScaler</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-algoritma-k-means">Langkah Langkah Algoritma K-Means</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan">Penjelasan:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ Penjelasan:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Penjelasan:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ Penjelasan:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-k-means-data-dengan-2-klaster">Visualisasi K-means data dengan 2 klaster</a><ul class="nav section-nav flex-column">
@@ -2284,7 +2345,7 @@ Inertia untuk k=10: 26.523455
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-klastering-menggunakan-inersia">Evaluasi Klastering menggunakan Inersia</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-inersia-dalam-k-means-clustering">📘 <strong>Pengertian Inersia dalam K-Means Clustering</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-inersia">🔍 Fungsi Inersia:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 Contoh:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">💡 Contoh:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-inertia-k-means-total-within-cluster-sum-of-squares">🧮 <strong>Rumus Inertia K-Means (Total Within-Cluster Sum of Squares):</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keterangan">📘 Keterangan:</a></li>
 </ul>
@@ -2308,7 +2369,7 @@ Inertia untuk k=10: 26.523455
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-metode-elbow">📉 <strong>Langkah-langkah Metode Elbow:</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">✅ <strong>Kesimpulan:</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-dari-hasil-evaluasi-k-means-clustering">✅ <strong>Kesimpulan dari Hasil Evaluasi K-Means Clustering</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">💡 Kesimpulan:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">💡 Kesimpulan:</a></li>
 </ul>
 </li>
 </ul>
