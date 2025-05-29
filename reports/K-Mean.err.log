@@ -18,57 +18,19 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
-val_X = df[['petal length', 'petal width', 'sepal length', 'sepal width']].values
-# Lakukan PCA untuk mereduksi data ke 2 dimensi
-pca = PCA(n_components=2)
-val_X_pca = pca.fit_transform(val_X)
-
-# Proyeksikan juga centroid ke ruang PCA
-centroidsC2_pca = pca.transform(centroidsC2)
-
-# Plot hasil klaster
-plt.figure(figsize=(8, 6))
-colors = ['red', 'blue']
-
-for i in range(2):  # Karena k=2
-    plt.scatter(
-        val_X_pca[labelC2 == i, 0],
-        val_X_pca[labelC2 == i, 1],
-        s=50,
-        c=colors[i],
-        label=f'Cluster {i}'
-    )
-
-# Plot centroid
-plt.scatter(
-    centroidsC2_pca[:, 0], centroidsC2_pca[:, 1],
-    s=200,
-    c='yellow',
-    edgecolor='black',
-    marker='X',
-    label='Centroid'
-)
-
-plt.title('KMeans Clustering with PCA (2D Projection)')
-plt.xlabel('Principal Component 1')
-plt.ylabel('Principal Component 2')
-plt.legend()
-plt.grid(True)
-plt.show()
+# Tampilkan pusat cluster awal
+centers_df = pd.DataFrame(scaler.inverse_transform(cntr), columns=feature_cols)
+print(tabulate(centers_df, headers="keys", tablefmt="psql", showindex=True))
 
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-4-58497f03b367>[0m in [0;36m<cell line: 0>[0;34m()[0m
-[1;32m      7[0m [0;34m[0m[0m
-[1;32m      8[0m [0;31m# Proyeksikan juga centroid ke ruang PCA[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 9[0;31m [0mcentroidsC2_pca[0m [0;34m=[0m [0mpca[0m[0;34m.[0m[0mtransform[0m[0;34m([0m[0mcentroidsC2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     10[0m [0;34m[0m[0m
-[1;32m     11[0m [0;31m# Plot hasil klaster[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-26-69a8e239b1ca>[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m      1[0m [0;31m# Tampilkan pusat cluster awal[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mcenters_df[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mscaler[0m[0;34m.[0m[0minverse_transform[0m[0;34m([0m[0mcntr[0m[0;34m)[0m[0;34m,[0m [0mcolumns[0m[0;34m=[0m[0mfeature_cols[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mprint[0m[0;34m([0m[0mtabulate[0m[0;34m([0m[0mcenters_df[0m[0;34m,[0m [0mheaders[0m[0;34m=[0m[0;34m"keys"[0m[0;34m,[0m [0mtablefmt[0m[0;34m=[0m[0;34m"psql"[0m[0;34m,[0m [0mshowindex[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mNameError[0m: name 'centroidsC2' is not defined
+[0;31mNameError[0m: name 'cntr' is not defined
 
