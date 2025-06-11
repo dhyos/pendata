@@ -1,0 +1,979 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Decision Tree &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DecisionTree';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Selamat datang di notebook penambangan data
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pemdatD_DataUnderstanding_23-175.html">Understanding Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeteksiOutlier.html">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LOF.html">Local Outlier Factor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Naive_Bayes.html">Naive Bayes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23-175_Ahmad%20Dhiyauddin_UTSPendat.html">UTS pendat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K-Mean.html">Klastering</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDecisionTree.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/DecisionTree.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Decision Tree</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-decision-tree">Langkah-langkah Decision Tree</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-entropy">Rumus Entropy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-threshold">🧮 Rumus Threshold</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ Rumus Threshold:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh">🧑‍🏫 Contoh:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-entropy-split">✅ APA ITU ENTROPY SPLIT?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-rumus">✅ LANGKAH-LANGKAH + RUMUS</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#tentukan-threshold-dan-bagi-data"><strong>1. Tentukan Threshold dan Bagi Data</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-entropy-masing-masing-subset"><strong>2. Hitung Entropy Masing-Masing Subset</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#a-entropy-untuk-s-57">🔹 a. Entropy untuk S ≤ 57</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-entropy-untuk-s-57">🔹 b. Entropy untuk S &gt; 57</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-information-gain">✅ <strong>Apa itu Information Gain?</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-information-gain">✅ <strong>Rumus Information Gain</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-perhitungan-contoh-kasus">✅ <strong>Langkah Perhitungan (Contoh Kasus)</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-information-gain">✅ <strong>Hitung Information Gain</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">✅ <strong>Kesimpulan</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="decision-tree">
+<h1>Decision Tree<a class="headerlink" href="#decision-tree" title="Link to this heading">#</a></h1>
+<p>Pohon Keputusan(Decision Tree adalah salah satu metode dalam penambangan data yang digunakan untuk klasifikasi dan regresi. Model ini sangat populer karena strukturnya yang intuitif, menyerupai diagram alir atau pohon, sehingga mudah dipahami bahkan oleh orang non-teknis.</p>
+<p>Secara sederhana, Decision Tree memetakan keputusan-keputusan yang mungkin diambil beserta konsekuensinya. Setiap simpul (node) dalam pohon merepresentasikan sebuah “tes” terhadap suatu atribut (fitur), setiap cabang (branch) merepresentasikan hasil dari tes tersebut, dan setiap daun (leaf node) merepresentasikan label kelas (keputusan akhir).</p>
+<p>Bagaimana Cara Kerjanya?</p>
+<p>Algoritma Decision Tree bekerja dengan cara mempartisi atau membagi data secara berulang-ulang berdasarkan fitur/atribut tertentu. Tujuannya adalah untuk membuat sub-grup data yang se-“murni” mungkin. “Murni” di sini berarti semua anggota dalam sub-grup tersebut memiliki kelas atau hasil yang sama.</p>
+<p>Proses utamanya adalah:</p>
+<ul class="simple">
+<li><p>Pilih Atribut Terbaik: Algoritma dimulai dari Simpul Akar (Root Node) yang berisi seluruh dataset. Kemudian, ia mencari atribut mana yang paling baik dalam memisahkan data menjadi kelompok-kelompok yang paling murni. Untuk mengukur “kemurnian” ini, metrik seperti Gini Impurity atau Information Gain (Entropy) digunakan.</p></li>
+<li><p>Lakukan Pemisahan (Splitting): Dataset dibagi menjadi beberapa subset berdasarkan nilai dari atribut yang terpilih. Setiap subset ini akan menjadi cabang baru.</p></li>
+<li><p>Ulangi Proses: Proses nomor 1 dan 2 diulangi untuk setiap subset (yang kini menjadi simpul baru) sampai salah satu kondisi berikut terpenuhi:</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Semua data dalam simpul sudah memiliki kelas yang sama (sudah murni).</p></li>
+<li><p>Tidak ada lagi atribut yang bisa digunakan untuk memisahkan data.</p></li>
+<li><p>Pohon sudah mencapai kedalaman maksimum yang ditentukan sebelumnya untuk mencegahnya menjadi terlalu rumit.</p></li>
+<li><p>Simpul yang tidak bisa dibagi lagi disebut Simpul Daun (Leaf Node) dan berisi keputusan atau prediksi akhir.</p></li>
+</ol>
+<p>Istilah Penting dalam Decision Tree</p>
+<ul class="simple">
+<li><p>Simpul Akar (Root Node): Simpul paling atas yang mewakili seluruh populasi atau dataset.</p></li>
+<li><p>Simpul Keputusan (Decision Node): Simpul yang memiliki dua atau lebih cabang, merepresentasikan sebuah tes pada suatu atribut.</p></li>
+<li><p>Simpul Daun (Leaf Node): Simpul akhir yang tidak bisa dipecah lagi dan menunjukkan hasil/keputusan akhir (label kelas).</p></li>
+<li><p>Pemisahan (Splitting): Proses membagi sebuah simpul keputusan menjadi sub-simpul.</p></li>
+<li><p>Pemangkasan (Pruning): Proses menghilangkan cabang dari pohon keputusan untuk mengurangi kompleksitas dan mencegah overfitting. Overfitting adalah kondisi di mana model terlalu “menghafal” data latih sehingga performanya buruk saat dihadapkan pada data baru.</p></li>
+</ul>
+<p>data</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>No</p></th>
+<th class="head text-center"><p>Jam Belajar per Minggu</p></th>
+<th class="head text-center"><p>Nilai Ujian Sebelumnya</p></th>
+<th class="head text-left"><p>Status Kelulusan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>1</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>55</p></td>
+<td class="text-left"><p>Tidak Lulus</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>2</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>50</p></td>
+<td class="text-left"><p>Tidak Lulus</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>3</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>45</p></td>
+<td class="text-left"><p>Tidak Lulus</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>4</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>40</p></td>
+<td class="text-left"><p>Tidak Lulus</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>5</p></td>
+<td class="text-center"><p>4</p></td>
+<td class="text-center"><p>59</p></td>
+<td class="text-left"><p>Lulus</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>6</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-center"><p>75</p></td>
+<td class="text-left"><p>Lulus</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>7</p></td>
+<td class="text-center"><p>6</p></td>
+<td class="text-center"><p>65</p></td>
+<td class="text-left"><p>Lulus</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>8</p></td>
+<td class="text-center"><p>10</p></td>
+<td class="text-center"><p>70</p></td>
+<td class="text-left"><p>Lulus</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>9</p></td>
+<td class="text-center"><p>5</p></td>
+<td class="text-center"><p>80</p></td>
+<td class="text-left"><p>Lulus</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>10</p></td>
+<td class="text-center"><p>9</p></td>
+<td class="text-center"><p>68</p></td>
+<td class="text-left"><p>Lulus</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>11</p></td>
+<td class="text-center"><p>12</p></td>
+<td class="text-center"><p>85</p></td>
+<td class="text-left"><p>Lulus dengan Pujian</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>12</p></td>
+<td class="text-center"><p>15</p></td>
+<td class="text-center"><p>90</p></td>
+<td class="text-left"><p>Lulus dengan Pujian</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>13</p></td>
+<td class="text-center"><p>11</p></td>
+<td class="text-center"><p>92</p></td>
+<td class="text-left"><p>Lulus dengan Pujian</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>14</p></td>
+<td class="text-center"><p>14</p></td>
+<td class="text-center"><p>88</p></td>
+<td class="text-left"><p>Lulus dengan Pujian</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>15</p></td>
+<td class="text-center"><p>13</p></td>
+<td class="text-center"><p>82</p></td>
+<td class="text-left"><p>Lulus dengan Pujian</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="langkah-langkah-decision-tree">
+<h2>Langkah-langkah Decision Tree<a class="headerlink" href="#langkah-langkah-decision-tree" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Menghitung Entropy Awal</strong></p></li>
+</ol>
+<p>Secara sederhana, Entropy adalah ukuran ketidakpastian, keacakan, atau ketidakteraturan dalam sekumpulan data. Semakin tinggi nilai Entropy, semakin acak dan tidak teratur data tersebut. Sebaliknya, semakin rendah nilai Entropy, semakin teratur dan mudah ditebak data tersebut.</p>
+<section id="rumus-entropy">
+<h3>Rumus Entropy<a class="headerlink" href="#rumus-entropy" title="Link to this heading">#</a></h3>
+<p>Rumus untuk menghitung Entropy adalah:</p>
+<div class="math notranslate nohighlight">
+\[Entropy(S) = \sum_{i=1}^{c} -p_i \log_2(p_i)\]</div>
+<p>Di mana:</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(S\)</span></strong> = Keseluruhan dataset.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(c\)</span></strong> = Jumlah kelas unik (dalam kasus ini ada 3: Tidak Lulus, Lulus, Lulus dengan Pujian).</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(p_i\)</span></strong> = Proporsi dari kelas ke-i dalam dataset(jumlah data kelas ke-i dibagi keseluruhan data).</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Urutkan datanya(jika berupa numerik)</strong>
+Pastikan untuk setiap fitur sudah berupa data yang terurut</p></li>
+<li><p><strong>📌 Penjelasan Threshold dalam Decision Tree</strong></p></li>
+</ol>
+<p><strong>Threshold</strong> dalam Decision Tree adalah batas nilai yang digunakan untuk memisahkan data pada atribut numerik (kontinu), seperti <em>Jam Belajar</em> atau <em>Nilai Ujian</em>. Tujuannya adalah membagi data ke dalam dua kelompok yang sehomogen mungkin terhadap label atau kelas (misalnya: Tidak Lulus, Lulus, Lulus dengan Pujian).</p>
+<p>Jika kita bisa membagi data dengan threshold sehingga:</p>
+<ul class="simple">
+<li><p>satu sisi didominasi oleh satu kelas tertentu (contoh: semua “Tidak Lulus”),</p></li>
+<li><p>dan sisi lainnya oleh kelas lain (contoh: semua “Lulus”),</p></li>
+</ul>
+<p>…maka model lebih akurat dan pohonnya lebih sederhana.</p>
+</section>
+<hr class="docutils" />
+<section id="rumus-threshold">
+<h3>🧮 Rumus Threshold<a class="headerlink" href="#rumus-threshold" title="Link to this heading">#</a></h3>
+<p>Threshold dicari di <strong>titik tengah antara dua nilai berurutan yang memiliki kelas berbeda</strong>. Ini disebut sebagai <strong>midpoint threshold</strong>.</p>
+<section id="id1">
+<h4>✅ Rumus Threshold:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Jika kamu memiliki dua nilai <code class="docutils literal notranslate"><span class="pre">v₁</span></code> dan <code class="docutils literal notranslate"><span class="pre">v₂</span></code> (urutan setelah sorting), maka:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Threshold} = \frac{v_1 + v_2}{2}
+\]</div>
+<p>Dengan syarat bahwa nilai <code class="docutils literal notranslate"><span class="pre">v₁</span></code> dan <code class="docutils literal notranslate"><span class="pre">v₂</span></code> berasal dari <strong>kelas yang berbeda</strong>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="contoh">
+<h3>🧑‍🏫 Contoh:<a class="headerlink" href="#contoh" title="Link to this heading">#</a></h3>
+<p>Misalkan data <code class="docutils literal notranslate"><span class="pre">Nilai</span> <span class="pre">Ujian</span></code> yang sudah diurutkan:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">40</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="mi">45</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="mi">50</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="mi">55</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="mi">59</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="mi">65</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Lihat perubahan kelas dari A → B di antara <strong>55 dan 59</strong>. Maka:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Threshold} = \frac{55 + 59}{2} = 57
+\]</div>
+<p>Threshold ini diuji untuk split: <code class="docutils literal notranslate"><span class="pre">nilai</span> <span class="pre">&lt;</span> <span class="pre">57</span></code> vs <code class="docutils literal notranslate"><span class="pre">nilai</span> <span class="pre">≥</span> <span class="pre">57</span></code>.</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>hitung entropy dari masing masing thresholdnya</strong></p></li>
+</ol>
+<p>Berikut adalah <strong>penjelasan lengkap</strong> dan <strong>rumus</strong> dari proses <strong>menghitung entropy split</strong> dalam decision tree (C4.5 atau ID3), berdasarkan contoh yang kamu berikan:</p>
+<hr class="docutils" />
+<section id="apa-itu-entropy-split">
+<h4>✅ APA ITU ENTROPY SPLIT?<a class="headerlink" href="#apa-itu-entropy-split" title="Link to this heading">#</a></h4>
+<p><strong>Entropy Split</strong> digunakan untuk mengukur <strong>ketidakpastian rata-rata</strong> dari pembagian data ke dalam dua subset berdasarkan <strong>threshold tertentu</strong> dari sebuah atribut.</p>
+<p>Tujuan dari menghitung entropy split adalah untuk mengetahui <strong>seberapa “bersih” pembagian data</strong> berdasarkan threshold tertentu. Semakin kecil nilai entropy split, semakin baik pembagiannya.</p>
+</section>
+<hr class="docutils" />
+<section id="langkah-langkah-rumus">
+<h4>✅ LANGKAH-LANGKAH + RUMUS<a class="headerlink" href="#langkah-langkah-rumus" title="Link to this heading">#</a></h4>
+<section id="tentukan-threshold-dan-bagi-data">
+<h5><strong>1. Tentukan Threshold dan Bagi Data</strong><a class="headerlink" href="#tentukan-threshold-dan-bagi-data" title="Link to this heading">#</a></h5>
+<p>Misalnya, kita pilih atribut <strong>Nilai Ujian</strong>, lalu threshold-nya adalah <strong>57</strong>.</p>
+<p>Maka:</p>
+<ul class="simple">
+<li><p><strong>S ≤ 57</strong> → Data dengan nilai ujian ≤ 57</p></li>
+<li><p><strong>S &gt; 57</strong> → Data dengan nilai ujian &gt; 57</p></li>
+</ul>
+<p>Contoh:</p>
+<ul class="simple">
+<li><p>S ≤ 57 → 4 data (semua dari kelas A)</p></li>
+<li><p>S &gt; 57 → 11 data (6 dari kelas B, 5 dari kelas C)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="hitung-entropy-masing-masing-subset">
+<h5><strong>2. Hitung Entropy Masing-Masing Subset</strong><a class="headerlink" href="#hitung-entropy-masing-masing-subset" title="Link to this heading">#</a></h5>
+<section id="a-entropy-untuk-s-57">
+<h6>🔹 a. Entropy untuk S ≤ 57<a class="headerlink" href="#a-entropy-untuk-s-57" title="Link to this heading">#</a></h6>
+<p>Karena semua data di subset ini berasal dari satu kelas (<strong>kelas A</strong>), maka entropinya <strong>0</strong> (tidak ada ketidakpastian):</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Entropy}(S_1) = 0
+\]</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="b-entropy-untuk-s-57">
+<h4>🔹 b. Entropy untuk S &gt; 57<a class="headerlink" href="#b-entropy-untuk-s-57" title="Link to this heading">#</a></h4>
+<p>Ada dua kelas: B dan C.</p>
+<ul class="simple">
+<li><p>Jumlah total data: 11</p></li>
+<li><p>Jumlah data kelas B: 6 → <span class="math notranslate nohighlight">\(p_B = \frac{6}{11}\)</span></p></li>
+<li><p>Jumlah data kelas C: 5 → <span class="math notranslate nohighlight">\(p_C = \frac{5}{11}\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Entropy}(S_2) = -p_B \cdot \log_2(p_B) - p_C \cdot \log_2(p_C)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+= -\left( \frac{6}{11} \log_2 \frac{6}{11} + \frac{5}{11} \log_2 \frac{5}{11} \right)
+\]</div>
+<p>Hitung:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{6}{11} ≈ 0.545,\quad \log_2(0.545) ≈ -0.874
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{5}{11} ≈ 0.455,\quad \log_2(0.455) ≈ -1.137
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+= -\left( 0.545 \cdot (-0.874) + 0.455 \cdot (-1.137) \right)
+= 0.476 + 0.518 = 0.994
+\]</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li><p><strong>Hitung Entropy Split Total</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\text{Entropy}_{split} = \frac{|S_1|}{|S|} \cdot \text{Entropy}(S_1) + \frac{|S_2|}{|S|} \cdot \text{Entropy}(S_2)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+= \frac{4}{15} \cdot 0 + \frac{11}{15} \cdot 0.994 = 0.7293
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p>** hitung information gainnya**
+Baik! Sekarang kita akan membahas langkah ke-5 dalam membangun decision tree, yaitu <strong>menghitung Information Gain (IG)</strong>. Di bawah ini penjelasan lengkapnya:</p></li>
+</ol>
+<hr class="docutils" />
+<section id="apa-itu-information-gain">
+<h5>✅ <strong>Apa itu Information Gain?</strong><a class="headerlink" href="#apa-itu-information-gain" title="Link to this heading">#</a></h5>
+<p><strong>Information Gain (IG)</strong> mengukur <strong>seberapa besar pengurangan entropi</strong> yang diperoleh dengan membagi data berdasarkan fitur tertentu.</p>
+<p>Artinya: Semakin tinggi nilai IG, semakin baik fitur tersebut dalam <strong>memisahkan kelas</strong> (misalnya, “Tidak Lulus”, “Lulus”, “Lulus dengan Pujian”).</p>
+</section>
+<hr class="docutils" />
+<section id="rumus-information-gain">
+<h5>✅ <strong>Rumus Information Gain</strong><a class="headerlink" href="#rumus-information-gain" title="Link to this heading">#</a></h5>
+<div class="math notranslate nohighlight">
+\[
+\text{Information Gain (IG)} = \text{Entropy Awal (S)} - \text{Entropy Split (S|A)}
+\]</div>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p><strong>Entropy(S)</strong>: Entropi seluruh dataset sebelum dibagi.</p></li>
+<li><p><strong>Entropy(S|A)</strong>: Entropi rata-rata setelah data dibagi berdasarkan atribut A.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="langkah-perhitungan-contoh-kasus">
+<h5>✅ <strong>Langkah Perhitungan (Contoh Kasus)</strong><a class="headerlink" href="#langkah-perhitungan-contoh-kasus" title="Link to this heading">#</a></h5>
+<p>Misalkan:</p>
+<ul>
+<li><p>Entropy awal seluruh dataset (sebelum split):</p>
+<div class="math notranslate nohighlight">
+\[
+  \text{Entropy}(S) = 1.566
+  \]</div>
+</li>
+<li><p>Entropy split setelah membagi berdasarkan atribut <strong>nilai ujian dengan threshold 57</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+  \text{Entropy}_{split} = 0.7293
+  \]</div>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="hitung-information-gain">
+<h5>✅ <strong>Hitung Information Gain</strong><a class="headerlink" href="#hitung-information-gain" title="Link to this heading">#</a></h5>
+<div class="math notranslate nohighlight">
+\[
+\text{IG} = 1.566 - 0.7293 = 0.8367
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h5>✅ <strong>Kesimpulan</strong><a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>Nilai <strong>Information Gain = 0.8367</strong></p></li>
+<li><p>Karena nilai ini <strong>cukup tinggi</strong>, maka atribut “Nilai Ujian” dengan threshold 57 adalah pembagi yang baik.</p></li>
+<li><p>Jika kamu membandingkan beberapa fitur, <strong>pilih fitur dengan IG tertinggi</strong> untuk menjadi <strong>node cabang utama</strong> pada decision tree.</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p><strong>Pilih Atribut dengan Information Gain Tertinggi</strong></p></li>
+</ol>
+<p>Fitur dengan IG tertinggi dipilih sebagai atribut pembagi (node).</p>
+<p>Threshold-nya digunakan untuk memisahkan data ke dalam cabang-cabang (misalnya, &lt;= threshold dan &gt; threshold).</p>
+<p>📌 Contoh:
+Jika “Nilai Ujian” dengan threshold 57 memiliki IG tertinggi, maka:</p>
+<p>Node decision tree → “Nilai Ujian &lt;= 57?”</p>
+<p>Cabang kiri (yes): Data dengan nilai ≤ 57</p>
+<p>Cabang kanan (no): Data dengan nilai &gt; 57</p>
+<ol class="arabic simple" start="6">
+<li><p>**buat cabang dan rekursif ulangi dari langkah 3</p></li>
+</ol>
+<p>Untuk masing-masing cabang (hasil split):</p>
+<p>a. Cek apakah entropi = 0 (pure):
+Jika ya → node menjadi leaf (kelas mayoritas di data cabang).</p>
+<p>Misalnya, jika semua datanya “Tidak Lulus”, maka labelnya langsung = “Tidak Lulus”.</p>
+<p>b. Jika entropi ≠ 0 (belum pure):
+Ulangi proses dari langkah 2 hingga 6 di subset data cabang itu:</p>
+<p>Hitung entropy</p>
+<p>Hitung IG semua fitur yang belum dipakai</p>
+<p>Pilih IG tertinggi</p>
+<p>Split lagi data</p>
+<p>Lanjutkan hingga semua data terklasifikasi dengan baik atau fitur habis</p>
+<ol class="arabic simple" start="7">
+<li><p>**Selesai Jika Semua Data Terklasifikasi</p></li>
+</ol>
+<p>Decision tree selesai jika:</p>
+<ul class="simple">
+<li><p>Semua node menjadi leaf (kelas sudah pure), atau</p></li>
+<li><p>Tidak ada lagi fitur yang bisa digunakan</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">export_graphviz</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">graphviz</span>
+
+<span class="c1"># 1. Menyiapkan Data</span>
+<span class="c1"># Membuat DataFrame dari data terakhir yang Anda berikan.</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Jam Belajar per Minggu&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
+    <span class="s1">&#39;Nilai Ujian Sebelumnya&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">55</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">82</span><span class="p">],</span>
+    <span class="s1">&#39;Status Kelulusan&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;Tidak Lulus&#39;</span><span class="p">,</span> <span class="s1">&#39;Tidak Lulus&#39;</span><span class="p">,</span> <span class="s1">&#39;Tidak Lulus&#39;</span><span class="p">,</span> <span class="s1">&#39;Tidak Lulus&#39;</span><span class="p">,</span> <span class="s1">&#39;Lulus&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Lulus&#39;</span><span class="p">,</span> <span class="s1">&#39;Lulus&#39;</span><span class="p">,</span> <span class="s1">&#39;Lulus&#39;</span><span class="p">,</span> <span class="s1">&#39;Lulus&#39;</span><span class="p">,</span> <span class="s1">&#39;Lulus&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Lulus dengan Pujian&#39;</span><span class="p">,</span> <span class="s1">&#39;Lulus dengan Pujian&#39;</span><span class="p">,</span> <span class="s1">&#39;Lulus dengan Pujian&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Lulus dengan Pujian&#39;</span><span class="p">,</span> <span class="s1">&#39;Lulus dengan Pujian&#39;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># 2. Preprocessing Data</span>
+<span class="c1"># Memisahkan fitur (X) dan target (y)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Jam Belajar per Minggu&#39;</span><span class="p">,</span> <span class="s1">&#39;Nilai Ujian Sebelumnya&#39;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Status Kelulusan&#39;</span><span class="p">]</span>
+
+<span class="c1"># Mengubah label target dari teks menjadi angka (0, 1, 2)</span>
+<span class="c1"># karena model memerlukan input numerik.</span>
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y_encoded</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="c1"># Mengetahui kelas asli dari label yang di-encode:</span>
+<span class="c1"># 0: Lulus, 1: Lulus dengan Pujian, 2: Tidak Lulus</span>
+<span class="c1"># (urutan berdasarkan abjad)</span>
+<span class="n">class_names_original</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">classes_</span>
+
+<span class="c1"># 3. Membuat dan Melatih Model Decision Tree</span>
+<span class="c1"># Membuat model. max_depth=3 berarti pohon tidak akan lebih dari 3 tingkat,</span>
+<span class="c1"># untuk mencegah terlalu rumit dan mudah dibaca.</span>
+<span class="c1"># criterion=&#39;entropy&#39; agar sesuai dengan perhitungan manual kita.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Melatih model dengan seluruh data</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_encoded</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model Decision Tree berhasil dilatih.&quot;</span><span class="p">)</span>
+
+<span class="c1"># 4. Visualisasi Pohon Keputusan</span>
+<span class="c1"># Mengekspor model ke dalam format DOT</span>
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">export_graphviz</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">out_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="n">class_names</span><span class="o">=</span><span class="n">class_names_original</span><span class="p">,</span>
+    <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Menampilkan grafik di notebook</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="n">dot_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Visualisasi Pohon Keputusan:&quot;</span><span class="p">)</span>
+<span class="c1"># Untuk menyimpan gambar sebagai file PNG</span>
+<span class="c1"># graph.render(&quot;decision_tree_kelulusan&quot;)</span>
+<span class="n">graph</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Decision Tree berhasil dilatih.
+
+Visualisasi Pohon Keputusan:
+</pre></div>
+</div>
+<img alt="_images/32960f4f3fbd78a71aae4189af2156cf9c6107a19b674e02138a303760621797.svg" src="_images/32960f4f3fbd78a71aae4189af2156cf9c6107a19b674e02138a303760621797.svg" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-decision-tree">Langkah-langkah Decision Tree</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-entropy">Rumus Entropy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-threshold">🧮 Rumus Threshold</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ Rumus Threshold:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh">🧑‍🏫 Contoh:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-entropy-split">✅ APA ITU ENTROPY SPLIT?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-rumus">✅ LANGKAH-LANGKAH + RUMUS</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#tentukan-threshold-dan-bagi-data"><strong>1. Tentukan Threshold dan Bagi Data</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-entropy-masing-masing-subset"><strong>2. Hitung Entropy Masing-Masing Subset</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#a-entropy-untuk-s-57">🔹 a. Entropy untuk S ≤ 57</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-entropy-untuk-s-57">🔹 b. Entropy untuk S &gt; 57</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-information-gain">✅ <strong>Apa itu Information Gain?</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-information-gain">✅ <strong>Rumus Information Gain</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-perhitungan-contoh-kasus">✅ <strong>Langkah Perhitungan (Contoh Kasus)</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-information-gain">✅ <strong>Hitung Information Gain</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">✅ <strong>Kesimpulan</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
