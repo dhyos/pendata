@@ -83,9 +83,9 @@ try:
 
     # Menampilkan 3 data awal, tanda "..." di tengah, dan 3 data akhir
     df_selected = pd.concat([
-        combined_df.head(30),
+        combined_df.head(15),
         pd.DataFrame([["..."] * len(combined_df.columns)], columns=combined_df.columns),
-        combined_df.tail(30)
+        combined_df.tail(15)
     ])
     # Menampilkan hasil dalam format tabel
     print(tabulate(df_selected, headers="keys", tablefmt="psql", showindex=False))
@@ -107,7 +107,7 @@ Error: could not translate host name "posgesqlpendata23-175-posgresqlpendata23-1
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipython-input-2-4161431930.py[0m in [0;36m<cell line: 0>[0;34m()[0m
+[0;32m/tmp/ipython-input-2-2313654116.py[0m in [0;36m<cell line: 0>[0;34m()[0m
 [1;32m     69[0m [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 [1;32m     70[0m     [0;31m# Menutup koneksi[0m[0;34m[0m[0;34m[0m[0m
 [0;32m---> 71[0;31m     [0;32mif[0m [0mcur[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m

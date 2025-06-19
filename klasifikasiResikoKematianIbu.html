@@ -1,0 +1,2098 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Klasifikasi Resiko Kematian Ibu &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'klasifikasiResikoKematianIbu';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Binning(Discretisasasi) Menggunakan K-Mean kLastering" href="DiscretisasiBinning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Selamat datang di notebook penambangan data
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pemdatD_DataUnderstanding_23-175.html">Understanding Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeteksiOutlier.html">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LOF.html">Local Outlier Factor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Naive_Bayes.html">Naive Bayes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23-175_Ahmad%20Dhiyauddin_UTSPendat.html">UTS pendat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K-Mean.html">Klastering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTree.html">Decision Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DiscretisasiBinning.html">Binning(Discretisasasi) Menggunakan K-Mean kLastering</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Klasifikasi Resiko Kematian Ibu</a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FklasifikasiResikoKematianIbu.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/klasifikasiResikoKematianIbu.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Klasifikasi Resiko Kematian Ibu</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Klasifikasi Resiko Kematian Ibu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">Data Understanding</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">Sumber Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intergrasi-data">Intergrasi data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">Struktur dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-kualitas-dataset">Identifikasi Kualitas dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-mising-value">Deteksi Mising Value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendeteksian-outlier">Pendeteksian Outlier</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-local-outlier-factor">Konsep Local Outlier Factor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-local-outlier-factor-dengan-scikit-learn">Implementasi local outlier factor dengan scikit learn</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocesing">Preprocesing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binning">🔄 Binning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#teknik-binning-yang-digunakan">🔧 Teknik Binning yang Digunakan:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-binning">📌 Tujuan Binning:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-klasifikasi-gaussian-naive-bayes">Modelling Klasifikasi Gaussian Naive Bayes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menggembalikan-setiap-fiturnya-tanpa-menggunakan-binning">Menggembalikan setiap fiturnya tanpa menggunakan binning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-dengan-menggunakan-decision-tree">Modeling dengan menggunakan decision tree</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-decision-tree">📌 Apa itu Decision Tree?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pemilihan-fitur">📐 Pemilihan Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritma-dan-rumus">⚙️ Algoritma dan Rumus</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy">🔹 Entropy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#information-gain">🔹 Information Gain</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model">🧪 Evaluasi Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Menggembalikan setiap fiturnya tanpa menggunakan binning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="klasifikasi-resiko-kematian-ibu">
+<h1>Klasifikasi Resiko Kematian Ibu<a class="headerlink" href="#klasifikasi-resiko-kematian-ibu" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pendahuluan">
+<h1>Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h1>
+<p>Kesehatan ibu selama masa kehamilan adalah pilar fundamental bagi kesehatan masyarakat dan merupakan indikator penting kemajuan suatu negara. Angka kematian ibu (AKI) atau maternal mortality masih menjadi tantangan kesehatan global yang serius, sehingga penurunannya menjadi salah satu fokus utama dalam Tujuan Pembangunan Berkelanjutan (SDGs) yang dicanangkan oleh Perserikatan Bangsa-Bangsa (PBB). Deteksi dini dan pemantauan faktor risiko selama kehamilan merupakan kunci strategi untuk mencegah komplikasi yang dapat berujung fatal.</p>
+<p>Tingkat Risiko Kesehatan Ibu adalah sebuah klasifikasi yang digunakan untuk mengestimasi potensi bahaya atau komplikasi yang mungkin dihadapi seorang wanita selama kehamilannya. Risiko ini dapat dikategorikan menjadi beberapa tingkatan, seperti risiko rendah, sedang, hingga tinggi, berdasarkan kondisi fisiologis ibu. Untuk menentukan tingkat risiko ini, sejumlah parameter vital dianalisis secara cermat. Faktor-faktor ini mencakup Usia, Tekanan Darah (Sistolik dan Diastolik), kadar Gula Darah, Suhu Tubuh, dan Denyut Jantung. Analisis terhadap atribut-atribut ini memungkinkan tenaga medis untuk memprediksi tingkat risiko secara proaktif, sehingga intervensi yang tepat dapat diberikan lebih awal untuk menjaga keselamatan ibu dan janin.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
+<h1>Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
+<section id="sumber-data">
+<h2>Sumber Data<a class="headerlink" href="#sumber-data" title="Link to this heading">#</a></h2>
+<p>Dataset ini diambil</p>
+<p><a class="reference external" href="https://archive.ics.uci.edu/dataset/863/maternal+health+risk">https://archive.ics.uci.edu/dataset/863/maternal+health+risk</a></p>
+<p>Data telah dikumpulkan dari berbagai rumah sakit, klinik masyarakat, perawatan kesehatan ibu dari daerah pedesaan Bangladesh melalui sistem pemantauan risiko berbasis IoT.</p>
+</section>
+<section id="tujuan">
+<h2>Tujuan<a class="headerlink" href="#tujuan" title="Link to this heading">#</a></h2>
+<p>dataset ini digunakan untuk mengembangkan model prediktif dalam mendeteksi resiko kematian ibu yang dibedakan menjadi 3 klasifikasi resiko rendah sedang dan tinggi</p>
+</section>
+<section id="intergrasi-data">
+<h2>Intergrasi data<a class="headerlink" href="#intergrasi-data" title="Link to this heading">#</a></h2>
+<p>untuk mengambil data agar dapat diolah, perlu untuk menginstall package yang telah disediakan oleh UCI Dataset. Instalasi dilakukan berguna untuk menarik data yang berasal dari UCI dataset agar dapat diolah. peritah untuk mengambil data dari UCI dataset dapat di lihat ketika menekan tombol import in python pada datase yang diinginkan dan ikuti perintah tersebut agar data dapat diambil dari UCI dataset. Contoh pengambilan data dari UCI dataset dapat dilihat pada gambar dan perintah berikut:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ucimlrepo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ucimlrepo in /usr/local/lib/python3.11/dist-packages (0.0.7)
+Requirement already satisfied: pandas&gt;=1.0.0 in /usr/local/lib/python3.11/dist-packages (from ucimlrepo) (2.2.2)
+Requirement already satisfied: certifi&gt;=2020.12.5 in /usr/local/lib/python3.11/dist-packages (from ucimlrepo) (2025.6.15)
+Requirement already satisfied: numpy&gt;=1.23.2 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2.0.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2025.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2025.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.0.0-&gt;ucimlrepo) (1.17.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ucimlrepo</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_ucirepo</span>
+
+<span class="c1"># fetch dataset</span>
+<span class="n">maternal_health_risk</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">863</span><span class="p">)</span>
+
+<span class="c1"># data (as pandas dataframes)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">maternal_health_risk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">features</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">maternal_health_risk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">targets</span>
+<span class="c1"># menyimpan data</span>
+<span class="n">data</span><span class="o">=</span><span class="n">maternal_health_risk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">original</span>
+<span class="c1"># metadata</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">maternal_health_risk</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+
+<span class="c1"># variable information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">maternal_health_risk</span><span class="o">.</span><span class="n">variables</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;uci_id&#39;: 863, &#39;name&#39;: &#39;Maternal Health Risk&#39;, &#39;repository_url&#39;: &#39;https://archive.ics.uci.edu/dataset/863/maternal+health+risk&#39;, &#39;data_url&#39;: &#39;https://archive.ics.uci.edu/static/public/863/data.csv&#39;, &#39;abstract&#39;: &#39;Data has been collected from different hospitals, community clinics, maternal health cares from the rural areas of Bangladesh through the IoT based risk monitoring system.&#39;, &#39;area&#39;: &#39;Health and Medicine&#39;, &#39;tasks&#39;: [&#39;Classification&#39;], &#39;characteristics&#39;: [&#39;Multivariate&#39;], &#39;num_instances&#39;: 1013, &#39;num_features&#39;: 6, &#39;feature_types&#39;: [&#39;Real&#39;, &#39;Integer&#39;], &#39;demographics&#39;: [&#39;Age&#39;], &#39;target_col&#39;: [&#39;RiskLevel&#39;], &#39;index_col&#39;: None, &#39;has_missing_values&#39;: &#39;no&#39;, &#39;missing_values_symbol&#39;: None, &#39;year_of_dataset_creation&#39;: 2020, &#39;last_updated&#39;: &#39;Fri Nov 03 2023&#39;, &#39;dataset_doi&#39;: &#39;10.24432/C5DP5D&#39;, &#39;creators&#39;: [&#39;Marzia Ahmed&#39;], &#39;intro_paper&#39;: {&#39;ID&#39;: 274, &#39;type&#39;: &#39;NATIVE&#39;, &#39;title&#39;: &#39;Review and Analysis of Risk Factor of Maternal Health in Remote Area Using the Internet of Things (IoT)&#39;, &#39;authors&#39;: &#39;Marzia Ahmed, M. A. Kashem, Mostafijur Rahman, S. Khatun&#39;, &#39;venue&#39;: &#39; Lecture Notes in Electrical Engineering, vol 632&#39;, &#39;year&#39;: 2020, &#39;journal&#39;: None, &#39;DOI&#39;: None, &#39;URL&#39;: &#39;https://www.semanticscholar.org/paper/f175092a3b2217c9abca5bf5d91bab3c245c6b10&#39;, &#39;sha&#39;: None, &#39;corpus&#39;: None, &#39;arxiv&#39;: None, &#39;mag&#39;: None, &#39;acl&#39;: None, &#39;pmid&#39;: None, &#39;pmcid&#39;: None}, &#39;additional_info&#39;: {&#39;summary&#39;: &#39;Age, Systolic Blood Pressure as SystolicBP, Diastolic BP as DiastolicBP, Blood Sugar as BS, Body Temperature as BodyTemp, HeartRate and RiskLevel. All these are the responsible and significant risk factors for maternal mortality, that is one of the main concern of SDG of UN.&#39;, &#39;purpose&#39;: None, &#39;funded_by&#39;: None, &#39;instances_represent&#39;: None, &#39;recommended_data_splits&#39;: None, &#39;sensitive_data&#39;: None, &#39;preprocessing_description&#39;: None, &#39;variable_info&#39;: None, &#39;citation&#39;: None}}
+          name     role         type demographic  \
+0          Age  Feature      Integer         Age   
+1   SystolicBP  Feature      Integer        None   
+2  DiastolicBP  Feature      Integer        None   
+3           BS  Feature      Integer        None   
+4     BodyTemp  Feature      Integer        None   
+5    HeartRate  Feature      Integer        None   
+6    RiskLevel   Target  Categorical        None   
+
+                                         description   units missing_values  
+0    Any ages in years when a women during pregnant.    None             no  
+1  Upper value of Blood Pressure in mmHg, another...    None             no  
+2  Lower value of Blood Pressure in mmHg, another...    None             no  
+3  Blood glucose levels is in terms of a molar co...  mmol/L             no  
+4                                               None       F             no  
+5                        A normal resting heart rate     bpm             no  
+6  Predicted Risk Intensity Level during pregnanc...    None             no  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eksplorasi-data">
+<h2>Eksplorasi Data<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h2>
+<section id="visualisasi-data">
+<h3>Visualisasi Data<a class="headerlink" href="#visualisasi-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1">#display dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-84707883-0202-4390-8380-72c005baac3b" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>SystolicBP</th>
+      <th>DiastolicBP</th>
+      <th>BS</th>
+      <th>BodyTemp</th>
+      <th>HeartRate</th>
+      <th>RiskLevel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25</td>
+      <td>130</td>
+      <td>80</td>
+      <td>15.0</td>
+      <td>98.0</td>
+      <td>86</td>
+      <td>high risk</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>35</td>
+      <td>140</td>
+      <td>90</td>
+      <td>13.0</td>
+      <td>98.0</td>
+      <td>70</td>
+      <td>high risk</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>29</td>
+      <td>90</td>
+      <td>70</td>
+      <td>8.0</td>
+      <td>100.0</td>
+      <td>80</td>
+      <td>high risk</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>30</td>
+      <td>140</td>
+      <td>85</td>
+      <td>7.0</td>
+      <td>98.0</td>
+      <td>70</td>
+      <td>high risk</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>35</td>
+      <td>120</td>
+      <td>60</td>
+      <td>6.1</td>
+      <td>98.0</td>
+      <td>76</td>
+      <td>low risk</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1009</th>
+      <td>22</td>
+      <td>120</td>
+      <td>60</td>
+      <td>15.0</td>
+      <td>98.0</td>
+      <td>80</td>
+      <td>high risk</td>
+    </tr>
+    <tr>
+      <th>1010</th>
+      <td>55</td>
+      <td>120</td>
+      <td>90</td>
+      <td>18.0</td>
+      <td>98.0</td>
+      <td>60</td>
+      <td>high risk</td>
+    </tr>
+    <tr>
+      <th>1011</th>
+      <td>35</td>
+      <td>85</td>
+      <td>60</td>
+      <td>19.0</td>
+      <td>98.0</td>
+      <td>86</td>
+      <td>high risk</td>
+    </tr>
+    <tr>
+      <th>1012</th>
+      <td>43</td>
+      <td>120</td>
+      <td>90</td>
+      <td>18.0</td>
+      <td>98.0</td>
+      <td>70</td>
+      <td>high risk</td>
+    </tr>
+    <tr>
+      <th>1013</th>
+      <td>32</td>
+      <td>120</td>
+      <td>65</td>
+      <td>6.0</td>
+      <td>101.0</td>
+      <td>76</td>
+      <td>mid risk</td>
+    </tr>
+  </tbody>
+</table>
+<p>1014 rows × 7 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-84707883-0202-4390-8380-72c005baac3b')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-84707883-0202-4390-8380-72c005baac3b button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-84707883-0202-4390-8380-72c005baac3b');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;RiskLevel&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;jumlah seample per label&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;jumlah sampel&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipython-input-4-2979071122.py:6: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.countplot(x=&#39;RiskLevel&#39;,data=data,palette=&#39;viridis&#39;)
+</pre></div>
+</div>
+<img alt="_images/f19ca17e93e242d557edb69e8bc414538f8d50277f9c934d1e561a191b10d64a.png" src="_images/f19ca17e93e242d557edb69e8bc414538f8d50277f9c934d1e561a191b10d64a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualisasi distribusi fitur dengan histogram</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">data</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;distribusi fitur&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1200x1000 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="_images/de7e5b810be499bc2dd67d2fd887b48ff33467afd4a097299ceb4a7bf7fdb523.png" src="_images/de7e5b810be499bc2dd67d2fd887b48ff33467afd4a097299ceb4a7bf7fdb523.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="struktur-dataset">
+<h2>Struktur dataset<a class="headerlink" href="#struktur-dataset" title="Link to this heading">#</a></h2>
+<p>Fitur dan Label</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1014, 7)
+</pre></div>
+</div>
+</div>
+</div>
+<p>terdapat 1014 baris dan 6 kolom</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Age&#39;, &#39;SystolicBP&#39;, &#39;DiastolicBP&#39;, &#39;BS&#39;, &#39;BodyTemp&#39;, &#39;HeartRate&#39;,
+       &#39;RiskLevel&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Fitur (Features)</strong></p>
+<p>Fitur adalah atribut atau variabel independen dalam dataset yang digunakan untuk membuat prediksi. Terdapat 6 fitur pada dataset ini:</p>
+<p>Age : Berisi usia ibu dalam satuan tahun pada saat pendataan.</p>
+<p>SystolicBP : Berisi nilai tekanan darah sistolik, yaitu tekanan puncak pada arteri saat jantung berkontraksi (berdetak). Satuannya adalah mmHg.</p>
+<p>DiastolicBP : Berisi nilai tekanan darah diastolik, yaitu tekanan terendah pada arteri saat jantung berelaksasi (beristirahat di antara detak). Satuannya adalah mmHg.</p>
+<p>BS : Merupakan singkatan dari Blood Sugar. Fitur ini berisi kadar glukosa darah ibu, yang merupakan indikator penting untuk kondisi seperti diabetes gestasional.</p>
+<p>BodyTemp : Berisi data suhu tubuh ibu. Berdasarkan metadata, satuan yang digunakan adalah Fahrenheit (°F).</p>
+<p>HeartRate : Berisi data denyut jantung istirahat ibu dalam satuan denyut per menit (beats per minute atau bpm).</p>
+<p>Label (Target)
+Label adalah variabel dependen atau target yang ingin diprediksi oleh model machine learning. Label merupakan output yang dipelajari oleh model dari data. Terdapat 1 field label dengan 3 tipe pada dataset ini:</p>
+<ul class="simple">
+<li><p>low risk : Menunjukkan bahwa kondisi ibu tergolong berisiko rendah terhadap komplikasi kesehatan selama kehamilan.</p></li>
+<li><p>mid risk : Menunjukkan bahwa kondisi ibu tergolong berisiko menengah.</p></li>
+<li><p>high risk : Menunjukkan bahwa kondisi ibu tergolong berisiko tinggi dan memerlukan pemantauan lebih intensif.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Age</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>SystolicBP</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>DiastolicBP</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>BS</th>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>BodyTemp</th>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>HeartRate</th>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>RiskLevel</th>
+      <td>object</td>
+    </tr>
+  </tbody>
+</table>
+</div><br><label><b>dtype:</b> object</label></div></div>
+</div>
+<p>Penjelasan:</p>
+<p>Age	(numerik)
+SystolicBP	(numerik)
+DiastolicBP	(numerik)
+BS	(numerik)
+BodyTemp	(numerik)
+HeartRate	(numerik)
+RiskLevel (kategorical)
+kategorical:
+low risk,mid risk,high risk,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;RiskLevel&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="c1"># mengetahui jumlah masing masing class</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+    <tr>
+      <th>RiskLevel</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>high risk</th>
+      <td>272</td>
+    </tr>
+    <tr>
+      <th>low risk</th>
+      <td>406</td>
+    </tr>
+    <tr>
+      <th>mid risk</th>
+      <td>336</td>
+    </tr>
+  </tbody>
+</table>
+</div><br><label><b>dtype:</b> int64</label></div></div>
+</div>
+</section>
+<section id="identifikasi-kualitas-dataset">
+<h2>Identifikasi Kualitas dataset<a class="headerlink" href="#identifikasi-kualitas-dataset" title="Link to this heading">#</a></h2>
+</section>
+<section id="deteksi-mising-value">
+<h2>Deteksi Mising Value<a class="headerlink" href="#deteksi-mising-value" title="Link to this heading">#</a></h2>
+<p>Missing value merupakan data yang hilang pada suatu dataset. Hal ini bisa terjadi oleh beberapa faktor, diantaranya adalah :</p>
+<p>Interviewer recording error terjadi akibat kelalaian petugas pengumpul data (pewawancara), misalnya ada sejumlah pertanyaan yang terlewatkan.</p>
+<p>Respondent inability error terjadi akibat ketidakmampuan responden dalam memberikan jawaban akurat, misalnya karena tidak memahami pertanyaan, bosan atau kelelahan (respondent fatigue) akhirnya responden mengosongkan sejumlah pertanyaan atau berhenti mengisi kuesioner di tengah jalan.</p>
+<p>Unwillingness respondent error terjadi karena responden tidak berkenan memberikan jawaban yang akurat, misalnya pertanyaan soal penghasilan, usia, berat badan, pengalaman melakukan pelanggaran hukum, dll.</p>
+<p>Cara penanganan Missing Values :</p>
+<ul class="simple">
+<li><p>bMengabaikan dan membuang missing data.</p></li>
+<li><p>Estimasi parameter.</p></li>
+<li><p>Imputasi.</p></li>
+</ul>
+<p>Dalam modul kali ini saya akan menangani missing values menggunakan metode imputasi, yang ada 2 metode yaitu menggunakan metode Mean dan menggunakan metode KNN.</p>
+<p>pada kolom di bawah ini akan dilakukan pendeteksian missing values terlebih dahulu pada masing-masing kolom.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Detect rows with missing values</span>
+<span class="n">rows_with_missing</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="c1"># Tampilkan baris dengan nilai yang hilang beserta ID, fitur, dan labelnya</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rows with Missing Values:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rows_with_missing</span><span class="p">)</span>
+
+<span class="c1"># Detect missing values</span>
+<span class="n">missing_values</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+
+<span class="c1"># Hitung nilai yang hilang di setiap kolom</span>
+<span class="n">missing_counts</span> <span class="o">=</span> <span class="n">missing_values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># Display missing value counts</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Missing Value Counts:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">missing_counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows with Missing Values:
+Empty DataFrame
+Columns: [Age, SystolicBP, DiastolicBP, BS, BodyTemp, HeartRate, RiskLevel]
+Index: []
+Missing Value Counts:
+Age            0
+SystolicBP     0
+DiastolicBP    0
+BS             0
+BodyTemp       0
+HeartRate      0
+RiskLevel      0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Berdasarkan pengecekan mising value di atas didapatkan hasil bahwasanya tidak ada mising value</p>
+</section>
+<section id="pendeteksian-outlier">
+<h2>Pendeteksian Outlier<a class="headerlink" href="#pendeteksian-outlier" title="Link to this heading">#</a></h2>
+<p>Outlier/pencilan merupakan data pada dataset yang menyimpang dari data lainnya,mendeteksi outlier perlu agar data yang diolah memberikan hasil yang baik pada model yang akan dibuat nantinya. Outlier dapat diidentifikasi dan ditangani dengan beberapa cara antara lain yang akan kami gunakan yaitu LOF(Local Outlier Factor).</p>
+<section id="konsep-local-outlier-factor">
+<h3>Konsep Local Outlier Factor<a class="headerlink" href="#konsep-local-outlier-factor" title="Link to this heading">#</a></h3>
+<p>Outlier adalah titik data yang berbeda atau jauh dari titik data lainnya. Local Outlier Factor (LOF) adalah algoritma yang mengidentifikasi outlier yang ada dalam kumpulan data. Ketika suatu titik dianggap sebagai outlier berdasarkan lingkungan lokalnya, maka titik tersebut disebut local outlier. LOF akan mengidentifikasi outlier dengan mempertimbangkan kepadatan lingkungan. LOF bekerja dengan baik ketika kepadatan data tidak sama di seluruh kumpulan data.</p>
+<p>Untuk memahami LOF, ada beberapa konsep yang harus dipelajari secara berurutan:</p>
+<ul class="simple">
+<li><p>K-distance dan K-neighbors</p></li>
+<li><p>Reachability Distance (RD)</p></li>
+<li><p>Local Reachability Density (LRD)</p></li>
+<li><p>Local Outlier Factor (LOF)</p></li>
+</ul>
+<p>K-distance &amp; K-neighbors</p>
+<p><img alt="image.png" src="data:image/png;base64,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" /></p>
+<p>K-distance adalah jarak antara suatu titik, dan merupakan tetangga terdekat Kᵗʰ. Tetangga K yang dilambangkan dengan Nₖ(A) mencakup himpunan titik yang terletak di dalam atau pada lingkaran berjari-jari jarak K. K-tetangga bisa lebih dari atau sama dengan nilai K. Kita akan melihat contohnya. Katakanlah kita mempunyai empat titik A, B, C, dan D. Jika K=2, K-tetangga A adalah C, B, dan D. Di sini, nilai K=2 tetapi ||N₂(A)|| = 3. Oleh karena itu, ||Nₖ(titik)|| akan selalu lebih besar atau sama dengan K.</p>
+<p>Reachability Distance (RD)</p>
+<p>Ini didefinisikan sebagai jarak K maksimum Xj dan jarak antara Xi dan Xj. Ukuran jarak bersifat khusus untuk masalah (Euclidean, Manhattan, dll.) Dalam istilah awam, jika titik Xi terletak di dalam K-tetangga Xj, maka jarak jangkauannya adalah K-jarak Xj (garis biru), jika tidak, jarak jangkauannya adalah jarak antara Xi dan Xj (garis oranye).</p>
+<p>Local reachability density (LRD)</p>
+<div class="math notranslate nohighlight">
+\[
+\text{LRD}_k(A) = \frac{1}{\frac{\sum_{B \in N_k(A)} \text{reach-dist}_k(A, B)}{|N_k(A)|}} = \frac{|N_k(A)|}{\sum_{B \in N_k(A)} \text{reach-dist}_k(A, B)}
+\]</div>
+<p>LRD merupakan kebalikan dari rata-rata jarak jangkauan A dari tetangganya. Semakin besar jarak jangkauan rata-rata (yaitu, tetangga jauh dari titik tersebut), semakin sedikit kepadatan titik yang ada di sekitar titik tertentu. Ini menunjukkan seberapa jauh suatu titik dari kelompok titik terdekat. Nilai LRD yang rendah menunjukkan bahwa cluster terdekat berada jauh dari titik.</p>
+<p>Local Outlier Factor (LOF)</p>
+<div class="math notranslate nohighlight">
+\[
+\text{LOF}_k(A) = \frac{\sum_{B \in N_k(A)} \frac{\text{LRD}_k(B)}{\text{LRD}_k(A)}}{|N_k(A)|}
+\]</div>
+<p>LRD tiap titik digunakan untuk membandingkan dengan rata-rata LRD K tetangganya. LOF adalah perbandingan rata-rata LRD K tetangga A terhadap LRD A. Jika suatu titik bukan merupakan pencilan (inlier), rasio rata-rata LRD tetangganya kira-kira sama dengan LRD suatu titik (karena kepadatan suatu titik dan tetangganya kira-kira sama). Dalam hal ini, LOF hampir sama dengan 1. Sebaliknya, jika suatu titik merupakan outlier, LRD suatu titik lebih kecil dari rata-rata LRD tetangganya. Maka nilai LOF akan tinggi. Umumnya jika LOF &gt; 1 maka dianggap outlier, namun hal tersebut tidak selalu benar. Katakanlah kita mengetahui bahwa kita hanya memiliki satu outlier dalam data, lalu kita ambil nilai LOF maksimum di antara semua nilai LOF, dan titik yang sesuai dengan nilai LOF maksimum akan dianggap sebagai outlier.</p>
+<p>Untuk langkah-langkah perhitungan manual Local Outlier Factor (LOF) yaitu :</p>
+<ol class="arabic simple">
+<li><p>Menghitung jarak dan menentukan tetangga</p></li>
+<li><p>Menghitung Reachability Distance (RD)</p></li>
+<li><p>Menghitung Local Reachability Distance (LRD)</p></li>
+<li><p>Menghitung Local Outlier Factor (LOF)</p></li>
+</ol>
+</section>
+</section>
+<section id="implementasi-local-outlier-factor-dengan-scikit-learn">
+<h2>Implementasi local outlier factor dengan scikit learn<a class="headerlink" href="#implementasi-local-outlier-factor-dengan-scikit-learn" title="Link to this heading">#</a></h2>
+<p>dengan code di bawah ini</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">precision_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># membuat model lof</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span><span class="s2">&quot;SystolicBP&quot;</span><span class="p">,</span><span class="s2">&quot;DiastolicBP&quot;</span><span class="p">,</span><span class="s2">&quot;BS&quot;</span><span class="p">,</span><span class="s2">&quot;BodyTemp&quot;</span><span class="p">,</span><span class="s2">&quot;HeartRate&quot;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data fitur (X) siap untuk dianalisis dengan ukuran: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data fitur (X) siap untuk dianalisis dengan ukuran: (1014, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inisialisasi model LOF</span>
+<span class="c1"># Menggunakan n_neighbors=20 (default) dan contamination=&#39;auto&#39;</span>
+<span class="c1"># contamination=&#39;auto&#39; adalah pendekatan yang baik jika Anda tidak yakin</span>
+<span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">contamination</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+
+<span class="c1"># Melakukan fitting model ke data dan memprediksi outlier</span>
+<span class="c1"># Output: 1 untuk inlier, -1 untuk outlier</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prediksi selesai. Berikut adalah beberapa hasil prediksi:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span> <span class="c1"># Menampilkan 20 prediksi pertama</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediksi selesai. Berikut adalah beberapa hasil prediksi:
+[-1  1  1  1  1 -1 -1  1  1  1  1  1  1  1  1  1  1  1  1  1]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.11/dist-packages/sklearn/neighbors/_lof.py:322: UserWarning: Duplicate values are leading to incorrect results. Increase the number of neighbors for more accurate results.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menambahkan hasil prediksi ke DataFrame asli</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;is_outlier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+
+<span class="c1"># Menampilkan data yang terdeteksi sebagai outlier</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data yang terdeteksi sebagai Outlier:&quot;</span><span class="p">)</span>
+<span class="n">outliers_df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;is_outlier&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outliers_df</span><span class="p">)</span>
+
+<span class="c1"># --- VISUALISASI UNTUK DATA MULTIDIMENSI ---</span>
+<span class="c1"># Karena kita memiliki lebih dari 2 fitur, scatter plot sederhana tidak cukup.</span>
+<span class="c1"># Kita gunakan Pair Plot dari Seaborn untuk melihat sebaran data di setiap pasang fitur.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Membuat visualisasi Pair Plot untuk melihat hubungan antar fitur...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Titik merah (X) menandakan outlier yang terdeteksi.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Membuat pair plot</span>
+<span class="n">pairplot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="nb">vars</span><span class="o">=</span><span class="n">features</span><span class="p">,</span>       <span class="c1"># Hanya plot kolom fitur</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;is_outlier&#39;</span><span class="p">,</span>    <span class="c1"># Warnai berdasarkan label outlier</span>
+    <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;dodgerblue&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">},</span> <span class="c1"># Tentukan warna</span>
+    <span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span>  <span class="c1"># Beri bentuk berbeda untuk inlier dan outlier</span>
+    <span class="n">plot_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">}</span> <span class="c1"># Atur transparansi titik</span>
+<span class="p">)</span>
+<span class="n">pairplot</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Pair Plot Fitur dengan Deteksi Outlier (LOF)&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span> <span class="c1"># Tambah judul</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data yang terdeteksi sebagai Outlier:
+      Age  SystolicBP  DiastolicBP     BS  BodyTemp  HeartRate  RiskLevel  \
+0      25         130           80  15.00      98.0         86  high risk   
+5      23         140           80   7.01      98.0         70  high risk   
+6      23         130           70   7.01      98.0         78   mid risk   
+73     54         130           70  12.00      98.0         67   mid risk   
+75     23         130           70   6.90      98.0         70   mid risk   
+...   ...         ...          ...    ...       ...        ...        ...   
+961    40         160          100  19.00      98.0         77  high risk   
+992    17         110           75  13.00     101.0         76  high risk   
+994    40         160          100  19.00      98.0         77  high risk   
+1009   22         120           60  15.00      98.0         80  high risk   
+1011   35          85           60  19.00      98.0         86  high risk   
+
+      is_outlier  
+0             -1  
+5             -1  
+6             -1  
+73            -1  
+75            -1  
+...          ...  
+961           -1  
+992           -1  
+994           -1  
+1009          -1  
+1011          -1  
+
+[111 rows x 8 columns]
+
+Membuat visualisasi Pair Plot untuk melihat hubungan antar fitur...
+Titik merah (X) menandakan outlier yang terdeteksi.
+</pre></div>
+</div>
+<img alt="_images/2253e80ca150ea527ea54ee8d979e8b2becae795bf458e36c6d4272f41297486.png" src="_images/2253e80ca150ea527ea54ee8d979e8b2becae795bf458e36c6d4272f41297486.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ucimlrepo</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_ucirepo</span>
+
+<span class="c1"># --- Step 1: Ambil dataset ---</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">863</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">targets</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># --- Step 2: Pisahkan fitur dan label ---</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;SystolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;DiastolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;BS&quot;</span><span class="p">,</span> <span class="s2">&quot;BodyTemp&quot;</span><span class="p">,</span> <span class="s2">&quot;HeartRate&quot;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;RiskLevel&quot;</span><span class="p">]</span>
+
+<span class="c1"># --- Step 3: Deteksi outlier menggunakan Local Outlier Factor ---</span>
+<span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">y_outlier</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Tambahkan kolom outlier ke data asli</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;is_outlier&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_outlier</span>
+
+<span class="c1"># --- Step 4: Hapus outlier ---</span>
+<span class="n">data_clean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;is_outlier&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;is_outlier&quot;</span><span class="p">)</span>
+<span class="n">X_clean</span> <span class="o">=</span> <span class="n">data_clean</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;SystolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;DiastolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;BS&quot;</span><span class="p">,</span> <span class="s2">&quot;BodyTemp&quot;</span><span class="p">,</span> <span class="s2">&quot;HeartRate&quot;</span><span class="p">]]</span>
+<span class="n">y_clean</span> <span class="o">=</span> <span class="n">data_clean</span><span class="p">[</span><span class="s2">&quot;RiskLevel&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="preprocesing">
+<h1>Preprocesing<a class="headerlink" href="#preprocesing" title="Link to this heading">#</a></h1>
+<section id="binning">
+<h2>🔄 Binning<a class="headerlink" href="#binning" title="Link to this heading">#</a></h2>
+<p>Binning adalah proses mengelompokkan data numerik ke dalam beberapa kategori diskrit (seperti “rendah”, “sedang”, dan “tinggi”).<br />
+Langkah ini sangat penting saat kita ingin menggunakan algoritma seperti <strong>Naive Bayes kategorikal</strong>, karena algoritma tersebut bekerja dengan baik pada data kategorikal.</p>
+<p>Pada dataset ini, fitur-fitur seperti:</p>
+<ul class="simple">
+<li><p>Age (Usia)</p></li>
+<li><p>SystolicBP (Tekanan Darah Sistolik)</p></li>
+<li><p>DiastolicBP (Tekanan Darah Diastolik)</p></li>
+<li><p>BS (Gula Darah)</p></li>
+<li><p>BodyTemp (Suhu Tubuh)</p></li>
+<li><p>HeartRate (Denyut Jantung)</p></li>
+</ul>
+<p>… semuanya merupakan data numerik. Maka dari itu, dilakukan <strong>binning</strong> terhadap semua fitur tersebut menggunakan <code class="docutils literal notranslate"><span class="pre">KBinsDiscretizer</span></code> dari <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+<section id="teknik-binning-yang-digunakan">
+<h3>🔧 Teknik Binning yang Digunakan:<a class="headerlink" href="#teknik-binning-yang-digunakan" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>n_bins=3</strong>: membagi nilai menjadi 3 kategori → “rendah” (0), “sedang” (1), dan “tinggi” (2).</p></li>
+<li><p><strong>encode=’ordinal’</strong>: hasilnya dalam bentuk angka (bukan one-hot).</p></li>
+<li><p><strong>strategy=’quantile’</strong>: membagi data berdasarkan distribusi kuantil, sehingga tiap kategori memiliki jumlah data yang relatif sama.</p></li>
+</ul>
+</section>
+<section id="tujuan-binning">
+<h3>📌 Tujuan Binning:<a class="headerlink" href="#tujuan-binning" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Menyederhanakan fitur numerik menjadi fitur kategori</p></li>
+<li><p>Membantu model Naive Bayes menangani data dengan asumsi non-Gaussian</p></li>
+<li><p>Meningkatkan performa model pada data medis yang sering memiliki sebaran ekstrem (outlier)</p></li>
+</ul>
+<p>Setelah binning, kita bisa lanjut ke proses:</p>
+<ol class="arabic simple">
+<li><p>Encoding label target menjadi numerik</p></li>
+<li><p>Melatih model menggunakan <code class="docutils literal notranslate"><span class="pre">CategoricalNB</span></code></p></li>
+<li><p>Evaluasi model klasifikasi</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Import Library ---</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">KBinsDiscretizer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># --- Asumsikan X_clean dan y_clean sudah tersedia (bersih dari outlier) ---</span>
+
+<span class="c1"># Membuat objek KBinsDiscretizer</span>
+<span class="c1"># Membagi setiap fitur menjadi 3 bin (low risk=0, mid risk=1, high risk=2)</span>
+<span class="n">kbins</span> <span class="o">=</span> <span class="n">KBinsDiscretizer</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">encode</span><span class="o">=</span><span class="s1">&#39;ordinal&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;quantile&#39;</span><span class="p">)</span>
+
+<span class="c1"># Terapkan binning pada fitur numerik</span>
+<span class="n">X_binned</span> <span class="o">=</span> <span class="n">kbins</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_clean</span><span class="p">)</span>
+
+<span class="c1"># Ubah hasil binning ke dalam DataFrame</span>
+<span class="n">X_binned_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_binned</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_clean</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Tambahkan kolom label (masih dalam bentuk string/kategori)</span>
+<span class="n">X_binned_df</span><span class="p">[</span><span class="s1">&#39;RiskLevel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_clean</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># --- Tampilkan hasil binning awal ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hasil Binning (0=low risk, 1=mid risk, 2=high risk):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_binned_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil Binning (0=low risk, 1=mid risk, 2=high risk):
+   Age  SystolicBP  DiastolicBP   BS  BodyTemp  HeartRate  RiskLevel
+0  1.0         2.0          2.0  2.0       0.0        2.0  high risk
+1  2.0         2.0          2.0  2.0       0.0        1.0  high risk
+2  1.0         0.0          1.0  2.0       0.0        2.0  high risk
+3  1.0         2.0          2.0  1.0       0.0        1.0  high risk
+4  2.0         2.0          0.0  0.0       0.0        1.0   low risk
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.11/dist-packages/sklearn/preprocessing/_discretization.py:306: UserWarning: Bins whose width are too small (i.e., &lt;= 1e-8) in feature 4 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modelling">
+<h1>Modelling<a class="headerlink" href="#modelling" title="Link to this heading">#</a></h1>
+<section id="modelling-klasifikasi-gaussian-naive-bayes">
+<h2>Modelling Klasifikasi Gaussian Naive Bayes<a class="headerlink" href="#modelling-klasifikasi-gaussian-naive-bayes" title="Link to this heading">#</a></h2>
+<p>Modeling merupakan proses pembuatan dan pengujian model statistik atau matematis yang digunakan untuk menggambarkan dan menganalisis pola atau hubungan dalam data. Tujuan utama dari pemodelan dalam data mining adalah untuk mengidentifikasi pola yang berguna atau prediksi yang akurat dari data yang tersedia.</p>
+<p>Untuk pemodelan kali ini, tujuannya adalah untuk menentukan kelas pada suatu data inputan. Pada konteks resiko kematian ibu, kelas ini adalah low risk atau mid risk. Data akan dibagi menjadi dua tipe, yaitu data latih (train data) dan data uji (test data). Metode yang digunakan adalah Gaussian Naive Bayes (GNB).</p>
+<p>Langkah-langkah Kalkulasi Gaussian Naive Bayes
+Perhitungan GNB untuk menentukan kelas dari sebuah data baru dapat diuraikan melalui tahap-tahap berikut:</p>
+<ol class="arabic simple">
+<li><p>Pembagian Dataset (Train-Test Split)
+Langkah pertama adalah membagi dataset menjadi data latih dan data uji. Rasio pembagian yang sering digunakan adalah 80% data latih dan 20% data uji, atau 70% data latih dan 30% data uji. Untuk contoh ini, kita akan menggunakan rasio 80% data latih dan 20% data uji.</p></li>
+<li><p>Menghitung Probabilitas Prior
+Probabilitas Prior <span class="math notranslate nohighlight">\(P(C_k)\)</span> adalah probabilitas awal dari setiap kelas, dihitung berdasarkan proporsi data pada data latih.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+P(C_k) = \frac{\text{Jumlah data di kelas } C_k}{\text{Total jumlah data latih}}
+\]</div>
+<p>Penjelasan Rumus:</p>
+<p><span class="math notranslate nohighlight">\(C_k\)</span> adalah kelas ke-k (misalnya, low risk atau high risk).</p>
+<p><span class="math notranslate nohighlight">\(P(C_k)\)</span> adalah probabilitas prior untuk kelas <span class="math notranslate nohighlight">\(C_k\)</span>.
+3. Menghitung Mean dan Standar Deviasi
+Selanjutnya, kita menghitung nilai rata-rata (mean) dan standar deviasi untuk setiap fitur, yang dipisahkan berdasarkan kelasnya pada data latih. Nilai-nilai ini akan digunakan dalam perhitungan distribusi Gaussian.</p>
+<ol class="arabic simple" start="4">
+<li><p>Menghitung Probabilitas Likelihood dengan Distribusi Gaussian
+Karena kita menggunakan Gaussian Naive Bayes, kita mengasumsikan bahwa fitur-fitur numerik pada setiap kelas terdistribusi secara normal (Gaussian). Kita menghitung probabilitas likelihood dari sebuah nilai fitur <span class="math notranslate nohighlight">\(x_i\)</span> jika diketahui kelasnya adalah <span class="math notranslate nohighlight">\(C_k\)</span>, yaitu <span class="math notranslate nohighlight">\(P(x_i | C_k)\)</span>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+P(x_i | C_k) = \frac{1}{\sqrt{2\pi\sigma_{k,i}^2}} \exp\left(-\frac{(x_i - \mu_{k,i})^2}{2\sigma_{k,i}^2}\right)
+\]</div>
+<p>Tentu, berikut adalah penyesuaian dari penjelasan Anda menjadi format yang cocok untuk sel teks di Google Colab, lengkap dengan rumus-rumus yang relevan dalam format LaTeX.</p>
+<p>Pemodelan dengan Gaussian Naive Bayes (GNB)
+Modeling merupakan proses pembuatan dan pengujian model statistik atau matematis yang digunakan untuk menggambarkan dan menganalisis pola atau hubungan dalam data. Tujuan utama dari pemodelan dalam data mining adalah untuk mengidentifikasi pola yang berguna atau prediksi yang akurat dari data yang tersedia.</p>
+<p>Untuk pemodelan kali ini, tujuannya adalah untuk menentukan kelas pada suatu data inputan. Pada konteks kanker payudara, kelas ini adalah jinak atau ganas. Data akan dibagi menjadi dua tipe, yaitu data latih (train data) dan data uji (test data). Metode yang digunakan adalah Gaussian Naive Bayes (GNB).</p>
+<p>Langkah-langkah Kalkulasi Gaussian Naive Bayes
+Perhitungan GNB untuk menentukan kelas dari sebuah data baru dapat diuraikan melalui tahap-tahap berikut:</p>
+<ol class="arabic simple">
+<li><p>Pembagian Dataset (Train-Test Split)
+Langkah pertama adalah membagi dataset menjadi data latih dan data uji. Rasio pembagian yang sering digunakan adalah 80% data latih dan 20% data uji, atau 70% data latih dan 30% data uji. Untuk contoh ini, kita akan menggunakan rasio 80% data latih dan 20% data uji.</p></li>
+<li><p>Menghitung Probabilitas Prior
+Probabilitas Prior <span class="math notranslate nohighlight">\(P(C_k)\)</span> adalah probabilitas awal dari setiap kelas, dihitung berdasarkan proporsi data pada data latih.</p></li>
+</ol>
+<p>Rumus LaTeX:</p>
+<p>Cuplikan kode</p>
+<div class="math notranslate nohighlight">
+\[
+P(C_k) = \frac{\text{Jumlah data di kelas } C_k}{\text{Total jumlah data latih}}
+\]</div>
+<p>Penjelasan Rumus:</p>
+<p><span class="math notranslate nohighlight">\(C_k\)</span> adalah kelas ke-k (misalnya, jinak atau ganas).
+<span class="math notranslate nohighlight">\(P(C_k)\)</span> adalah probabilitas prior untuk kelas <span class="math notranslate nohighlight">\(C_k\)</span>.
+3. Menghitung Mean dan Standar Deviasi
+Selanjutnya, kita menghitung nilai rata-rata (mean) dan standar deviasi untuk setiap fitur, yang dipisahkan berdasarkan kelasnya pada data latih. Nilai-nilai ini akan digunakan dalam perhitungan distribusi Gaussian.</p>
+<ol class="arabic simple" start="4">
+<li><p>Menghitung Probabilitas Likelihood dengan Distribusi Gaussian
+Karena kita menggunakan Gaussian Naive Bayes, kita mengasumsikan bahwa fitur-fitur numerik pada setiap kelas terdistribusi secara normal (Gaussian). Kita menghitung probabilitas likelihood dari sebuah nilai fitur <span class="math notranslate nohighlight">\(x_i\)</span> jika diketahui kelasnya adalah <span class="math notranslate nohighlight">\(C_k\)</span>, yaitu <span class="math notranslate nohighlight">\(P(x_i | C_k)\)</span>.</p></li>
+</ol>
+<p>Rumus LaTeX:</p>
+<p>Cuplikan kode</p>
+<div class="math notranslate nohighlight">
+\[
+P(x_i | C_k) = \frac{1}{\sqrt{2\pi\sigma_{k,i}^2}} \exp\left(-\frac{(x_i - \mu_{k,i})^2}{2\sigma_{k,i}^2}\right)
+\]</div>
+<p>Penjelasan Rumus:</p>
+<p><span class="math notranslate nohighlight">\(x_i\)</span> adalah nilai dari fitur ke-i pada data baru yang ingin diprediksi.
+<span class="math notranslate nohighlight">\(\mu_{k,i}\)</span> (mu) adalah mean (rata-rata) dari fitur ke-i untuk kelas <span class="math notranslate nohighlight">\(C_k\)</span>.
+<span class="math notranslate nohighlight">\(\sigma_{k,i}^2\)</span> (sigma kuadrat) adalah varians dari fitur ke-i untuk kelas <span class="math notranslate nohighlight">\(C_k\)</span>. Standar deviasi adalah akar dari varians (<span class="math notranslate nohighlight">\(\sigma\)</span>).
+<span class="math notranslate nohighlight">\(\pi\)</span> (pi) adalah konstanta matematika (~3.14159).
+<span class="math notranslate nohighlight">\(\exp\)</span> adalah fungsi eksponensial.
+5. Menghitung Probabilitas Posterior
+Setelah mendapatkan probabilitas likelihood untuk setiap fitur, kita dapat menghitung probabilitas posterior untuk setiap kelas. Probabilitas ini adalah probabilitas data baru tersebut termasuk dalam kelas tertentu, setelah melihat data fiturnya. Berdasarkan asumsi “naive” bahwa setiap fitur independen, kita mengalikan semua probabilitas likelihood dengan probabilitas prior.</p>
+<div class="math notranslate nohighlight">
+\[
+P(C_k | \mathbf{X}) \propto P(C_k) \prod_{i=1}^{n} P(x_i | C_k)
+\]</div>
+<p>Penjelasan Rumus:</p>
+<p><span class="math notranslate nohighlight">\(P(C_k | \mathbf{X})\)</span> adalah probabilitas posterior dari kelas <span class="math notranslate nohighlight">\(C_k\)</span> diberikan data fitur <span class="math notranslate nohighlight">\(\mathbf{X} = (x_1, x_2, ..., x_n)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\propto\)</span> berarti “sebanding dengan” (proportional to). Kita bisa mengabaikan pembagi <span class="math notranslate nohighlight">\(P(\mathbf{X})\)</span> karena nilainya sama untuk semua kelas.</p>
+<p><span class="math notranslate nohighlight">\(P(C_k)\)</span> adalah probabilitas prior dari kelas <span class="math notranslate nohighlight">\(C_k\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\prod_{i=1}^{n}\)</span> adalah simbol produk, yang berarti mengalikan hasil <span class="math notranslate nohighlight">\(P(x_i | C_k)\)</span> untuk semua fitur dari i=1 sampai n.</p>
+<ol class="arabic simple" start="6">
+<li><p>Menentukan Kelas dengan Maximum A Posteriori (MAP)
+Langkah terakhir adalah memilih kelas yang memiliki nilai probabilitas posterior tertinggi. Kelas inilah yang akan menjadi hasil prediksi untuk data baru tersebut.</p></li>
+</ol>
+<p>Rumus LaTeX:</p>
+<p>Cuplikan kode</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{y} = \underset{k}{\operatorname{argmax}} \, P(C_k) \prod_{i=1}^{n} P(x_i | C_k)
+\]</div>
+<p>Penjelasan Rumus:</p>
+<p><span class="math notranslate nohighlight">\(\hat{y}\)</span> adalah kelas yang diprediksi.
+<span class="math notranslate nohighlight">\(\underset{k}{\operatorname{argmax}}\)</span> berarti “temukan nilai k (kelas) yang memaksimalkan ekspresi setelahnya”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">CategoricalNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">classification_report</span>
+
+<span class="c1"># --- Asumsi: X_binned_df adalah hasil binning, dan kolom &#39;RiskLevel&#39; adalah target ---</span>
+
+<span class="c1"># Step 1: Pisahkan fitur dan label</span>
+<span class="n">X_ready</span> <span class="o">=</span> <span class="n">X_binned_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;RiskLevel&quot;</span><span class="p">)</span>
+<span class="n">y_ready</span> <span class="o">=</span> <span class="n">X_binned_df</span><span class="p">[</span><span class="s2">&quot;RiskLevel&quot;</span><span class="p">]</span>
+
+<span class="c1"># Step 2: Encode label (RiskLevel) menjadi angka</span>
+<span class="n">label_enc</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y_encoded</span> <span class="o">=</span> <span class="n">label_enc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y_ready</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Split data</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_ready</span><span class="p">,</span> <span class="n">y_encoded</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Train model Naive Bayes</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">CategoricalNB</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Prediksi dan evaluasi</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 6: Evaluasi performa</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 7: Tampilkan hasil</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Presisi (macro avg): </span><span class="si">{</span><span class="n">precision</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recall (macro avg): </span><span class="si">{</span><span class="n">recall</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F1-Score (macro avg): </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Classification Report ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">label_enc</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.57
+Presisi (macro avg): 0.59
+Recall (macro avg): 0.59
+F1-Score (macro avg): 0.57
+
+=== Classification Report ===
+              precision    recall  f1-score   support
+
+   high risk       0.55      0.72      0.62        46
+    low risk       0.54      0.68      0.60        73
+    mid risk       0.67      0.38      0.48        77
+
+    accuracy                           0.57       196
+   macro avg       0.59      0.59      0.57       196
+weighted avg       0.59      0.57      0.56       196
+</pre></div>
+</div>
+</div>
+</div>
+<section id="menggembalikan-setiap-fiturnya-tanpa-menggunakan-binning">
+<h3>Menggembalikan setiap fiturnya tanpa menggunakan binning<a class="headerlink" href="#menggembalikan-setiap-fiturnya-tanpa-menggunakan-binning" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrdinalEncoder</span><span class="p">,</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">CategoricalNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ucimlrepo</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_ucirepo</span>
+
+<span class="c1"># --- Ambil dan siapkan data ---</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">863</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">targets</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># --- Deteksi &amp; hapus outlier ---</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;SystolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;DiastolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;BS&quot;</span><span class="p">,</span> <span class="s2">&quot;BodyTemp&quot;</span><span class="p">,</span> <span class="s2">&quot;HeartRate&quot;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;RiskLevel&quot;</span><span class="p">]</span>
+
+<span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">outlier_flag</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;is_outlier&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">outlier_flag</span>
+
+<span class="c1"># Bersihkan data</span>
+<span class="n">data_clean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;is_outlier&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;is_outlier&quot;</span><span class="p">)</span>
+<span class="n">X_clean</span> <span class="o">=</span> <span class="n">data_clean</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;SystolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;DiastolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;BS&quot;</span><span class="p">,</span> <span class="s2">&quot;BodyTemp&quot;</span><span class="p">,</span> <span class="s2">&quot;HeartRate&quot;</span><span class="p">]]</span>
+<span class="n">y_clean</span> <span class="o">=</span> <span class="n">data_clean</span><span class="p">[</span><span class="s2">&quot;RiskLevel&quot;</span><span class="p">]</span>
+
+<span class="c1"># --- Ganti label kelas ke numerik ---</span>
+<span class="n">label_enc</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y_encoded</span> <span class="o">=</span> <span class="n">label_enc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y_clean</span><span class="p">)</span>  <span class="c1"># Hasil: array numerik</span>
+
+<span class="c1"># Tampilkan mapping label</span>
+<span class="n">label_mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">label_enc</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">label_enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">label_enc</span><span class="o">.</span><span class="n">classes_</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mapping Kelas RiskLevel ke Numerik:&quot;</span><span class="p">,</span> <span class="n">label_mapping</span><span class="p">)</span>
+
+<span class="c1"># --- Encode fitur kategorikal (ordinal) ---</span>
+<span class="n">ord_enc</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
+<span class="n">X_encoded</span> <span class="o">=</span> <span class="n">ord_enc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_clean</span><span class="p">)</span>
+
+<span class="c1"># --- Split data ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_encoded</span><span class="p">,</span> <span class="n">y_encoded</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># --- Latih model dengan CategoricalNB ---</span>
+<span class="n">cnb</span> <span class="o">=</span> <span class="n">CategoricalNB</span><span class="p">()</span>
+<span class="n">cnb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">cnb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mapping Kelas RiskLevel ke Numerik: {&#39;high risk&#39;: np.int64(0), &#39;low risk&#39;: np.int64(1), &#39;mid risk&#39;: np.int64(2)}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Evaluasi ---</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Akurasi: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Presisi (macro avg): </span><span class="si">{</span><span class="n">precision</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recall (macro avg): </span><span class="si">{</span><span class="n">recall</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F1-Score (macro avg): </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Classification Report ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">label_enc</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.72
+Presisi (macro avg): 0.74
+Recall (macro avg): 0.73
+F1-Score (macro avg): 0.73
+
+=== Classification Report ===
+              precision    recall  f1-score   support
+
+   high risk       0.83      0.76      0.80        46
+    low risk       0.67      0.77      0.72        73
+    mid risk       0.72      0.66      0.69        77
+
+    accuracy                           0.72       196
+   macro avg       0.74      0.73      0.73       196
+weighted avg       0.73      0.72      0.72       196
+</pre></div>
+</div>
+</div>
+</div>
+<p>uji coba model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pilih satu baris dari data yang sudah dibersihkan</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># ganti dengan indeks lain jika perlu</span>
+
+<span class="c1"># Ambil fitur dan label aslinya</span>
+<span class="n">real_input</span> <span class="o">=</span> <span class="n">X_clean</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="n">true_label</span> <span class="o">=</span> <span class="n">y_clean</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+<span class="c1"># Tampilkan data asli</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Data Asli dari Dataset ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">real_input</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Label Asli (RiskLevel):&quot;</span><span class="p">,</span> <span class="n">true_label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Data Asli dari Dataset ===
+Age             25.0
+SystolicBP     140.0
+DiastolicBP    100.0
+BS               6.8
+BodyTemp        98.0
+HeartRate       80.0
+Name: 103, dtype: float64
+Label Asli (RiskLevel): high risk
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># === Uji Coba Prediksi Manual ===</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Input baru (manual): pastikan urutannya sesuai</span>
+<span class="n">input_manual</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">6.8</span><span class="p">,</span> <span class="mf">98.0</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>  <span class="c1"># Contoh: umur 25, SBP 120, DBP 80, BS 6.5, suhu 98.0, HR 75</span>
+
+<span class="c1"># Buat DataFrame agar bisa di-encode dengan OrdinalEncoder</span>
+<span class="n">input_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">input_manual</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;SystolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;DiastolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;BS&quot;</span><span class="p">,</span> <span class="s2">&quot;BodyTemp&quot;</span><span class="p">,</span> <span class="s2">&quot;HeartRate&quot;</span><span class="p">])</span>
+
+<span class="c1"># Encode menggunakan encoder yang sudah dilatih sebelumnya</span>
+<span class="n">input_encoded</span> <span class="o">=</span> <span class="n">ord_enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">input_df</span><span class="p">)</span>
+
+<span class="c1"># Prediksi kelas dengan model</span>
+<span class="n">predicted_class</span> <span class="o">=</span> <span class="n">cnb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_encoded</span><span class="p">)</span>
+
+<span class="c1"># Konversi ke label asli</span>
+<span class="n">predicted_label</span> <span class="o">=</span> <span class="n">label_enc</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">predicted_class</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan hasil</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Hasil Prediksi Inputan Manual ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input:&quot;</span><span class="p">,</span> <span class="n">input_manual</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Class Index (Encoded):&quot;</span><span class="p">,</span> <span class="n">predicted_class</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicted Risk Level:&quot;</span><span class="p">,</span> <span class="n">predicted_label</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Hasil Prediksi Inputan Manual ===
+Input: [25, 140, 100, 6.8, 98.0, 80]
+Class Index (Encoded): 0
+Predicted Risk Level: high risk
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="modeling-dengan-menggunakan-decision-tree">
+<h2>Modeling dengan menggunakan decision tree<a class="headerlink" href="#modeling-dengan-menggunakan-decision-tree" title="Link to this heading">#</a></h2>
+<p>Dalam bagian ini, kita akan melakukan modeling menggunakan algoritma <strong>Decision Tree Classifier</strong> pada dataset risiko kesehatan ibu yang telah dibersihkan dari outlier dan labelnya dikonversi menjadi numerik.</p>
+<section id="apa-itu-decision-tree">
+<h3>📌 Apa itu Decision Tree?<a class="headerlink" href="#apa-itu-decision-tree" title="Link to this heading">#</a></h3>
+<p>Decision Tree adalah model prediksi berbentuk struktur pohon, di mana setiap <strong>node internal</strong> merepresentasikan sebuah kondisi (pengujian pada fitur), setiap <strong>cabang</strong> menunjukkan hasil pengujian, dan setiap <strong>daun</strong> mewakili label kelas akhir.</p>
+</section>
+<hr class="docutils" />
+<section id="pemilihan-fitur">
+<h3>📐 Pemilihan Fitur<a class="headerlink" href="#pemilihan-fitur" title="Link to this heading">#</a></h3>
+<p>Model ini menggunakan 6 fitur numerik:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Age</span></code> (Usia)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SystolicBP</span></code> (Tekanan darah sistolik)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DiastolicBP</span></code> (Tekanan darah diastolik)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BS</span></code> (Gula darah)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BodyTemp</span></code> (Suhu tubuh)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HeartRate</span></code> (Denyut jantung)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="algoritma-dan-rumus">
+<h3>⚙️ Algoritma dan Rumus<a class="headerlink" href="#algoritma-dan-rumus" title="Link to this heading">#</a></h3>
+<p>Untuk menentukan pemisahan terbaik di setiap node, digunakan metrik <strong>entropy</strong> dan <strong>information gain</strong>.</p>
+<section id="entropy">
+<h4>🔹 Entropy<a class="headerlink" href="#entropy" title="Link to this heading">#</a></h4>
+<p>Entropy digunakan untuk mengukur ketidakteraturan (impurity) dari suatu himpunan data. Didefinisikan sebagai:</p>
+<div class="math notranslate nohighlight">
+\[
+Entropy(S) = - \sum_{i=1}^{c} p_i \log_2(p_i)
+\]</div>
+<p>di mana:</p>
+<ul class="simple">
+<li><p>( p_i ) adalah proporsi data untuk kelas ke-i</p></li>
+<li><p>( c ) adalah jumlah total kelas</p></li>
+</ul>
+</section>
+<section id="information-gain">
+<h4>🔹 Information Gain<a class="headerlink" href="#information-gain" title="Link to this heading">#</a></h4>
+<p>Information gain digunakan untuk memilih fitur terbaik yang akan digunakan pada node. Rumusnya:</p>
+<div class="math notranslate nohighlight">
+\[
+IG(S, A) = Entropy(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} Entropy(S_v)
+\]</div>
+<p>di mana:</p>
+<ul class="simple">
+<li><p>( S ) adalah dataset induk</p></li>
+<li><p>( A ) adalah atribut/faktor yang sedang diuji</p></li>
+<li><p>( S_v ) adalah subset data dengan nilai atribut ( A = v )</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="evaluasi-model">
+<h3>🧪 Evaluasi Model<a class="headerlink" href="#evaluasi-model" title="Link to this heading">#</a></h3>
+<p>Model akan dievaluasi menggunakan metrik berikut:</p>
+<ul class="simple">
+<li><p><strong>Accuracy</strong>: Proporsi prediksi yang benar terhadap total data.
+$<span class="math notranslate nohighlight">\(
+Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+\)</span>$</p></li>
+<li><p><strong>Precision (macro average)</strong>: Rata-rata presisi dari setiap kelas.</p></li>
+<li><p><strong>Recall (macro average)</strong>: Rata-rata sensitivitas dari setiap kelas.</p></li>
+<li><p><strong>F1-Score (macro average)</strong>: Harmonik dari precision dan recall.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">classification_report</span>
+
+<span class="c1"># === Gunakan data bersih: X_clean dan y_clean ===</span>
+
+<span class="c1"># Step 1: Encode label target (RiskLevel → numerik)</span>
+<span class="n">label_enc</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y_encoded</span> <span class="o">=</span> <span class="n">label_enc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y_clean</span><span class="p">)</span>
+
+<span class="c1"># Step 2: Split data (80% train, 20% test)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_clean</span><span class="p">,</span> <span class="n">y_encoded</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Inisialisasi dan latih model Decision Tree</span>
+<span class="n">dt_model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;entropy&quot;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">dt_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Prediksi</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">dt_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Evaluasi performa model</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+
+<span class="c1"># Step 6: Tampilkan hasil</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Presisi (macro avg): </span><span class="si">{</span><span class="n">precision</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recall (macro avg): </span><span class="si">{</span><span class="n">recall</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F1-Score (macro avg): </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Classification Report ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">label_enc</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.65
+Presisi (macro avg): 0.74
+Recall (macro avg): 0.67
+F1-Score (macro avg): 0.65
+
+=== Classification Report ===
+              precision    recall  f1-score   support
+
+   high risk       0.87      0.74      0.80        46
+    low risk       0.55      0.95      0.70        73
+    mid risk       0.78      0.32      0.46        77
+
+    accuracy                           0.65       196
+   macro avg       0.74      0.67      0.65       196
+weighted avg       0.72      0.65      0.63       196
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>Menggembalikan setiap fiturnya tanpa menggunakan binning<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ucimlrepo</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_ucirepo</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Ambil dataset ---</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">863</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">targets</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># --- Pisahkan fitur dan target ---</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;SystolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;DiastolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;BS&quot;</span><span class="p">,</span> <span class="s2">&quot;BodyTemp&quot;</span><span class="p">,</span> <span class="s2">&quot;HeartRate&quot;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;RiskLevel&quot;</span><span class="p">]</span>
+
+<span class="c1"># --- Split data ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># --- Buat dan latih model Decision Tree ---</span>
+<span class="n">dt_model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">dt_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># --- Prediksi ---</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">dt_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+
+
+<span class="c1"># --- Confusion Matrix ---</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;low risk&quot;</span><span class="p">,</span> <span class="s2">&quot;mid risk&quot;</span><span class="p">,</span> <span class="s2">&quot;high risk&quot;</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;low risk&quot;</span><span class="p">,</span> <span class="s2">&quot;mid risk&quot;</span><span class="p">,</span> <span class="s2">&quot;high risk&quot;</span><span class="p">],</span>
+            <span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;low risk&quot;</span><span class="p">,</span> <span class="s2">&quot;mid risk&quot;</span><span class="p">,</span> <span class="s2">&quot;high risk&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Predicted&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Actual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Decision Tree&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5d3dc922ec00d4b1bff588d840268f63d9081af7c87fec60f26ca620840626e1.png" src="_images/5d3dc922ec00d4b1bff588d840268f63d9081af7c87fec60f26ca620840626e1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Evaluasi ---</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+<span class="n">fscore</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Presisi (macro avg): </span><span class="si">{</span><span class="n">precision</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recall (macro avg): </span><span class="si">{</span><span class="n">recall</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F1-Score (macro avg): </span><span class="si">{</span><span class="n">fscore</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Classification Report ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.82
+Presisi (macro avg): 0.82
+Recall (macro avg): 0.82
+F1-Score (macro avg): 0.82
+
+=== Classification Report ===
+              precision    recall  f1-score   support
+
+   high risk       0.83      0.85      0.84        47
+    low risk       0.86      0.78      0.82        80
+    mid risk       0.77      0.84      0.81        76
+
+    accuracy                           0.82       203
+   macro avg       0.82      0.82      0.82       203
+weighted avg       0.82      0.82      0.82       203
+</pre></div>
+</div>
+</div>
+</div>
+<p>uji coba dengan inputan menggunakan decision tree</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Uji Coba Prediksi dengan Inputan Manual ---</span>
+
+<span class="c1"># Input data baru: [Age, SystolicBP, DiastolicBP, BS, BodyTemp, HeartRate]</span>
+<span class="n">input_data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">27</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">6.8</span><span class="p">,</span> <span class="mf">98.5</span><span class="p">,</span> <span class="mi">76</span><span class="p">]]</span>  <span class="c1"># Contoh: wanita 27 tahun dengan kondisi vital tertentu</span>
+
+<span class="c1"># Konversi ke DataFrame agar sesuai dengan format pelatihan</span>
+<span class="n">input_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;SystolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;DiastolicBP&quot;</span><span class="p">,</span> <span class="s2">&quot;BS&quot;</span><span class="p">,</span> <span class="s2">&quot;BodyTemp&quot;</span><span class="p">,</span> <span class="s2">&quot;HeartRate&quot;</span><span class="p">])</span>
+
+<span class="c1"># Prediksi menggunakan model Decision Tree</span>
+<span class="n">predicted_class</span> <span class="o">=</span> <span class="n">dt_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_df</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan hasil</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Hasil Prediksi Data Baru ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input Data:&quot;</span><span class="p">,</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicted Risk Level:&quot;</span><span class="p">,</span> <span class="n">predicted_class</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Hasil Prediksi Data Baru ===
+Input Data: [27, 120, 80, 6.8, 98.5, 76]
+Predicted Risk Level: low risk
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Dari Modeling di atas dengan menggunakan naive bayes dan decision tree saya mencoba menggunakan binning untuk setiap fiturnya dan tidak menggunakannya pada dua metode tersebut hasilnya menunjukkan modeling menggunakan decision tree dengan fitur asli dari data tanpa binning menghasilkan akurasi lebih tinggi diantara model model lainnya</p>
+<p>Binning tidak disarankan untuk data ini, karena seluruh fitur pada dataset ini sudah bersifat numerik kontinu dan informatif secara langsung. Diskretisasi justru menghilangkan informasi penting.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Binning</p></th>
+<th class="head"><p>Akurasi</p></th>
+<th class="head"><p>Presisi (Macro Avg)</p></th>
+<th class="head"><p>Recall (Macro Avg)</p></th>
+<th class="head"><p>F1-Score (Macro Avg)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Naive Bayes</p></td>
+<td><p>✔️</p></td>
+<td><p>0.57</p></td>
+<td><p>0.59</p></td>
+<td><p>0.59</p></td>
+<td><p>0.57</p></td>
+</tr>
+<tr class="row-odd"><td><p>Naive Bayes</p></td>
+<td><p>❌</p></td>
+<td><p>0.72</p></td>
+<td><p>0.74</p></td>
+<td><p>0.73</p></td>
+<td><p>0.73</p></td>
+</tr>
+<tr class="row-even"><td><p>Decision Tree</p></td>
+<td><p>✔️</p></td>
+<td><p>0.65</p></td>
+<td><p>0.74</p></td>
+<td><p>0.67</p></td>
+<td><p>0.65</p></td>
+</tr>
+<tr class="row-odd"><td><p>Decision Tree</p></td>
+<td><p>❌</p></td>
+<td><p>0.82</p></td>
+<td><p>0.82</p></td>
+<td><p>0.82</p></td>
+<td><p>0.82</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="DiscretisasiBinning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Binning(Discretisasasi) Menggunakan K-Mean kLastering</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Klasifikasi Resiko Kematian Ibu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">Data Understanding</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">Sumber Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intergrasi-data">Intergrasi data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">Eksplorasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data">Visualisasi Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset">Struktur dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-kualitas-dataset">Identifikasi Kualitas dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-mising-value">Deteksi Mising Value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendeteksian-outlier">Pendeteksian Outlier</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-local-outlier-factor">Konsep Local Outlier Factor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-local-outlier-factor-dengan-scikit-learn">Implementasi local outlier factor dengan scikit learn</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocesing">Preprocesing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binning">🔄 Binning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#teknik-binning-yang-digunakan">🔧 Teknik Binning yang Digunakan:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-binning">📌 Tujuan Binning:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-klasifikasi-gaussian-naive-bayes">Modelling Klasifikasi Gaussian Naive Bayes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menggembalikan-setiap-fiturnya-tanpa-menggunakan-binning">Menggembalikan setiap fiturnya tanpa menggunakan binning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-dengan-menggunakan-decision-tree">Modeling dengan menggunakan decision tree</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-decision-tree">📌 Apa itu Decision Tree?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pemilihan-fitur">📐 Pemilihan Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritma-dan-rumus">⚙️ Algoritma dan Rumus</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy">🔹 Entropy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#information-gain">🔹 Information Gain</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model">🧪 Evaluasi Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Menggembalikan setiap fiturnya tanpa menggunakan binning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

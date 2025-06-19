@@ -188,6 +188,12 @@
 <li class="toctree-l1"><a class="reference internal" href="K-Mean.html">Klastering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DecisionTree.html">Decision Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DiscretisasiBinning.html">Binning(Discretisasasi) Menggunakan K-Mean kLastering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="klasifikasiResikoKematianIbu.html">Klasifikasi Resiko Kematian Ibu</a></li>
+
+
+
+
+
 </ul>
 
     </div>
@@ -510,21 +516,7 @@ Contoh: Postingan media sosial, email, rekaman suara</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting psycopg2-binary
-  Downloading psycopg2_binary-2.9.10-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
-Downloading psycopg2_binary-2.9.10-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.1/3.0 MB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.6/3.0 MB</span> <span class=" -Color -Color-Red">9.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">30.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">25.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: psycopg2-binary
-Successfully installed psycopg2-binary-2.9.10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: psycopg2-binary in /usr/local/lib/python3.11/dist-packages (2.9.10)
 </pre></div>
 </div>
 </div>
@@ -538,10 +530,10 @@ Successfully installed psycopg2-binary-2.9.10
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in /usr/local/lib/python3.11/dist-packages (2.2.2)
 Requirement already satisfied: tabulate in /usr/local/lib/python3.11/dist-packages (0.9.0)
-Requirement already satisfied: numpy&gt;=1.23.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (1.26.4)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.1)
-Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.1)
+Requirement already satisfied: numpy&gt;=1.23.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (2.0.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.2)
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
 </pre></div>
 </div>
@@ -608,17 +600,19 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------+----------------+----------------+---------------+
-| id   | Class          | sepal length   | sepal width   |
-|------+----------------+----------------+---------------|
-| 1    | Iris-setosa    | 20.1           | 30.5          |
-| 2    | Iris-setosa    | 4.9            | 3.0           |
-| 3    | Iris-setosa    | 4.7            | 3.2           |
-| ...  | ...            | ...            | ...           |
-| 148  | Iris-virginica | 6.5            | 3.0           |
-| 149  | Iris-virginica | 6.2            | 3.4           |
-| 150  | Iris-virginica | 5.9            | 3.0           |
-+------+----------------+----------------+---------------+
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: could not translate host name &quot;posgesqlpendata23-175-posgresqlpendata23-175.h.aivencloud.com&quot; to address: Name or service not known
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/tmp/ipython-input-4-3823508584.py</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="c1"># Menutup koneksi</span>
+<span class="ne">---&gt; </span><span class="mi">47</span>     <span class="k">if</span> <span class="n">cur</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span>         <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="k">if</span> <span class="n">conn</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;cur&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -685,7 +679,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------+----------------+----------------+---------------+
 | id   | class          | petal length   | petal width   |
 |------+----------------+----------------+---------------|
-| 1    | Iris-setosa    | 80.4           | 70.0          |
+| 1    | Iris-setosa    | 86.4           | 70.0          |
 | 2    | Iris-setosa    | 1.4            | 0.2           |
 | 3    | Iris-setosa    | 1.3            | 0.2           |
 | ...  | ...            | ...            | ...           |
@@ -800,7 +794,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------+----------------+----------------+---------------+----------------+---------------+
 | id   | class          | sepal length   | sepal width   | petal length   | petal width   |
 |------+----------------+----------------+---------------+----------------+---------------|
-| 1    | Iris-setosa    | 20.1           | 30.5          | 80.4           | 70.0          |
+| 1    | Iris-setosa    | 5.1            | 3.5           | 1.4            | 0.2           |
 | 2    | Iris-setosa    | 4.9            | 3.0           | 1.4            | 0.2           |
 | 3    | Iris-setosa    | 4.7            | 3.2           | 1.3            | 0.2           |
 | ...  | ...            | ...            | ...           | ...            | ...           |
@@ -891,7 +885,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e387010433331523952127609fe3566eb213f41af65d11ae808835b12983ec8.png" src="_images/6e387010433331523952127609fe3566eb213f41af65d11ae808835b12983ec8.png" />
+<img alt="_images/a824935da656e55d75165a295f06661e1cc324cbaf49d4fcd1fe0325f2b7bea0.png" src="_images/a824935da656e55d75165a295f06661e1cc324cbaf49d4fcd1fe0325f2b7bea0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -957,7 +951,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2738dc3504098d4b34e39512ec905c58dc27addaaae88857ae8b9f8ce1d52735.png" src="_images/2738dc3504098d4b34e39512ec905c58dc27addaaae88857ae8b9f8ce1d52735.png" />
+<img alt="_images/92d8e20fc61ab80083fdc6b07ce82197955035d68a7ed5e36afc226852fe185b.png" src="_images/92d8e20fc61ab80083fdc6b07ce82197955035d68a7ed5e36afc226852fe185b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1023,7 +1017,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0ea45986d48ab49c6cde0dc5cf0f9042b514a8b89611be869c7004dfbc1b9f60.png" src="_images/0ea45986d48ab49c6cde0dc5cf0f9042b514a8b89611be869c7004dfbc1b9f60.png" />
+<img alt="_images/27cc715fc6ccf2fb5317ccb3de5e6ec2a9a5ea8526aec00b88b2d66dd5780389.png" src="_images/27cc715fc6ccf2fb5317ccb3de5e6ec2a9a5ea8526aec00b88b2d66dd5780389.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1089,7 +1083,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/782a9ba49cb38c8d88d331da8ee5d2783c7184032078c072fcb527b034ce48fb.png" src="_images/782a9ba49cb38c8d88d331da8ee5d2783c7184032078c072fcb527b034ce48fb.png" />
+<img alt="_images/a1c82d441fe13924bbc9fbd77a09deda2a47af15471f01d87b2dcc8a987418cd.png" src="_images/a1c82d441fe13924bbc9fbd77a09deda2a47af15471f01d87b2dcc8a987418cd.png" />
 </div>
 </div>
 </section>
@@ -1137,7 +1131,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3a197dfb726295b9527ddd6b9fe7ebeab72ebe1c335d096d66555f829b744c0d.png" src="_images/3a197dfb726295b9527ddd6b9fe7ebeab72ebe1c335d096d66555f829b744c0d.png" />
+<img alt="_images/7cc107042c06f2ac13dd20bcda8cd22e92da0a82dd7cfe5ffc0ed3739103d67a.png" src="_images/7cc107042c06f2ac13dd20bcda8cd22e92da0a82dd7cfe5ffc0ed3739103d67a.png" />
 </div>
 </div>
 </section>

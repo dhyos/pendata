@@ -46,7 +46,7 @@ print(f"\n=== Akurasi Klasifikasi pada Seluruh Data(dengan kolom Kategorical): {
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-17-4210538197>[0m in [0;36m<cell line: 0>[0;34m()[0m
+[0;32m/tmp/ipython-input-17-4210538197.py[0m in [0;36m<cell line: 0>[0;34m()[0m
 [1;32m      4[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mpreprocessing[0m [0;32mimport[0m [0mLabelEncoder[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      5[0m [0mlabel_encoder[0m [0;34m=[0m [0mLabelEncoder[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 6[0;31m [0my_encoded_true[0m [0;34m=[0m [0mlabel_encoder[0m[0;34m.[0m[0mfit_transform[0m[0;34m([0m[0mdf_result[0m[0;34m[[0m[0;34m'Class'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

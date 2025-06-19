@@ -188,6 +188,12 @@
 <li class="toctree-l1"><a class="reference internal" href="K-Mean.html">Klastering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DecisionTree.html">Decision Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DiscretisasiBinning.html">Binning(Discretisasasi) Menggunakan K-Mean kLastering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="klasifikasiResikoKematianIbu.html">Klasifikasi Resiko Kematian Ibu</a></li>
+
+
+
+
+
 </ul>
 
     </div>
@@ -429,7 +435,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ucimlrepo in /usr/local/lib/python3.11/dist-packages (0.0.7)
 Requirement already satisfied: pandas&gt;=1.0.0 in /usr/local/lib/python3.11/dist-packages (from ucimlrepo) (2.2.2)
-Requirement already satisfied: certifi&gt;=2020.12.5 in /usr/local/lib/python3.11/dist-packages (from ucimlrepo) (2025.4.26)
+Requirement already satisfied: certifi&gt;=2020.12.5 in /usr/local/lib/python3.11/dist-packages (from ucimlrepo) (2025.6.15)
 Requirement already satisfied: numpy&gt;=1.23.2 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2.0.2)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2.9.0.post0)
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2025.2)
@@ -442,8 +448,8 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-pac
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-learn in /usr/local/lib/python3.11/dist-packages (1.6.1)
 Requirement already satisfied: numpy&gt;=1.19.5 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (2.0.2)
-Requirement already satisfied: scipy&gt;=1.6.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (1.15.2)
-Requirement already satisfied: joblib&gt;=1.2.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (1.4.2)
+Requirement already satisfied: scipy&gt;=1.6.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (1.15.3)
+Requirement already satisfied: joblib&gt;=1.2.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (1.5.1)
 Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (3.6.0)
 </pre></div>
 </div>
@@ -451,11 +457,11 @@ Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /usr/local/lib/python3
 Requirement already satisfied: ucimlrepo in /usr/local/lib/python3.11/dist-packages (0.0.7)
 Requirement already satisfied: tabulate in /usr/local/lib/python3.11/dist-packages (0.9.0)
 Requirement already satisfied: numpy&gt;=1.19.5 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (2.0.2)
-Requirement already satisfied: scipy&gt;=1.6.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (1.15.2)
-Requirement already satisfied: joblib&gt;=1.2.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (1.4.2)
+Requirement already satisfied: scipy&gt;=1.6.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (1.15.3)
+Requirement already satisfied: joblib&gt;=1.2.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (1.5.1)
 Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (3.6.0)
 Requirement already satisfied: pandas&gt;=1.0.0 in /usr/local/lib/python3.11/dist-packages (from ucimlrepo) (2.2.2)
-Requirement already satisfied: certifi&gt;=2020.12.5 in /usr/local/lib/python3.11/dist-packages (from ucimlrepo) (2025.4.26)
+Requirement already satisfied: certifi&gt;=2020.12.5 in /usr/local/lib/python3.11/dist-packages (from ucimlrepo) (2025.6.15)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2.9.0.post0)
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2025.2)
 Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2025.2)

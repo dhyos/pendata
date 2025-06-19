@@ -1,0 +1,95 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import psycopg2
+import pandas as pd
+from tabulate import tabulate
+
+# Koneksi ke database PostgreSQL
+PG_HOST = "posgesqlpendata23-175-posgresqlpendata23-175.h.aivencloud.com"
+PG_PORT = "17047"
+PG_NAME = "defaultdb"
+PG_USER = "avnadmin"
+PG_PASS = "AVNS_XfGwRG6_6e5BdqZXovg"
+
+try:
+    # Membuat koneksi
+    conn = psycopg2.connect(
+        host=PG_HOST,
+        port=PG_PORT,
+        dbname=PG_NAME,
+        user=PG_USER,
+        password=PG_PASS,
+        sslmode="require"
+    )
+    cur = conn.cursor()
+
+    # Menjalankan query (mengurutkan berdasarkan ID secara ascending)
+    cur.execute("SELECT * FROM irisposgre.posgre ORDER BY id ASC;")
+    rows = cur.fetchall()
+
+    # Mengambil nama kolom
+    col_names = [desc[0] for desc in cur.description]
+
+    # Mengubah hasil query menjadi DataFrame
+    df = pd.DataFrame(rows, columns=col_names)
+
+    # Menampilkan hanya 3 data awal dan 3 data akhir dengan "..." di tengah
+    if len(df) > 6:
+        df_display = pd.concat([df.head(3), pd.DataFrame([["..."] * len(col_names)], columns=col_names), df.tail(3)])
+    else:
+        df_display = df  # Jika data kurang dari 6, tampilkan semuanya
+
+    print(tabulate(df_display, headers="keys", tablefmt="psql", showindex=False))
+
+except Exception as e:
+    print("Error:", e)
+
+finally:
+    # Menutup koneksi
+    if cur:
+        cur.close()
+    if conn:
+        conn.close()
+
+------------------
+
+----- stdout -----
+Error: could not translate host name "posgesqlpendata23-175-posgresqlpendata23-175.h.aivencloud.com" to address: Name or service not known
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m/tmp/ipython-input-4-3823508584.py[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m     45[0m [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     46[0m     [0;31m# Menutup koneksi[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 47[0;31m     [0;32mif[0m [0mcur[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     48[0m         [0mcur[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     49[0m     [0;32mif[0m [0mconn[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'cur' is not defined
+
